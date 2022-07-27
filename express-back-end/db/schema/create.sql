@@ -22,9 +22,9 @@ CREATE TABLE photos (
   id SERIAL PRIMARY KEY NOT NULL,
   photo_text TEXT,
   date TIMESTAMP,
-  latitude INTEGER NOT NULL,
-  longitude INTEGER NOT NULL,
-  photo_url 
+  lat DECIMAL (11,8) NOT NULL,
+  long DECIMAL(11,8) NOT NULL,
+  photo_url VARCHAR(255) NOT NULL,
   trip_id INTEGER REFERENCES trips(id) ON DELETE CASCADE
 );
 
