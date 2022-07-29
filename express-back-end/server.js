@@ -6,14 +6,19 @@ const PORT = 8080;
 const cors = require('cors');
 const pool = require('./database');
 
+// morgan is a logger
+const morgan = require('morgan');
+App.use(morgan('dev'));
+
 App.use(cors());
 App.use(Express.json()); //req.body
 
 
 // Express Configuration
-App.use(BodyParser.urlencoded({ extended: false }));
+App.use(BodyParser.urlencoded({ extended: true }));
 App.use(BodyParser.json());
 App.use(Express.static('public'));
+
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
@@ -27,7 +32,20 @@ App.listen(PORT, () => {
 
 // Homepage
 App.get("/", (req, res) => {
-  res.send("Homepage");
+  res.send(`
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <p>You are on the <br />HOMEPAGE </p>
+  </body>
+  </html>
+  `);
 });
 
 
@@ -35,29 +53,57 @@ App.get("/", (req, res) => {
 // Landing page for logged-in users
 // Show all of a user's trips
 App.get("/api/users/:id", (req, res) => {
-  // res.send("Landing page for logged-in users, Show all of a user's trips");
-  pool.query(`
-    SELECT trip_name
-    FROM trips
-  `)
-    .then(res => {
-      console.log(res.rows);
-      return res.rows;
-    })
-    .catch(err => console.error('query error', err.stack));
-
+  try {
+    pool.connect(async (error, client, release) => {
+      let resp = await client.query(`
+        SELECT trip_name
+        FROM trips
+      `);
+      res.send(resp.rows);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // ----- TRIPS ----- //
 
 // form to create a new trip
 App.get("/api/trips/new", (req, res) => {
-  res.send("form to create a new trip");
+  res.send(`
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Form to create a new trip</p>
+    <form action="/api/trips/new" method="POST">
+      <label for="tripName">Trip Name:</label>
+      <input type="text" name="tripName" id="tripName">
+      <input type="submit" value="SUBMIT">
+    </form>
+  </body>
+  </html>
+  `);
 });
 
 // create a new trip in the db
 App.post("/api/trips/new", (req, res) => {
-  res.send("create a new trip in the db");
+  try {
+    pool.connect(async (error, client, release) => {
+      let resp = await client.query(`
+        INSERT INTO trips (trip_name)
+        VALUES('${req.body.tripName}');
+      `);
+      res.redirect('/api/users/:id');
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // trip homepage showing map and all photos from a trip 
