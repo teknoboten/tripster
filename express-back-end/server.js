@@ -3,10 +3,22 @@ const App = Express();
 const BodyParser = require('body-parser');
 const PORT = 8080;
 
+const cors = require('cors');
+const pool = require('./database');
+
+App.use(cors());
+App.use(Express.json()); //req.body
+
+
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
 App.use(Express.static('public'));
+
+App.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
+});
 
 // Sample GET route
 // App.get('/api/data', (req, res) => res.json({
@@ -23,7 +35,17 @@ App.get("/", (req, res) => {
 // Landing page for logged-in users
 // Show all of a user's trips
 App.get("/api/users/:id", (req, res) => {
-  res.send("Landing page for logged-in users, Show all of a user's trips");
+  // res.send("Landing page for logged-in users, Show all of a user's trips");
+  pool.query(`
+    SELECT trip_name
+    FROM trips
+  `)
+    .then(res => {
+      console.log(res.rows);
+      return res.rows;
+    })
+    .catch(err => console.error('query error', err.stack));
+
 });
 
 // ----- TRIPS ----- //
@@ -64,7 +86,4 @@ App.get("/api/photos/:id", (req, res) => {
 
 
 
-App.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
-});
+
