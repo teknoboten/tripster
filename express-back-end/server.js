@@ -99,7 +99,12 @@ App.post("/api/trips/new", (req, res) => {
         INSERT INTO trips (trip_name)
         VALUES('${req.body.tripName}');
       `);
-      res.redirect('/api/users/:id');
+      res.send(`A new trip to ${req.body.tripName} has been created.`);
+      // needs the thing to prevent SQL injection 
+
+      // don't redirect
+      // res.json with what it got
+      // res.redirect('/api/users/:id');
     });
   } catch (error) {
     console.log(error);

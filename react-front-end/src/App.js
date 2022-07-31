@@ -1,15 +1,27 @@
-import React from "react";
-import axios from "axios";
-import "./App.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Route, Switch } from 'react-router-dom';
+
+import Layout from './components/layout/Layout';
+import AllTripsPage from './pages/AllTripsPage';
+import NewTripPage from './pages/NewTripPage';
+
+// import React from "react";
+// import axios from "axios";
+// import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello Tripster!</h1>
-      {/* Header */}
-      {/* Profile */}
-      {/* Trips */}
-    </div>
+    <Layout>
+      <Switch>
+        <Route path='/' exact={true}>
+          <AllTripsPage />
+        </Route>
+        <Route path='/new-trip'>
+          <NewTripPage />
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
