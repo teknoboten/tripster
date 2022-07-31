@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import MainNav from './components/layout/MainNav';
 
 import AllTripsPage from './pages/AllTripsPage';
@@ -14,14 +14,14 @@ function App() {
   return (
     <div>
       <MainNav />
-      <switch>
-        <Route path='/'>
+      <Switch>
+        <Route path='/' exact={true}>
           <AllTripsPage />
         </Route>
         <Route path='/new-trip'>
           <NewTripPage />
         </Route>
-      </switch>
+      </Switch>
     </div>
   );
 }

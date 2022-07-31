@@ -11,12 +11,12 @@ function NewTripForm() {
         <input type='text' required id='tripName' />
       </div>
       <div className={classes.control}>
-        <label htmlFor='image'>Trip Cover Image</label>
-        <input type='url' required id='image' />
+        <label htmlFor='coverImage'>Cover Image</label>
+        <input type='url' id='coverImage' />
       </div>
       <div className={classes.control}>
         <label htmlFor='description'>Description</label>
-        <textarea id='description' required rows='5'></textarea>
+        <textarea id='description' rows='5'></textarea>
       </div>
       <div className={classes.actions}>
         <button>Add Trip</button>

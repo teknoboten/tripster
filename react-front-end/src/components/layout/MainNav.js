@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 
 import { Link } from 'react-router-dom';
 
+import classes from './MainNav.module.css';
+
 function MainNav() {
   return (
-    <header>
-      <div>Tripster</div>
+    <header className={classes.header}>
+      <div className={classes.logo}>Tripster</div>
       <nav>
         <ul>
           <li>
