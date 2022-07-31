@@ -12,6 +12,7 @@ function TripList(props) {
           key={trip.id}
           id={trip.id}
           coverImage={trip.coverImage}
+          tripName={trip.tripName}
           description={trip.description}
         />
       ))}

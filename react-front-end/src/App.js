@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch } from 'react-router-dom';
-import MainNav from './components/layout/MainNav';
 
+import Layout from './components/layout/Layout';
 import AllTripsPage from './pages/AllTripsPage';
 import NewTripPage from './pages/NewTripPage';
 
@@ -12,8 +12,7 @@ import NewTripPage from './pages/NewTripPage';
 
 function App() {
   return (
-    <div>
-      <MainNav />
+    <Layout>
       <Switch>
         <Route path='/' exact={true}>
           <AllTripsPage />
@@ -22,7 +21,7 @@ function App() {
           <NewTripPage />
         </Route>
       </Switch>
-    </div>
+    </Layout>
   );
 }
 
