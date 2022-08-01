@@ -11,7 +11,7 @@ const morgan = require('morgan');
 App.use(morgan('dev'));
 
 App.use(cors());
-App.use(Express.json()); //req.body
+// App.use(Express.json()); //req.body
 
 
 // Express Configuration
@@ -93,12 +93,14 @@ App.get("/api/trips/new", (req, res) => {
 
 // create a new trip in the db
 App.post("/api/trips/new", (req, res) => {
+  console.log(req.body);
+  console.log(req.body.tripName);
   try {
     pool.connect(async (error, client, release) => {
       let resp = await client.query(`
         INSERT INTO trips (trip_name)
-        VALUES('${req.body.tripName}');
-      `);
+        VALUES($1);
+      `, [req.body.tripName]);
       res.send(`A new trip to ${req.body.tripName} has been created.`);
       // needs the thing to prevent SQL injection 
 

@@ -3,26 +3,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Card from '../ui/Card';
 import classes from './NewTripForm.module.css';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 function NewTripForm() {
-  const tripNameInputRef = useRef();
-  const coverImageInputRef = useRef();
-  const descriptionInputRef = useRef();
+  // const tripNameInputRef = useRef();
+  const [tripName, setTripName] = useState('');
+  const [coverImage, setCoverImage] = useState('');
+  const [description, setDescription] = useState('');
 
 
   function submitHandler(event) {
     event.preventDefault();
 
-    const enteredTripName = tripNameInputRef.current.value;
-    const enteredCoverImage = coverImageInputRef.current.value;
-    const enteredDescription = descriptionInputRef.current.value;
+    // const enteredTripName = tripNameInputRef.current.value;
+    // const enteredCoverImage = coverImageInputRef.current.value;
+    // const enteredDescription = descriptionInputRef.current.value;
 
     const tripData = {
-      tripName: enteredTripName,
-      coverImage: enteredCoverImage,
-      description: enteredDescription
+      tripName: tripName,
+      coverImage: coverImage,
+      description: description
     };
+
+
+    fetch('/api/trips/new', { method: 'POST', body: JSON.stringify(tripData), headers: { 'Content-Type': 'application/json' } }).then(response => console.log(response));
+    // reset the form
+    // update the state to cause a redirect
+
 
     console.log(tripData);
   }
@@ -32,15 +39,16 @@ function NewTripForm() {
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor='tripName'>Trip Name</label>
-          <input type='text' required id='tripName' ref={tripNameInputRef} />
+          <input type='text' required id='tripName' value={tripName} onChange={e => setTripName(e.target.value)} />
+
         </div>
         <div className={classes.control}>
           <label htmlFor='coverImage'>Cover Image</label>
-          <input type='url' id='coverImage' ref={coverImageInputRef} />
+          <input type='url' id='coverImage' value={coverImage} onChange={e => setCoverImage(e.target.value)} />
         </div>
         <div className={classes.control}>
           <label htmlFor='description'>Description</label>
-          <textarea id='description' rows='5' ref={descriptionInputRef}></textarea>
+          <textarea id='description' rows='5' value={description} onChange={e => setDescription(e.target.value)}></textarea>
         </div>
         <div className={classes.actions}>
           <button>Add Trip</button>
