@@ -12,12 +12,14 @@ import React from "react";
 
 import UploadImageForm from "./components/images/UploadImageForm";
 import Title from "./components/Title";
+import ImageGrid from "./components/images/imageGrid";
 
 function App() {
   return (
     <div className="App">
       <Title />
       <UploadImageForm />
+      <ImageGrid />
     </div>
   );
 }
