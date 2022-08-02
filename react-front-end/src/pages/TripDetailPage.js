@@ -39,3 +39,17 @@ function AllTripsPage() {
 }
 
 export default AllTripsPage;
+
+<Layout>
+  <Switch>
+    <Route path='/' exact={true}>
+      <AllTripsPage />
+    </Route>
+    <Route path='/new-trip'>
+      <NewTripPage />
+    </Route>
+    <Route path='/trip/:id'>
+      <TripDetailPage />
+    </Route>
+  </Switch>
+</Layout>;
