@@ -4,15 +4,16 @@ import ReactDOM from 'react-dom';
 import Card from '../ui/Card';
 import classes from './NewTripForm.module.css';
 import { useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function NewTripForm() {
   // const tripNameInputRef = useRef();
   const [tripName, setTripName] = useState('');
   const [coverImage, setCoverImage] = useState('');
   const [description, setDescription] = useState('');
+  const history = useHistory();
 
-
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
 
     // const enteredTripName = tripNameInputRef.current.value;
@@ -26,7 +27,10 @@ function NewTripForm() {
     };
 
 
-    fetch('/api/trips/new', { method: 'POST', body: JSON.stringify(tripData), headers: { 'Content-Type': 'application/json' } }).then(response => console.log(response));
+    const response = await fetch('/api/trips/new', { method: 'POST', body: JSON.stringify(tripData), headers: { 'Content-Type': 'application/json' } });
+    const tripId = (await response.json()).id;
+
+    history.push(`/trip/${tripId}`);
     // reset the form
     // update the state to cause a redirect
 
