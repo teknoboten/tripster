@@ -99,9 +99,11 @@ App.post("/api/trips/new", (req, res) => {
     pool.connect(async (error, client, release) => {
       let resp = await client.query(`
         INSERT INTO trips (trip_name)
-        VALUES($1);
+        VALUES($1) 
+        RETURNING id;
       `, [req.body.tripName]);
-      res.send(`A new trip to ${req.body.tripName} has been created.`);
+      res.json(resp.rows[0]);
+      // res.send(`A new trip to ${req.body.tripName} has been created.`);
       // needs the thing to prevent SQL injection 
 
       // don't redirect
