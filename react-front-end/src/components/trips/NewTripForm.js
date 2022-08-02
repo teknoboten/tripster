@@ -1,31 +1,61 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Card from '../ui/Card';
 import classes from './NewTripForm.module.css';
+import { useRef, useState } from 'react';
 
 function NewTripForm() {
-  return <Card>
-    <form className={classes.form}>
-      <div className={classes.control}>
-        <label htmlFor='tripName'>Trip Name</label>
-        <input type='text' required id='tripName' />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor='coverImage'>Cover Image</label>
-        <input type='url' id='coverImage' />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor='description'>Description</label>
-        <textarea id='description' rows='5'></textarea>
-      </div>
-      <div className={classes.actions}>
-        <button>Add Trip</button>
-      </div>
+  // const tripNameInputRef = useRef();
+  const [tripName, setTripName] = useState('');
+  const [coverImage, setCoverImage] = useState('');
+  const [description, setDescription] = useState('');
 
 
+  function submitHandler(event) {
+    event.preventDefault();
 
-    </form>
-  </Card>;
+    // const enteredTripName = tripNameInputRef.current.value;
+    // const enteredCoverImage = coverImageInputRef.current.value;
+    // const enteredDescription = descriptionInputRef.current.value;
+
+    const tripData = {
+      tripName: tripName,
+      coverImage: coverImage,
+      description: description
+    };
+
+
+    fetch('/api/trips/new', { method: 'POST', body: JSON.stringify(tripData), headers: { 'Content-Type': 'application/json' } }).then(response => console.log(response));
+    // reset the form
+    // update the state to cause a redirect
+
+
+    console.log(tripData);
+  }
+
+  return (
+    <Card>
+      <form className={classes.form} onSubmit={submitHandler}>
+        <div className={classes.control}>
+          <label htmlFor='tripName'>Trip Name</label>
+          <input type='text' required id='tripName' value={tripName} onChange={e => setTripName(e.target.value)} />
+
+        </div>
+        <div className={classes.control}>
+          <label htmlFor='coverImage'>Cover Image</label>
+          <input type='url' id='coverImage' value={coverImage} onChange={e => setCoverImage(e.target.value)} />
+        </div>
+        <div className={classes.control}>
+          <label htmlFor='description'>Description</label>
+          <textarea id='description' rows='5' value={description} onChange={e => setDescription(e.target.value)}></textarea>
+        </div>
+        <div className={classes.actions}>
+          <button>Add Trip</button>
+        </div>
+      </form>
+    </Card>
+  );
 }
 
 export default NewTripForm;
