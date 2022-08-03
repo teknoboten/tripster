@@ -22,7 +22,7 @@ function App() {
           <Route path='/new-trip'>
             <NewTripPage />
           </Route>
-          <Route path='/trip/:tripId'>
+          <Route path='/trips/:tripId'>
             <TripDetailPage />
           </Route>
         </Switch>

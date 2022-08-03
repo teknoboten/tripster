@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Card from '../ui/Card';
+import { Link } from 'react-router-dom';
 
 import classes from './TripItem.module.css';
 
@@ -12,7 +13,7 @@ function TripItem(props) {
           <img src={props.coverImage} alt={props.tripName} />
         </div>
         <div className={classes.content}>
-          <h3>{props.tripName}</h3>
+          <h3 ><Link to={`trips/${props.id}`}>{props.tripName}</Link></h3>
           <p>{props.description}</p>
         </div>
       </Card>
