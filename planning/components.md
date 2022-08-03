@@ -31,17 +31,7 @@ state: user, trips, trip, images ???
     - can we somehow combine this into a single button ???
 
 
-  <!-- OR - something like FB nav?? 
-
-  ### < UserProfileButton >
-        - has a click handler that renders userModal
-
-      ### < UserModal >
-        - dropdown modal
-        - static links to user stuff
-          - ie 'add new trip', 'profile',  'update trips' etc -->
-
-   
+  
 ## < Triplist >
   - conditionally rendered if state.user && !state.trip
   - recieves trip list via props
@@ -58,24 +48,24 @@ state: user, trips, trip, images ???
   - useEffect ... can be configured to fetch images every time a component renders 
   - unless we save the URL provided on upload in our DB which is what i initially planned to do 🤷‍♀️
 
-
+<!-- 
   ### < Map >
     - recieves state.images via props
-    - helper function to make the map points
+    - helper function to make the map points -->
 
   ### < ImageGrid >
-   - recieves state.images via props
+  - recieves state.images via props
 
   ### < ImageItem >
-    - maps 
+  - maps 
 
 
 ## < AddNewPhotoButton >
   - recieves "trip" via props
   - reuse logic from UploadImageForm
 
-### < UpdateModal >
-  - look at fb "create post" modal
+
+
 
 
 

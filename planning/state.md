@@ -21,7 +21,7 @@ state = {
   mode: 'viewTrip'
 }
 
-//state when a user adds a photo
+//state when a user adds a photo 
 state = {
   user: {userObj}, 
   trips: [arrOfTripObjs], 
@@ -42,14 +42,14 @@ state = {
 }
 
 
-//state when a user adds a photo
+//state when a user clicks on an image
 state = {
   user: {userObj}, 
   trips: [arrOfTripObjs], 
   trip: id 
   images: [arrOfImgs],
-  image: id
-  mode: 'edit'
+  image: id,
+  mode: 'showImage'
 }
 
 
