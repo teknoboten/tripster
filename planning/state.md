@@ -7,8 +7,6 @@ state = {
   trips: [arrOfTrips], 
   trip: null //<- this gets set when a trip is 'selected',
   images: null //<- is set when a trip is selected
-  image: null // <- is set when an image is selected
-  mode: 'home'
 }
 
 //state when a user clicks on a trip 
@@ -17,8 +15,6 @@ state = {
   trips: [arrOfTripObjs], 
   trip: id 
   images: [arrOfImgs]
-  image: null,
-  mode: 'viewTrip'
 }
 
 //state when a user adds a photo 

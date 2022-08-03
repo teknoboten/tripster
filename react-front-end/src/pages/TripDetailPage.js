@@ -1,27 +1,34 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+// import axios from "axios";
+import React, { useState } from "react";
+// import ReactDOM from "react-dom";
 import { useParams } from "react-router-dom";
 
-function TripDetailPage() {
+
+function TripDetailPage(props) {
   const params = useParams();
 
-  const [ images, setImages ] = useState([]);
+  const [ trip, setTrip ] = useState(props.trips[params.tripId]);
 
   // useEffect(() => {
 
-  //   //request image data from api
+  //   //request image  from api
   //   axios.get('/api/photos/whatever')
   //   .then((result) => {
   //     setImages(result.images) //just an example
   //   })
   // }, [params.tripId])
+
+    // useEffect(() => {
+    //   setTrip(props.trips[params.tripId]) //just an example
+    // }, [params.tripId])
   
   return (
     <section>
-      <h1>Trip Detail Page</h1>
-      {/* <TripList trips={staticTripData} /> */}
-      <div>{params.tripId}</div>
+      
+      <h1>{trip.tripName}</h1>
+      <h2>{trip.description}</h2>
+
+      
     </section>
   );
 }

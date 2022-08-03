@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import TripItem from './TripItem';
 import classes from './TripList.module.css';
 
 function TripList(props) {
+
   return (
     <ul className={classes.list}>
       {props.trips.map((trip) => (

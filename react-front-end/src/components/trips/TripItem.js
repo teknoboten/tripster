@@ -1,15 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Card from '../ui/Card';
 import { Link } from 'react-router-dom';
 
 import classes from './TripItem.module.css';
 
 function TripItem(props) {
+
+  // const [ trip, setTrip ] = useState(null);
+
   return (
     <li className={classes.item}>
       <Card>
-        <div className={classes.image}>
+        <div className={classes.image} >
           <img src={props.coverImage} alt={props.tripName} />
         </div>
         <div className={classes.content}>
