@@ -1,13 +1,13 @@
 // import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 // import ReactDOM from "react-dom";
 import { useParams } from "react-router-dom";
 
 
 function TripDetailPage(props) {
-  const params = useParams();
 
-  const [ trip, setTrip ] = useState(props.trips[params.tripId]);
+  const params = useParams();
+  const trip = props.trips[params.tripId - 1];
 
   // useEffect(() => {
 
@@ -27,7 +27,8 @@ function TripDetailPage(props) {
       
       <h1>{trip.tripName}</h1>
       <h2>{trip.description}</h2>
-
+      <p> imagine image grid here </p>
+      <p> also a map!</p>
       
     </section>
   );
