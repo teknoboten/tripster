@@ -7,6 +7,7 @@ state = {
   trips: [arrOfTrips], 
   trip: null //<- this gets set when a trip is 'selected',
   images: null //<- is set when a trip is selected
+  image: null // <- is set when an image is selected
   mode: 'home'
 }
 
@@ -14,8 +15,9 @@ state = {
 state = {
   user: {userObj}, 
   trips: [arrOfTripObjs], 
-  trip: id //<- this gets set when a trip is 'selected',
-  images: [arrOfImgs] //<- is set when a trip is selected
+  trip: id 
+  images: [arrOfImgs]
+  image: null,
   mode: 'viewTrip'
 }
 
@@ -24,16 +26,18 @@ state = {
   user: {userObj}, 
   trips: [arrOfTripObjs], 
   trip: id 
-  images: [arrOfImgs]
+  images: [arrOfImgs],
+  image: null,
   mode: 'addNewPost'
 }
 
-//state when a edits adds a photo
+//state after a user clicks on an images 'edit' button
 state = {
   user: {userObj}, 
   trips: [arrOfTripObjs], 
   trip: id 
-  images: [arrOfImgs] //<- is set when a trip is selected
+  images: [arrOfImgs],
+  image: id, 
   mode: 'edit'
 }
 
@@ -43,7 +47,8 @@ state = {
   user: {userObj}, 
   trips: [arrOfTripObjs], 
   trip: id 
-  images: [arrOfImgs] //<- is set when a trip is selected
+  images: [arrOfImgs],
+  image: id
   mode: 'edit'
 }
 
