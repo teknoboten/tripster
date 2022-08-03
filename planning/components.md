@@ -12,10 +12,16 @@ state: user, trips, trip, images
 # application flow
 
 ## < App >
-  - on initial render, set state with useEffect
 
-similar to: https://github.com/teknoboten/scheduler/blob/main/src/hooks/useApplicationData.js
+- single page app
+- use click handlers / helper functions to update state as user interacts with components
+  - on initial render, set state with useEffect
+  - similar to: https://github.com/teknoboten/scheduler/blob/main/src/hooks/useApplicationData.js (except async / await instead of promises!)
+  - note: during development, we can hard code this data *into state*
+
+
 state: user, trips, trip, images ???
+
 
 ## < Header />
   - recieves user data from app component via props
@@ -23,8 +29,19 @@ state: user, trips, trip, images ???
 ## < Nav >
   - static link to add new trip / form
     - can we somehow combine this into a single button ???
-   
 
+
+  <!-- OR - something like FB nav?? 
+
+  ### < UserProfileButton >
+        - has a click handler that renders userModal
+
+      ### < UserModal >
+        - dropdown modal
+        - static links to user stuff
+          - ie 'add new trip', 'profile',  'update trips' etc -->
+
+   
 ## < Triplist >
   - conditionally rendered if state.user && !state.trip
   - recieves trip list via props
@@ -52,9 +69,33 @@ state: user, trips, trip, images ???
   ### < ImageItem >
     - maps 
 
+
+## < AddNewPhotoButton >
+  - recieves "trip" via props
+  - reuse logic from UploadImageForm
+
+### < UpdateModal >
+  - look at fb "create post" modal
+
+
+
+
+
+
+
+
+
+
+
+
+
 **this is incomplete but i am le tired**
 
 **Not Pictured** 
 - necessary magic to re-use existing img awesomeness 
+
+
+
+
 
 
