@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import TripList from "../components/trips/TripList";
@@ -30,10 +30,14 @@ const staticTripData = [
 ];
 
 function AllTripsPage() {
+
+  const [ trips, setTrips ] = useState(staticTripData)
+  
+
   return (
     <section>
       <h1>All Trips</h1>
-      <TripList trips={staticTripData} />
+      <TripList trips={trips} />
     </section>
   );
 }
