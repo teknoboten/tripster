@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Card from '../ui/Card';
 import classes from './NewTripForm.module.css';
 import { useRef, useState } from 'react';

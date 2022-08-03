@@ -20,10 +20,12 @@ state: user, trips, trip,
   - passes trip data to triplist via props
 
   < TripList >
-    < TripItem >    
+    < TripItem >
+      - updates state.trip onClick
 
 ## < TripDetailPage >
-  - gets imageData
+  - sets imageData
+
   <Img Grid> 
     - each image item needs a click handler / link to ImageShowPage
   <Map>

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import classes from './Layout.module.css';
 import MainNav from './MainNav';
