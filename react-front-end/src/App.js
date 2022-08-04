@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Layout from './components/layout/Layout';
 import AllTripsPage from './pages/AllTripsPage';
+import NewImagePage from './pages/NewImagePage';
 import NewTripPage from './pages/NewTripPage';
 import TripDetailPage from './pages/TripDetailPage';
 
@@ -53,6 +54,9 @@ function App() {
           </Route>
           <Route path='/trips/:tripId'>
             <TripDetailPage trips={trips} />
+          </Route>
+          <Route path='/new-image'>
+            <NewImagePage />
           </Route>
         </Switch>
       </Layout>
