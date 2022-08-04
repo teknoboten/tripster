@@ -28,5 +28,5 @@ CREATE TABLE photos (
   trip_id INTEGER REFERENCES trips(id) ON DELETE CASCADE
 );
 
-ALTER TABLE trips
-ADD cover_photo_id INTEGER REFERENCES photos(id) ON DELETE CASCADE;
+-- ALTER TABLE trips
+-- ADD cover_photo_id INTEGER REFERENCES photos(id) ON DELETE CASCADE;
