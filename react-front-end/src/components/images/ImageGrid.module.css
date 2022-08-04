@@ -1,6 +1,6 @@
 
 /* base styles & title */
-body {
+/* body {
   font-family: "Noto Serif";
   color: var(--secondary);
 }
@@ -21,10 +21,10 @@ body {
 .title h2 {
   margin-top: 60px;
   font-size: 2.6rem;
-}
+} */
 
 /* upload form styles */
-form {
+/* form {
   margin: 30px auto 10px;
   text-align: center;
 }
@@ -55,14 +55,14 @@ label:hover {
 }
 .error {
   color: var(--error);
-}
+} */
 
 /* progress bar styles */
-.progressbar {
+/* .progressbar {
   height: 5px;
   background: var(--primary);
   margin-top: 20px;
-}
+} */
 
 /* image grid styles */
 .imggrid {
@@ -89,7 +89,7 @@ label:hover {
 }
 
 /* modal styles */
-.backdrop {
+/* .backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -104,4 +104,4 @@ label:hover {
   margin: 60px auto;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   border: 3px solid white;
-}
+} */
