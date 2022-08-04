@@ -23,6 +23,7 @@ state: user, trips, trip,
     < TripItem >
       - updates state.trip onClick
 
+
 ## < TripDetailPage >
   - sets imageData
 
@@ -40,8 +41,12 @@ state: user, trips, trip,
 
 
 
-
-
+## < AddButton >
+  
+  - recieves trip via props
+  - if !state.trips show "add new trip" form
+  - if state.trips && !state.trip, show "select trip" drop down 
+  - if state.trips && state.trip, show "add new image" form
 
 
 

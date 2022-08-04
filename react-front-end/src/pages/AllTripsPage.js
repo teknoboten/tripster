@@ -5,6 +5,8 @@ import TripList from "../components/trips/TripList";
 
 function AllTripsPage(props) {
 
+  console.log(props.trips)
+
   return (
     <section>
       <TripList trips={props.trips}/>
