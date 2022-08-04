@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classes from '../components/images/ImageGrid.module.css';
 
 import UploadImageForm from '../components/images/UploadImageForm';
-import ImageGrid from '../components/images/ImageGrid';
+// import ImageGrid from '../components/images/ImageGrid';
 import Modal from '../components/images/Modal';
 
 
@@ -16,7 +16,6 @@ function NewImagePage() {
 
     <div className={classes.App}>
       <UploadImageForm />
-      <ImageGrid setSelectedImg={setSelectedImg} />
       { selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
