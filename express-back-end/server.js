@@ -1,28 +1,28 @@
-const Express = require('express');
+const Express = require("express");
 const App = Express();
-const BodyParser = require('body-parser');
+const BodyParser = require("body-parser");
 const PORT = 8080;
 
-const cors = require('cors');
-const pool = require('./database');
+const cors = require("cors");
+const pool = require("./database");
 
 // morgan is a logger
-const morgan = require('morgan');
-App.use(morgan('dev'));
+const morgan = require("morgan");
+App.use(morgan("dev"));
 
 App.use(cors());
 // App.use(Express.json()); //req.body
 
-
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: true }));
 App.use(BodyParser.json());
-App.use(Express.static('public'));
-
+App.use(Express.static("public"));
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
+  console.log(
+    `Express seems to be listening on port ${PORT} so that's pretty good 👍`
+  );
 });
 
 // Sample GET route
@@ -48,7 +48,6 @@ App.get("/", (req, res) => {
   `);
 });
 
-
 // ----- USERS ----- //
 // Landing page for logged-in users
 // Show all of a user's trips
@@ -67,6 +66,21 @@ App.get("/api/users/:id", (req, res) => {
 });
 
 // ----- TRIPS ----- //
+
+App.get("/api/trips", (req, res) => {
+  try {
+    pool.connect(async (error, client, release) => {
+      let resp = await client.query(`
+        SELECT *
+        FROM trips
+      `);
+      res.send(resp.rows);
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({ error: error });
+  }
+});
 
 // form to create a new trip
 App.get("/api/trips/new", (req, res) => {
@@ -97,14 +111,17 @@ App.post("/api/trips/new", (req, res) => {
   console.log(req.body.tripName);
   try {
     pool.connect(async (error, client, release) => {
-      let resp = await client.query(`
+      let resp = await client.query(
+        `
         INSERT INTO trips (trip_name)
         VALUES($1) 
         RETURNING id;
-      `, [req.body.tripName]);
+      `,
+        [req.body.tripName]
+      );
       res.json(resp.rows[0]);
       // res.send(`A new trip to ${req.body.tripName} has been created.`);
-      // needs the thing to prevent SQL injection 
+      // needs the thing to prevent SQL injection
 
       // don't redirect
       // res.json with what it got
@@ -115,7 +132,7 @@ App.post("/api/trips/new", (req, res) => {
   }
 });
 
-// trip homepage showing map and all photos from a trip 
+// trip homepage showing map and all photos from a trip
 App.get("/api/trips/:id", (req, res) => {
   res.send("trip homepage showing map and all photos from a trip");
 });
@@ -134,11 +151,7 @@ App.post("/api/photos", (req, res) => {
 
 // show page of an individual photo with zoomed in map and description
 App.get("/api/photos/:id", (req, res) => {
-  res.send("show page of an individual photo with zoomed in map and description");
+  res.send(
+    "show page of an individual photo with zoomed in map and description"
+  );
 });
-
-
-
-
-
-
