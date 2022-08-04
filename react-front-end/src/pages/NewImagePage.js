@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import classes from '../components/images/ImageGrid.module.css';
+import { useParams } from "react-router-dom";
 
 import UploadImageForm from '../components/images/UploadImageForm';
 // import ImageGrid from '../components/images/ImageGrid';
 import Modal from '../components/images/Modal';
 
 
-function NewImagePage() {
+function NewImagePage(props) {
+
+  const { trip_id } = useParams();
 
   const [selectedImg, setSelectedImg] = useState(null);
 
@@ -15,7 +18,7 @@ function NewImagePage() {
     <h1>Add New Image</h1>
 
     <div className={classes.App}>
-      <UploadImageForm />
+      <UploadImageForm trip_id={trip_id}/>
       { selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function NewImageButton(props) {
   return <div className={classes.button}>
-    <Link to='/new-image' trip={props.trip}>Add New Image</Link>
+    <Link to={`/new-image/${props.trip_id}`}>Add New Image</Link>
     </div>;
 }
 
