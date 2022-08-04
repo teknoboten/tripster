@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProgressBar from "./ProgressBar";
 import classes from "./UploadImageForm.module.css";
+import { useHistory } from "react-router-dom";
 
-const UploadImageForm = () => {
+const UploadImageForm = ({trip_id}) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const [storedUrl, setStoredUrl ] = useState("");
+  const history = useHistory();
 
   const types = ["image/png", "image/jpeg"];
+
+
+  useEffect(() => {
+    //post to the DB
+    if (storedUrl !== ""){
+      //save storedURL to the db
+      // .then()
+      history.push(`/trips/${trip_id}`)
+    }
+    
+  }, [storedUrl])
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];
@@ -30,7 +44,8 @@ const UploadImageForm = () => {
       <div className={classes.output}>
         {error && <div className={classes.error}>{error} </div>}
         {file && <div>{file.name}</div>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
+        {file && <ProgressBar file={file} setFile={setFile} setStoredUrl={setStoredUrl} />}
+        <p>{storedUrl} {trip_id}</p>
       </div>
     </form>
   );

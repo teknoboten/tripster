@@ -37,7 +37,6 @@ const fakeTripData = [
   }
 ];
 
-
 function App() {
 
   const [ trips, setTrips ] = useState(fakeTripData);
@@ -55,7 +54,7 @@ function App() {
           <Route path='/trips/:tripId'>
             <TripDetailPage trips={trips} />
           </Route>
-          <Route path='/new-image'>
+          <Route path='/new-image/:trip_id'>
             <NewImagePage />
           </Route>
         </Switch>

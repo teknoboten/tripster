@@ -1,5 +1,5 @@
 // import axios from "axios";
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import ReactDOM from "react-dom";
 import { useParams } from "react-router-dom";
 
@@ -10,8 +10,12 @@ import classes from "../components/images/ImageGrid.module.css";
 
 function TripDetailPage(props) {
 
+  const [ trip, setTrip ] = useState()
+
   const params = useParams();
-  const trip = props.trips[params.tripId - 1];
+  // const trip = props.trips[params.tripId - 1];
+
+  // console.log(trip);
 
   // useEffect(() => {
 
@@ -22,10 +26,15 @@ function TripDetailPage(props) {
   //   })
   // }, [params.tripId])
 
-    // useEffect(() => {
-    //   setTrip(props.trips[params.tripId]) //just an example
-    // }, [params.tripId])
+    useEffect(() => {
+      setTrip(props.trips[params.tripId - 1]) //just an example
+    }, [params.tripId])
   
+    if (trip === undefined ) {
+
+      return <></>
+
+    }
   return (
     <section>
       
@@ -33,7 +42,7 @@ function TripDetailPage(props) {
       <h2>{trip.description}</h2>
       <p>imagine a cool map here</p>
       
-      <NewImageButton trip={trip.tripId} />
+      <NewImageButton trip_id={trip.id} />
 
 
       <ImageGrid />
