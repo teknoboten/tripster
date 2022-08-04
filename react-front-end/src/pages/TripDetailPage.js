@@ -3,6 +3,9 @@ import React from "react";
 // import ReactDOM from "react-dom";
 import { useParams } from "react-router-dom";
 
+import ImageGrid from "../components/images/ImageGrid";
+import classes from "../components/images/ImageGrid.module.css";
+
 
 function TripDetailPage(props) {
 
@@ -27,9 +30,13 @@ function TripDetailPage(props) {
       
       <h1>{trip.tripName}</h1>
       <h2>{trip.description}</h2>
-      <p> imagine image grid here </p>
-      <p> also a map!</p>
+      <p>imagine a cool map here</p>
       
+      <ImageGrid />
+
+
+
+
     </section>
   );
 }
