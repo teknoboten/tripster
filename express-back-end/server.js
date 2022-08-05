@@ -152,9 +152,11 @@ App.get("/api/trips/:id", (req, res) => {
       `,
         [req.params.id]
       );
-      // console.log(photoResponse.rows);
+      
       const trip = resp.rows[0];
       const photos = photoResponse.rows;
+      console.log("trip:", trip);
+      console.log("photos:", photos);
 
       res.json({ ...trip, photos });
     });
