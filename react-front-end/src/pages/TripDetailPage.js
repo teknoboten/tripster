@@ -10,7 +10,7 @@ import UploadImageForm from "../components/images/UploadImageForm";
 import Modal from "../components/images/Modal";
 
 function TripDetailPage(props) {
-  
+
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
 
@@ -47,5 +47,3 @@ function TripDetailPage(props) {
 export default TripDetailPage;
 
 
-
-/* <NewImageButton trip_id={trip.id} /> */
