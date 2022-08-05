@@ -1,0 +1,1 @@
+INSERT INTO trip_cover_photos (trip_id, photo_id) VALUES (1, 1);

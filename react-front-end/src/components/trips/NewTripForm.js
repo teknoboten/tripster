@@ -40,6 +40,9 @@ function NewTripForm() {
     console.log(tripData);
   }
 
+
+
+  
   return (
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
