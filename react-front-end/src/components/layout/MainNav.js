@@ -13,7 +13,6 @@ function MainNav() {
           <li>
             <Link to='/'>All Trips</Link>
           </li>
-
           <li>
             <Link to='/new-trip'>Add New Trip</Link>
           </li>

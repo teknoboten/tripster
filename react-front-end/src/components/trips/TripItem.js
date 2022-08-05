@@ -16,7 +16,9 @@ function TripItem(props) {
         </div>
         <div className={classes.content}>
           <h3>
-            <Link to={`trips/${props.id}`}>{props.trip_name}</Link>
+            <Link to={`trips/${props.id}`}>
+              {props.tripName}
+            </Link>
           </h3>
           <p>{props.description}</p>
         </div>

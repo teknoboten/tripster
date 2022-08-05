@@ -33,7 +33,7 @@ function NewTripForm() {
     });
     const tripId = (await response.json()).id;
 
-    history.push(`/trip/${tripId}`);
+    history.push(`/trips/${tripId}`);
     // reset the form
     // update the state to cause a redirect
 
