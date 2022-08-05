@@ -7,6 +7,4 @@ const pool = new Pool({
   database: 'tripster',
 });
 
-
-
 module.exports = pool;
