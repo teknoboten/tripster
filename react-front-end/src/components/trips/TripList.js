@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import TripItem from "./TripItem";
 import classes from "./TripList.module.css";
 
-function TripList(props) {
+function TripList() {
+  const [trips, setTrips] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/trips").then(async (res) => {
+      const jsonResponse = await res.json();
+      console.log(jsonResponse);
+      setTrips(jsonResponse);
+    });
+  }, []);
+
   return (
     <ul className={classes.list}>
-      {props.trips.map((trip) => (
+      {trips.map((trip) => (
         <TripItem
           key={trip.id}
           id={trip.id}

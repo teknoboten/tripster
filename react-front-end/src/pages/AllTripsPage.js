@@ -3,13 +3,10 @@ import React from "react";
 
 import TripList from "../components/trips/TripList";
 
-function AllTripsPage(props) {
-
-  console.log(props.trips)
-
+function AllTripsPage() {
   return (
     <section>
-      <TripList trips={props.trips}/>
+      <TripList />
     </section>
   );
 }
