@@ -10,17 +10,19 @@ function TripItem(props) {
 
   return (
     <li className={classes.item}>
-      <Card>
-        <div className={classes.image}>
-          <img src={props.coverImage} alt={props.tripName} />
-        </div>
-        <div className={classes.content}>
-          <h3>
-            <Link to={`trips/${props.id}`}>{props.trip_name}</Link>
-          </h3>
-          <p>{props.description}</p>
-        </div>
-      </Card>
+      <Link to={`trips/${props.id}`}>
+        <Card>
+          <div className={classes.image}>
+            <img src={props.coverImage} alt={props.tripName} />
+          </div>
+          <div className={classes.content}>
+            <h3>
+              {props.tripName}
+            </h3>
+            <p>{props.description}</p>
+          </div>
+        </Card>
+      </Link>
     </li>
   );
 }

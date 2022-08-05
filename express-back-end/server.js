@@ -83,27 +83,27 @@ App.get("/api/trips", (req, res) => {
 });
 
 // form to create a new trip
-App.get("/api/trips/new", (req, res) => {
-  res.send(`
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
-    <p>Form to create a new trip</p>
-    <form action="/api/trips/new" method="POST">
-      <label for="tripName">Trip Name:</label>
-      <input type="text" name="tripName" id="tripName">
-      <input type="submit" value="SUBMIT">
-    </form>
-  </body>
-  </html>
-  `);
-});
+// App.get("/api/trips/new", (req, res) => {
+//   res.send(`
+//   <!DOCTYPE html>
+//   <html lang="en">
+//   <head>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+//   </head>
+//   <body>
+//     <p>Form to create a new trip</p>
+//     <form action="/api/trips/new" method="POST">
+//       <label for="tripName">Trip Name:</label>
+//       <input type="text" name="tripName" id="tripName">
+//       <input type="submit" value="SUBMIT">
+//     </form>
+//   </body>
+//   </html>
+//   `);
+// });
 
 // create a new trip in the db
 App.post("/api/trips/new", (req, res) => {
@@ -132,9 +132,36 @@ App.post("/api/trips/new", (req, res) => {
   }
 });
 
-// trip homepage showing map and all photos from a trip
+// trip detail page showing map and all photos from a trip
 App.get("/api/trips/:id", (req, res) => {
-  res.send("trip homepage showing map and all photos from a trip");
+  try {
+    pool.connect(async (error, client, release) => {
+      const resp = await client.query(
+        `
+        SELECT * 
+        FROM trips
+        WHERE id = $1
+      `,
+        [req.params.id]
+      );
+      const photoResponse = await client.query(
+        `
+        SELECT * 
+        FROM photos
+        WHERE trip_id = $1
+      `,
+        [req.params.id]
+      );
+      // console.log(photoResponse.rows);
+      const trip = resp.rows[0];
+      const photos = photoResponse.rows;
+
+      res.json({ ...trip, photos });
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({ error: error });
+  }
 });
 
 // ----- PHOTOS ----- //
