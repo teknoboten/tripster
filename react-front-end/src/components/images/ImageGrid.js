@@ -4,6 +4,8 @@ import classes from "./ImageGrid.module.css";
 import { motion } from "framer-motion";
 
 const ImageGrid = ({ setSelectedImg, photos }) => {
+
+
   return (
     <div className={classes.imggrid}>
       {photos &&
@@ -13,10 +15,10 @@ const ImageGrid = ({ setSelectedImg, photos }) => {
             className={classes.imgwrap}
             key={photo.id}
             whileHover={{ opacity: 1 }}
-            onClick={() => setSelectedImg(photo.url)}
+            onClick={() => setSelectedImg(photo.photo_url)}
           >
             <motion.img
-              src={photo.url}
+              src={photo.photo_url}
               alt="uploaded pic"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

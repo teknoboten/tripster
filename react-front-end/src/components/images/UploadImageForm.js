@@ -45,7 +45,7 @@ const UploadImageForm = ({trip_id}) => {
         {error && <div className={classes.error}>{error} </div>}
         {file && <div>{file.name}</div>}
         {file && <ProgressBar file={file} setFile={setFile} setStoredUrl={setStoredUrl} />}
-        <p>{storedUrl} {trip_id}</p>
+        {/* <p>{storedUrl} {trip_id}</p> */}
       </div>
     </form>
   );
