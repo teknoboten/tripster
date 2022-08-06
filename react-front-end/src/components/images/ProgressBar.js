@@ -8,9 +8,11 @@ const ProgressBar = ({ file, setFile, setStoredUrl }) => {
   const { url, progress } = useStorage(file);
 
   const params = useParams();
-  const trip_id = params.trip_id;
+  const trip_id = params.tripId;
 
   async function updateDb(url, trip_id) {
+
+    console.log(trip_id);
 
     const newImage = {
        photo_text: "some text about a picture",
@@ -21,7 +23,7 @@ const ProgressBar = ({ file, setFile, setStoredUrl }) => {
        trip_id: trip_id  
      };
  
-    const response = await fetch("/api/photos/new", {
+    const response = await fetch("/api/photos", {
      method: "POST",
      body: JSON.stringify(newImage),
      headers: { "Content-Type": "application/json" }
