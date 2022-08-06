@@ -5,24 +5,14 @@ import axios from "axios";
 
 import NewImageButton from "../components/ui/NewImageButton";
 import ImageGrid from "../components/images/ImageGrid";
-import { motion } from "framer-motion";
 import classes from "../components/images/ImageGrid.module.css";
 import UploadImageForm from "../components/images/UploadImageForm";
-import ImageModal from "../components/images/ImageModal";
-import PhotoDetail from "../components/images/PhotoDetail";
-// import PhotoDetail from "../components/images/photoDetail";
-
+import Modal from "../components/images/Modal";
+import Map from "../components/maps/Map";
 
 function TripDetailPage(props) {
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
-  const [openModal, setOpenModal] = useState(false);
-
-  const handleOnImageClick = (photo) => {
-    setSelectedImg(photo);
-    setOpenModal(true);
-  };
-
 
   const params = useParams();
 
@@ -36,23 +26,22 @@ function TripDetailPage(props) {
   if (trip === undefined) {
     return <></>;
   }
+
+  // console.log(trip.photos);
+
   return (
     <section>
-      <h1>{trip.trip_name}</h1>
-      <h2>{trip.trip_description}</h2>
-      <p>imagine a cool map here</p>
+      {/* <h1>{trip.trip_name}</h1>
+      <b>{trip.trip_description}</b> */}
+
+      <Map />
 
       <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
 
-      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
+      <ImageGrid photos={trip.photos} />
 
       {selectedImg && (
-        <ImageModal selectedImg={selectedImg} onClose={() => {
-          setSelectedImg(null);
-          setOpenModal(false);
-        }} open={openModal}>
-
-        </ImageModal>
+        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
     </section>
   );
