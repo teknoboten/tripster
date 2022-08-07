@@ -70,11 +70,29 @@ App.get("/api/users/:id", (req, res) => {
 App.get("/api/trips", (req, res) => {
   try {
     pool.connect(async (error, client, release) => {
-      let resp = await client.query(`
+      const result = await client.query(`
         SELECT *
         FROM trips
+        JOIN photos
+        ON photos.id = (
+        SELECT id
+                  FROM photos
+                  WHERE trip_id = trips.id
+                  LIMIT 1
+              );
       `);
-      res.send(resp.rows);
+
+      // // select the first photo from all the trips //
+      // select * from photos where trip_id=1 limit 1;
+      // const coverPhoto = await client.query(`
+      //   SELECT *
+      //   FROM photos
+      // `);
+
+      const tripInfo = result.rows;
+
+      // console.log('tripInfo', tripInfo);
+      res.json({ tripInfo });
     });
   } catch (error) {
     console.log(error);
@@ -152,7 +170,7 @@ App.get("/api/trips/:id", (req, res) => {
       `,
         [req.params.id]
       );
-      
+
       const trip = resp.rows[0];
       const photos = photoResponse.rows;
       // console.log("trip:", trip);
@@ -176,7 +194,7 @@ App.get("/api/photos/new", (req, res) => {
 // create new photos in db
 App.post("/api/photos", (req, res) => {
   // res.send("create new photos in db");
-  console.log(req.body);  
+  console.log(req.body);
 
   try {
     pool.connect(async (error, client, release) => {
@@ -191,10 +209,10 @@ App.post("/api/photos", (req, res) => {
         ($1, $2, $3, $4, $5, $6)
         RETURNING *;
         `, queryParams);
-        console.log("response:", resp.rows[0]);
-        res.json(resp.rows[0]);
-      });
-    } catch (error) {
+      console.log("response:", resp.rows[0]);
+      res.json(resp.rows[0]);
+    });
+  } catch (error) {
     console.log(error);
   }
 });
