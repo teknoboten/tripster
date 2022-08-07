@@ -4,12 +4,12 @@ const BodyParser = require("body-parser");
 const PORT = 8080;
 
 const cors = require("cors");
-const pool = require("./database");
+const db = require("./database");
 
 // morgan is a logger
 const morgan = require("morgan");
 App.use(morgan("dev"));
-
+db.connect();
 App.use(cors());
 // App.use(Express.json()); //req.body
 
@@ -25,52 +25,34 @@ App.listen(PORT, () => {
   );
 });
 
-// Sample GET route
-// App.get('/api/data', (req, res) => res.json({
-//   message: "Seems to work!",
-// }));
-
 // Homepage
 App.get("/", (req, res) => {
   res.send(`
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
-    <p>You are on the <br />HOMEPAGE </p>
-  </body>
-  </html>
+ hello
   `);
 });
 
-// ----- USERS ----- //
-// Landing page for logged-in users
-// Show all of a user's trips
-App.get("/api/users/:id", (req, res) => {
-  try {
-    pool.connect(async (error, client, release) => {
-      let resp = await client.query(`
-        SELECT trip_name
-        FROM trips
-      `);
-      res.send(resp.rows);
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+// get all trips
+// App.get("/api/trips", async (req, res) => {
+//   try {
+//     const result = await db.query(`
+//         SELECT *
+//         FROM trips
+//       `);
+//     const allTrips = result.rows;
+
+//     res.json({ allTrips });
+//   } catch (error) {
+//     console.log(error);
+//     res.send({ error: error });
+//   }
+// });
 
 // ----- TRIPS ----- //
 
-App.get("/api/trips", (req, res) => {
+App.get("/api/trips", async (req, res) => {
   try {
-    pool.connect(async (error, client, release) => {
-      const result = await client.query(`
+    const result = await db.query(`
         SELECT *
         FROM trips
         JOIN photos
@@ -81,47 +63,13 @@ App.get("/api/trips", (req, res) => {
                   LIMIT 1
               );
       `);
+    const tripInfo = result.rows;
 
-      // // select the first photo from all the trips //
-      // select * from photos where trip_id=1 limit 1;
-      // const coverPhoto = await client.query(`
-      //   SELECT *
-      //   FROM photos
-      // `);
-
-      const tripInfo = result.rows;
-
-      // console.log('tripInfo', tripInfo);
-      res.json({ tripInfo });
-    });
+    res.json({ tripInfo });
   } catch (error) {
-    console.log(error);
     res.send({ error: error });
   }
 });
-
-// form to create a new trip
-// App.get("/api/trips/new", (req, res) => {
-//   res.send(`
-//   <!DOCTYPE html>
-//   <html lang="en">
-//   <head>
-//     <meta charset="UTF-8">
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-//   </head>
-//   <body>
-//     <p>Form to create a new trip</p>
-//     <form action="/api/trips/new" method="POST">
-//       <label for="tripName">Trip Name:</label>
-//       <input type="text" name="tripName" id="tripName">
-//       <input type="submit" value="SUBMIT">
-//     </form>
-//   </body>
-//   </html>
-//   `);
-// });
 
 // create a new trip in the db
 App.post("/api/trips/new", (req, res) => {
@@ -198,7 +146,6 @@ App.post("/api/photos", (req, res) => {
 
   try {
     pool.connect(async (error, client, release) => {
-
       const queryParams = Object.values(req.body);
 
       let resp = await client.query(
@@ -208,7 +155,9 @@ App.post("/api/photos", (req, res) => {
         VALUES
         ($1, $2, $3, $4, $5, $6)
         RETURNING *;
-        `, queryParams);
+        `,
+        queryParams
+      );
       console.log("response:", resp.rows[0]);
       res.json(resp.rows[0]);
     });
@@ -216,7 +165,6 @@ App.post("/api/photos", (req, res) => {
     console.log(error);
   }
 });
-
 
 // show page of an individual photo with zoomed in map and description
 App.get("/api/photos/:id", (req, res) => {
