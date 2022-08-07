@@ -55,7 +55,7 @@ App.get("/api/trips", async (req, res) => {
     const result = await db.query(`
         SELECT *
         FROM trips
-        JOIN photos
+        LEFT JOIN photos
         ON photos.id = (
         SELECT id
                   FROM photos
