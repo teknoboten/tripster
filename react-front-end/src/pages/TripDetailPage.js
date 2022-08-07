@@ -10,12 +10,11 @@ import UploadImageForm from "../components/images/UploadImageForm";
 import Modal from "../components/images/Modal";
 
 function TripDetailPage(props) {
-
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
 
   const params = useParams();
-  
+
   useEffect(() => {
     //request image  from api
     axios.get(`/api/trips/${params.tripId}`).then((result) => {
@@ -32,18 +31,15 @@ function TripDetailPage(props) {
       <h2>{trip.trip_description}</h2>
       <p>imagine a cool map here</p>
 
-      <UploadImageForm trip_id={trip.id}/>
+      <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
 
       <ImageGrid photos={trip.photos} />
-      
-      { selectedImg && (
+
+      {selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
-
     </section>
   );
 }
 
 export default TripDetailPage;
-
-
