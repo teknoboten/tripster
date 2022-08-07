@@ -9,7 +9,6 @@ import { useHistory } from "react-router-dom";
 function NewTripForm() {
   // const tripNameInputRef = useRef();
   const [tripName, setTripName] = useState("");
-  const [coverImage, setCoverImage] = useState("");
   const [description, setDescription] = useState("");
   const history = useHistory();
 
@@ -22,7 +21,6 @@ function NewTripForm() {
 
     const tripData = {
       tripName: tripName,
-      coverImage: coverImage,
       description: description,
     };
 
@@ -53,15 +51,6 @@ function NewTripForm() {
             id="tripName"
             value={tripName}
             onChange={(e) => setTripName(e.target.value)}
-          />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="coverImage">Cover Image</label>
-          <input
-            type="url"
-            id="coverImage"
-            value={coverImage}
-            onChange={(e) => setCoverImage(e.target.value)}
           />
         </div>
         <div className={classes.control}>
