@@ -53,7 +53,7 @@ App.get("/", (req, res) => {
 App.get("/api/trips", async (req, res) => {
   try {
     const result = await db.query(`
-        SELECT *
+        SELECT *, trips.id AS id
         FROM trips
         LEFT JOIN photos
         ON photos.id = (
@@ -64,7 +64,7 @@ App.get("/api/trips", async (req, res) => {
               );
       `);
     const tripInfo = result.rows;
-
+    console.log("TRIP INFO", tripInfo);
     res.json({ tripInfo });
   } catch (error) {
     res.send({ error: error });
@@ -74,13 +74,16 @@ App.get("/api/trips", async (req, res) => {
 // create a new trip in the db
 App.post("/api/trips/new", async (req, res) => {
   try {
+    console.log(req.body);
     const result = await db.query(
       `
-        INSERT INTO trips (trip_name)
-        VALUES($1) 
-        RETURNING id;
+        INSERT INTO trips 
+        (trip_name, trip_description)
+        VALUES
+        ($1, $2) 
+        RETURNING *;
       `,
-      [req.body.tripName]
+      [req.body.tripName, req.body.description]
     );
     console.log(result.rows[0]);
     res.json(result.rows[0]);
