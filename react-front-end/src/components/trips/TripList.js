@@ -10,7 +10,8 @@ function TripList() {
     fetch("/api/trips").then(async (res) => {
       const jsonResponse = await res.json();
       console.log(jsonResponse);
-      setTrips(jsonResponse);
+      // console.log('First item in response array', jsonResponse[0]);
+      setTrips(jsonResponse.tripInfo);
     });
   }, []);
 
@@ -20,7 +21,8 @@ function TripList() {
         <TripItem
           key={trip.id}
           id={trip.id}
-          coverImage={trip.coverImage}
+          // coverImage={trip.coverImage}
+          coverImage={trip.photo_url}
           tripName={trip.trip_name}
           description={trip.trip_description}
         />
