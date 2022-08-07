@@ -136,7 +136,7 @@ App.post("/api/photos", async (req, res) => {
         ($1, $2, $3, $4, $5, $6)
         RETURNING *;
         `,
-      [queryParams]
+      queryParams
     );
     console.log(result.rows);
     res.json(result.rows[0]);
