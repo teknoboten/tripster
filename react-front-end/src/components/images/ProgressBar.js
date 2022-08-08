@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import useStorage from "../../hooks/useStorage";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import classes from "./ImageGrid.module.css";
+import classes from "./ProgressBar.module.css";
 import axios from "axios";
 
 const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
   const { url, progress } = useStorage(file);
+  console.log(progress);
 
   const params = useParams();
   const trip_id = params.tripId;
