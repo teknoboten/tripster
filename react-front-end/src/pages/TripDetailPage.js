@@ -33,7 +33,7 @@ function TripDetailPage(props) {
 
       <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
 
-      <ImageGrid photos={trip.photos} />
+      <ImageGrid photos={trip.photos} setSelectedImg={setSelectedImg} />
 
       {selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
