@@ -4,7 +4,7 @@ import classes from "./Modal.module.css";
 
 const Modal = ({ selectedImg, setSelectedImg }) => {
   const handleClick = (e) => {
-    if (e.target.classList.contains("backdrop")) {
+    if (e.target.classList.contains("Modal_backdrop__las1L")) {
       setSelectedImg(null);
     }
   };
