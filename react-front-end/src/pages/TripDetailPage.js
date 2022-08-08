@@ -5,9 +5,13 @@ import axios from "axios";
 
 import NewImageButton from "../components/ui/NewImageButton";
 import ImageGrid from "../components/images/ImageGrid";
+import { motion } from "framer-motion";
 import classes from "../components/images/ImageGrid.module.css";
 import UploadImageForm from "../components/images/UploadImageForm";
 import Modal from "../components/images/Modal";
+import PhotoDetail from "../components/images/PhotoDetail";
+// import PhotoDetail from "../components/images/photoDetail";
+
 
 function TripDetailPage(props) {
   const [trip, setTrip] = useState();
@@ -36,7 +40,9 @@ function TripDetailPage(props) {
       <ImageGrid photos={trip.photos} setSelectedImg={setSelectedImg} />
 
       {selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+        <Modal onCloseModal={() => setSelectedImg(null)}>
+          <PhotoDetail selectedImg={selectedImg} />
+        </Modal>
       )}
     </section>
   );
