@@ -52,9 +52,6 @@ function TripDetailPage(props) {
           setOpenModal(false);
         }} open={openModal}>
 
-
-          {/* {selectedImg} */}
-
         </ImageModal>
       )}
     </section>

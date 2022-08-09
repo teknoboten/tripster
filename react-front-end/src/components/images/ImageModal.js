@@ -18,9 +18,11 @@ function ImageModal({ onClose, open, children, selectedImg }) {
       center
     >
       <PhotoDetail selectedImg={selectedImg} />
-      {/* map
-      trip_description
-      form */}
+      <p>• Example of an existing blog post</p>
+      <p>• Another blog post / note</p>
+      <p>• An input field where you can write another blog post</p>
+      <p>• A Post Button</p>
+
 
     </Modal>
   );
