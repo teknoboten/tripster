@@ -3,7 +3,8 @@ import useFirestore from "../../hooks/useFirestore";
 import classes from "./ImageGrid.module.css";
 import { motion } from "framer-motion";
 
-const ImageGrid = ({ setSelectedImg, photos }) => {
+
+const ImageGrid = ({ onImageClick, photos }) => {
   return (
     <div className={classes.imggrid}>
       {photos &&
@@ -13,7 +14,9 @@ const ImageGrid = ({ setSelectedImg, photos }) => {
             key={photo.id}
             layout
             whileHover={{ opacity: 1 }}
-            onClick={() => setSelectedImg(photo.photo_url)}
+            onClick={() => {
+              onImageClick(photo.photo_url);
+            }}
           >
             <motion.img
               src={photo.photo_url}
