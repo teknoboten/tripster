@@ -3,8 +3,9 @@ import classes from "./ImageModal.module.css";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import { useState } from 'react';
+import PhotoDetail from "./PhotoDetail";
 
-function ImageModal({ onClose, open, children }) {
+function ImageModal({ onClose, open, children, selectedImg }) {
 
 
   return (
@@ -13,12 +14,13 @@ function ImageModal({ onClose, open, children }) {
       onClose={onClose}
       center
     >
-      <div>
-        {children}
-        <p>This is a modal</p>
-      </div>
+      <PhotoDetail selectedImg={selectedImg} />
+      {/* map
+      trip_description
+      form */}
+
     </Modal>
   );
 }
 
-export default Modal;
+export default ImageModal;

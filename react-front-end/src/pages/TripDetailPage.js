@@ -47,11 +47,11 @@ function TripDetailPage(props) {
       <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
       {selectedImg && (
-        <ImageModal onClose={() => {
+        <ImageModal selectedImg={selectedImg} onClose={() => {
           setSelectedImg(null);
           setOpenModal(false);
         }} open={openModal}>
-          <PhotoDetail selectedImg={selectedImg} />
+
 
           {/* {selectedImg} */}
 
