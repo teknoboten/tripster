@@ -3,8 +3,7 @@ import classes from '../components/images/ImageGrid.module.css';
 import { useParams } from "react-router-dom";
 
 import UploadImageForm from '../components/images/UploadImageForm';
-// import ImageGrid from '../components/images/ImageGrid';
-import Modal from '../components/images/Modal';
+import ImageModal from '../components/images/ImageModal';
 
 
 function NewImagePage(props) {
@@ -18,9 +17,9 @@ function NewImagePage(props) {
     <h1>Add New Image</h1>
 
     <div className={classes.App}>
-      <UploadImageForm trip_id={trip_id}/>
-      { selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+      <UploadImageForm trip_id={trip_id} />
+      {selectedImg && (
+        <ImageModal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
     </div>
   </section>;
