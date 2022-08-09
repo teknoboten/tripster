@@ -13,12 +13,11 @@ import Form from 'react-bootstrap/Form';
 import classes from "./ImageModal.module.css";
 import "./ImageModal.css";
 
-import classes from "./ImageModal.module.css";
-import "./ImageModal.css";
+
 
 function ImageModal({ onClose, open, children, selectedImg }) {
 
-  
+
 
 
 
