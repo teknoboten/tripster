@@ -18,8 +18,8 @@ function TripDetailPage(props) {
   const [selectedImg, setSelectedImg] = useState(null);
   const [openModal, setOpenModal] = useState(false);
 
-  const handleOnImageClick = (photoUrl) => {
-    setSelectedImg(photoUrl);
+  const handleOnImageClick = (photo) => {
+    setSelectedImg(photo);
     setOpenModal(true);
   };
 
