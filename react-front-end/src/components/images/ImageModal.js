@@ -15,13 +15,6 @@ import "./ImageModal.css";
 
 function ImageModal({ onClose, open, children, selectedImg }) {
 
-  useEffect(() => {
-    //request image  from api
-    axios.get(`/api/trips/${params.tripId}`).then((result) => {
-      setTrip(result.data);
-    });
-  }, [params.tripId]);
-
 
 
   return (
@@ -30,8 +23,9 @@ function ImageModal({ onClose, open, children, selectedImg }) {
       onClose={onClose}
       center
     >
-      <PhotoDetail selectedImg={selectedImg} />
+      <PhotoDetail selectedImg={selectedImg.photo_url} />
       <div className={classes.sidebar}>
+        <p>{selectedImg.photo_text}</p>
 
 
 

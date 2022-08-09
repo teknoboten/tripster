@@ -15,7 +15,7 @@ const ImageGrid = ({ onImageClick, photos }) => {
             layout
             whileHover={{ opacity: 1 }}
             onClick={() => {
-              onImageClick(photo.photo_url);
+              onImageClick(photo);
             }}
           >
             <motion.img
