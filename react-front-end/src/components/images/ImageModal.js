@@ -13,7 +13,12 @@ import Form from 'react-bootstrap/Form';
 import classes from "./ImageModal.module.css";
 import "./ImageModal.css";
 
+import classes from "./ImageModal.module.css";
+import "./ImageModal.css";
+
 function ImageModal({ onClose, open, children, selectedImg }) {
+
+  
 
 
 
@@ -23,9 +28,11 @@ function ImageModal({ onClose, open, children, selectedImg }) {
       onClose={onClose}
       center
     >
+
       <PhotoDetail selectedImg={selectedImg.photo_url} />
       <div className={classes.sidebar}>
         <p>{selectedImg.photo_text}</p>
+
 
 
 
