@@ -15,6 +15,13 @@ import "./ImageModal.css";
 
 function ImageModal({ onClose, open, children, selectedImg }) {
 
+  useEffect(() => {
+    //request image  from api
+    axios.get(`/api/trips/${params.tripId}`).then((result) => {
+      setTrip(result.data);
+    });
+  }, [params.tripId]);
+
 
 
   return (
@@ -29,7 +36,7 @@ function ImageModal({ onClose, open, children, selectedImg }) {
 
 
 
-        <p>A: Form shown if photo_text is currently empty. A textarea form is shown to allow the user to write a description</p>
+        {/* <p>A: Form shown if photo_text is currently empty. A textarea form is shown to allow the user to write a description</p>
         <Form>
           <Form.Group className="mb-3">
             <Form.Control as="textarea" rows={5} placeholder="Tell us about this photo" />
@@ -61,7 +68,7 @@ function ImageModal({ onClose, open, children, selectedImg }) {
           <Button variant="primary" type="submit" className="m-2">
             Done
           </Button>
-        </Form>
+        </Form> */}
       </div>
 
 
