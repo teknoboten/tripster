@@ -3,7 +3,9 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import { useState } from 'react';
 import PhotoDetail from "./PhotoDetail";
+
 import "./ImageModal.css";
+
 
 function ImageModal({ onClose, open, children, selectedImg }) {
 
