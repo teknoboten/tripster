@@ -4,14 +4,11 @@ import classes from "./PhotoDetail.module.css";
 
 const PhotoDetail = ({ selectedImg, setSelectedImg }) => {
   return (
-    <div
-      className={classes.photoDetail}
-    >
+    <div className={classes.photoDetail}>
       <img
         src={selectedImg}
         alt="enlarged pic"
       />
-
     </div>
   );
 };
