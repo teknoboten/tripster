@@ -26,7 +26,7 @@ const LocationInputField = ({ coordinates, setCoordinates }) => {
                   location.setValue(suggestion.place_name);
                   location.setSuggestions([]);
                   setCoordinates(suggestion.geometry.coordinates);
-                  // console.log("geometry:", suggestion.geometry);
+                  console.log("geometry:", suggestion.geometry);
                 }}
               >
                 {suggestion.place_name}

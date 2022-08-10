@@ -15,5 +15,5 @@ reseed the DB: \i update.sql
 
 
 # known issues
-- map compon
+- map component still needs to be updated to take data from db
 - you need to select 'where was this photo taken' before uploading a photo
