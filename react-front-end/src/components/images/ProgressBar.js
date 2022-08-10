@@ -19,16 +19,24 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
     console.log(trip_id);
 
     let latitude = 0;
-    console.log('Before');
+    let longitude = 0;
+
     await EXIF.getData(file, async function () {
       var exifData = EXIF.pretty(this);
       if (exifData) {
-        const a = EXIF.getTag(this, 'GPSLatitude');
-        const firstNum = a[0].valueOf();
-        const secondNum = a[1].valueOf();
-        const thirdNum = a[2].valueOf();
+        const rawLatData = EXIF.getTag(this, 'GPSLatitude');
+        const firstNum = rawLatData[0].valueOf();
+        const secondNum = rawLatData[1].valueOf();
+        const thirdNum = rawLatData[2].valueOf();
         latitude = firstNum + secondNum / 60 + thirdNum / 3600;
         console.log('Latitude in decimals:', latitude);
+
+        const rawLongData = EXIF.getTag(this, 'GPSLongitude');
+        const longFirstNum = rawLongData[0].valueOf();
+        const longSecondNum = rawLongData[1].valueOf();
+        const longThirdNum = rawLongData[2].valueOf();
+        longitude = longFirstNum + longSecondNum / 60 + longThirdNum / 3600;
+        console.log('Longitude in decimals:', longitude);
       } else {
         console.log("No EXIF data found in image '" + file.name + "'.");
       }
@@ -36,7 +44,7 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
         photo_text: "Hello world!",
         date: "2018-02-18T08:01:00.000Z",
         lat: latitude,
-        long: 43.8274546,
+        long: longitude,
         photo_url: url,
         trip_id: trip_id,
       };
@@ -54,7 +62,7 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
       console.log(trip.photos);
       console.log("response:", response);
     });
-    console.log('After');
+
   }
 
   useEffect(() => {
