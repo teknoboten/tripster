@@ -1,5 +1,4 @@
 import React from "react";
-import useFirestore from "../../hooks/useFirestore";
 import classes from "./ImageGrid.module.css";
 import { motion } from "framer-motion";
 

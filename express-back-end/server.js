@@ -125,22 +125,33 @@ App.get("/api/trips/:id", async (req, res) => {
 
 // create new photos in db
 App.post("/api/photos", async (req, res) => {
-  try {
-    const queryParams = Object.values(req.body);
 
+  console.log(req.body)
+
+  const queryParams = [ 
+    req.body.photo_text, 
+    req.body.date,
+    req.body.coordinates,
+    req.body.photo_url,
+    req.body.trip_id
+  ]
+
+  try {
+    // const queryParams = Object.values(req.body);
     const result = await db.query(
       `
         INSERT INTO photos
-        (photo_text, date, lat, long, photo_url, trip_id) 
+        (photo_text, date, coordinates, photo_url, trip_id) 
         VALUES
-        ($1, $2, $3, $4, $5, $6)
+        ($1, $2, $3, $4, $5)
         RETURNING *;
         `,
       queryParams
     );
-    console.log(result.rows);
+    console.log("result from db insert:", result.rows);
     res.json(result.rows[0]);
   } catch (error) {
+    console.log(error);
     res.send({ error: error });
   }
 });
@@ -151,3 +162,24 @@ App.get("/api/photos/:id", (req, res) => {
     "show page of an individual photo with zoomed in map and description"
   );
 });
+
+
+
+  // try {
+  //   const queryParams = Object.values(req.body);
+
+  //   const result = await db.query(
+  //     `
+  //       INSERT INTO photos
+  //       (photo_text, date, lat, long, photo_url, trip_id) 
+  //       VALUES
+  //       ($1, $2, $3, $4, $5, $6)
+  //       RETURNING *;
+  //       `,
+  //     queryParams
+  //   );
+  //   console.log(result.rows);
+  //   res.json(result.rows[0]);
+  // } catch (error) {
+  //   res.send({ error: error });
+  // }

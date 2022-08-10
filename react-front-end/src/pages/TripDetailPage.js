@@ -3,14 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import NewImageButton from "../components/ui/NewImageButton";
 import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
 import classes from "../components/images/ImageGrid.module.css";
 import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
 import PhotoDetail from "../components/images/PhotoDetail";
-// import PhotoDetail from "../components/images/photoDetail";
+import Map from "../components/maps/Map";
 
 
 function TripDetailPage(props) {
@@ -40,11 +39,11 @@ function TripDetailPage(props) {
     <section>
       <h1>{trip.trip_name}</h1>
       <h2>{trip.trip_description}</h2>
-      <p>imagine a cool map here</p>
+      <Map />
 
       <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
 
-      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
+      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick}/>
 
       {selectedImg && (
         <ImageModal selectedImg={selectedImg} onClose={() => {
