@@ -7,8 +7,12 @@ import classes from "./TripDetailPage.module.css";
 
 import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
+import classes from "../components/images/ImageGrid.module.css";
+import Button from 'react-bootstrap/Button';
 import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
+import NewImageModal from "../components/images/NewImageModal";
+import PhotoDetail from "../components/images/PhotoDetail";
 import Map from "../components/maps/Map";
 
 
@@ -16,19 +20,15 @@ function TripDetailPage(props) {
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-  const [selectedMarker, setSelectedMarker] = useState(null);
-
-
-
+  const [openNewModal, setOpenNewModal] = useState(false);
 
   const handleOnImageClick = (photo) => {
     setSelectedImg(photo);
     setOpenModal(true);
   };
 
-  const handleMarkerClick = (photo) => {
-    setSelectedMarker(photo)
-    setOpenModal(true);
+  const handleNewModalClick = () => {
+    setOpenNewModal(true);
   }
 
   const params = useParams();
@@ -43,31 +43,24 @@ function TripDetailPage(props) {
   if (trip === undefined) {
     return <></>;
   }
-
-  function updatePhotoText(photoId, photoText) {
-    // loop through trip.photos
-    return (
-      trip.photos.map((photo) => {
-        // find the one that matches the id
-        if (photo.id === photoId) {
-          // console.log('Photo Object', photo);
-          // update that objects photo text 
-          photo.photo_text = photoText;
-        }
-      }
-      ));
-  };
-
   return (
-    <section className={classes.tripPageContainer}>
-      <Map photos={trip.photos} />
+    <section>
+      <h1>{trip.trip_name}</h1>
+      <h2>{trip.trip_description}</h2>
+      <Map />
 
-      <div className={classes.tripHeader}>
-        <h1 className={classes.tripName}>{trip.trip_name}</h1>
-        <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
-      </div>
+      {/* <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} /> */}
+      <Button variant="primary" onClick={handleNewModalClick}>+</Button>
+        
+      {setOpenModal && (
+        <NewImageModal onClose={() => {
+          setOpenNewModal(null);
+        }} open={openNewModal}>
 
-      <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
+        </NewImageModal>
+      )}
+        
+
 
       <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
