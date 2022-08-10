@@ -39,11 +39,11 @@ function TripDetailPage(props) {
     <section>
       <h1>{trip.trip_name}</h1>
       <h2>{trip.trip_description}</h2>
-      <Map />
+      <Map photos={trip.photos} />
 
       <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
 
-      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick}/>
+      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
       {selectedImg && (
         <ImageModal selectedImg={selectedImg} onClose={() => {
