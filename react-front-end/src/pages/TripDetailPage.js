@@ -3,14 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import classes from "./TripDetailPage.module.css";
+
 import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
-import classes from "../components/images/ImageGrid.module.css";
 import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
-import PhotoDetail from "../components/images/PhotoDetail";
 import Map from "../components/maps/Map";
-
 
 function TripDetailPage(props) {
   const [trip, setTrip] = useState();
@@ -21,7 +20,6 @@ function TripDetailPage(props) {
     setSelectedImg(photo);
     setOpenModal(true);
   };
-
 
   const params = useParams();
 
@@ -36,22 +34,26 @@ function TripDetailPage(props) {
     return <></>;
   }
   return (
-    <section>
-      <h1>{trip.trip_name}</h1>
-      <h2>{trip.trip_description}</h2>
+    <section className={classes.tripPageContainer}>
+      <div className={classes.tripHeader}>
+        <h1 className={classes.tripName}>{trip.trip_name}</h1>
+        <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
+      </div>
       <Map />
 
       <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
 
-      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick}/>
+      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
       {selectedImg && (
-        <ImageModal selectedImg={selectedImg} onClose={() => {
-          setSelectedImg(null);
-          setOpenModal(false);
-        }} open={openModal}>
-
-        </ImageModal>
+        <ImageModal
+          selectedImg={selectedImg}
+          onClose={() => {
+            setSelectedImg(null);
+            setOpenModal(false);
+          }}
+          open={openModal}
+        ></ImageModal>
       )}
     </section>
   );
