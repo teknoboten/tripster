@@ -3,7 +3,7 @@ import React from "react";
 // import ReactDOM from 'react-dom';
 import Card from "../ui/Card";
 import classes from "./NewTripForm.module.css";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function NewTripForm() {

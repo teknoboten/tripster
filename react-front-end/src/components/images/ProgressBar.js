@@ -5,17 +5,14 @@ import { motion } from "framer-motion";
 import classes from "./ProgressBar.module.css";
 import axios from "axios";
 
-// EXIF to get image long and lat coordinates
-import EXIF from 'exif-js';
-
-const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
+const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip, coordinates }) => {
   const { url, progress } = useStorage(file);
   console.log(progress);
 
   const params = useParams();
   const trip_id = params.tripId;
 
-  async function updateDb(url, trip_id, file) {
+  async function updateDb(url, trip_id, file, coordinates) {
     console.log(trip_id);
 
     let latitude = 0;
@@ -48,7 +45,8 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
         photo_url: url,
         trip_id: trip_id,
       };
-      console.log('newImage:', newImage);
+
+      console.log("creating a new image in the db:", newImage);
 
       const response = await fetch("/api/photos", {
         method: "POST",
@@ -69,7 +67,7 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
     if (url) {
       setFile(null);
       setStoredUrl(url);
-      updateDb(url, trip_id, file);
+      updateDb(url, trip_id, coordinates, file);
     }
   }, [url, setFile]);
 

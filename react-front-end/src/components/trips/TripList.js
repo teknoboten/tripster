@@ -9,7 +9,6 @@ function TripList() {
   useEffect(() => {
     fetch("/api/trips").then(async (res) => {
       const jsonResponse = await res.json();
-      console.log(jsonResponse);
       // console.log('First item in response array', jsonResponse[0]);
       setTrips(jsonResponse.tripInfo);
     });
