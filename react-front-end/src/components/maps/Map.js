@@ -119,8 +119,10 @@ export default function Map({ photos }) {
     // trip.photos.map
     // fakeImageData.map((img) =>
     // console.log(props.);
-    photos.map((img) =>
-      new mapboxgl.Marker().setLngLat(img.coordinates).addTo(map)
+    photos.map((img) => {
+      console.log('img:', img);
+      new mapboxgl.Marker().setLngLat(img.coordinates).addTo(map);
+    }
     );
 
 
