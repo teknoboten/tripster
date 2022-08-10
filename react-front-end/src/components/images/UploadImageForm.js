@@ -5,17 +5,18 @@ import classes from "./UploadImageForm.module.css";
 import { useHistory } from "react-router-dom";
 import useInput from "../../hooks/useInput";
 
-// import LocationInputField from './LocationInputField';
+import LocationInputField from './LocationInputField';
+import SaySomethingInput from "./SaySomethingInput";
+import ImagePreview from "./ImagePreview";
 
 
-
-
-const UploadImageForm = ({ trip_id, trip, setTrip }) => {
+const UploadImageForm = ({ trip, setTrip }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  const [storedUrl, setStoredUrl] = useState("");
+  const [storedUrl, setStoredUrl] = useState("");  
   const [coordinates, setCoordinates] = useState(null);
-
+  const [photoText, setPhotoText] = useState("");
+ 
 
   const history = useHistory();
   const location = useInput("");
@@ -28,7 +29,7 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
     if (storedUrl !== "") {
       //save storedURL to the db
       // .then()
-      history.push(`/trips/${trip_id}`);
+      history.push(`/trips/${trip.id}`);
     }
   }, [storedUrl]);
 
@@ -49,17 +50,23 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
     <form className={classes.form}>
       <label className={classes.imageLabel}>
         <input type="file" onChange={changedImgHandler} />
-        <span>+</span>
+        <span>Select an image to add</span>
       </label>
 
+      {file && (
+        <ImagePreview img={file.value}/>
+      )}
+
+      
       {/* <LocationInputField placeholder="Location"
         {...location}
         isTyping={location.value !== ""}
         coordinates={coordinates}
         setCoordinates={setCoordinates}
       /> */}
+      
 
-
+      <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}></SaySomethingInput>
 
       <div className={classes.output}>
         {error && <div className={classes.error}>{error} </div>}
@@ -76,8 +83,7 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
         )}
 
 
-
-        {/* <p>{storedUrl} {trip_id}</p> */}
+        
       </div>
     </form>
   );

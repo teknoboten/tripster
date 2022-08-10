@@ -20,7 +20,7 @@ function TripDetailPage(props) {
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-  const [openNewModal, setOpenNewModal] = useState(false);
+  const [openNewImageModal, setOpenNewImageModal] = useState(false);
 
   const handleOnImageClick = (photo) => {
     setSelectedImg(photo);
@@ -28,7 +28,7 @@ function TripDetailPage(props) {
   };
 
   const handleNewModalClick = () => {
-    setOpenNewModal(true);
+    setOpenNewImageModal(true);
   }
 
   const params = useParams();
@@ -53,9 +53,9 @@ function TripDetailPage(props) {
       <Button variant="primary" onClick={handleNewModalClick}>+</Button>
         
       {setOpenModal && (
-        <NewImageModal onClose={() => {
-          setOpenNewModal(null);
-        }} open={openNewModal}>
+        <NewImageModal trip={trip} setTrip={setTrip} onClose={() => {
+          setOpenNewImageModal(null);
+        }} open={openNewImageModal}>
 
         </NewImageModal>
       )}

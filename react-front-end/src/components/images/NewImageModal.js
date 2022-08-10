@@ -8,15 +8,16 @@ import PhotoDetail from "./PhotoDetail";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import classes from "./ImageModal.module.css";
+import classes from "./UploadImageForm.module.css";
 import "./ImageModal.css";
 
 import UploadImageForm from "./UploadImageForm";
 import ProgressBar from "./ProgressBar";
 import LocationInputField from "./LocationInputField";
+import ImagePreview from "./ImagePreview";
 
 
-function NewImageModal({ onClose, open }) {
+function NewImageModal({ onClose, open, trip, setTrip }) {
 
   return (
     <Modal
@@ -25,7 +26,9 @@ function NewImageModal({ onClose, open }) {
       center
     >
 
-    <UploadImageForm />
+  
+
+    <UploadImageForm trip={trip} setTrip={setTrip} />
 
       {/* <PhotoDetail selectedImg={selectedImg.photo_url} />
       <div className={classes.sidebar}>

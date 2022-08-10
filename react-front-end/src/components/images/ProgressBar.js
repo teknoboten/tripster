@@ -10,7 +10,6 @@ import EXIF from 'exif-js';
 
 const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
   const { url, progress } = useStorage(file);
-  console.log(progress);
 
   const params = useParams();
   const trip_id = params.tripId;
@@ -95,11 +94,15 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
   }, [url, setFile]);
 
   return (
+    <>
     <motion.div
       className={classes.progressbar}
       initial={{ width: 0 }}
       animate={{ width: progress + "%" }}
     ></motion.div>
+
+    <div>{file}</div>
+    </>
   );
 };
 
