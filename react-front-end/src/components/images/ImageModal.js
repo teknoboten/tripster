@@ -2,6 +2,7 @@ import React from "react";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import PhotoDetail from "./PhotoDetail";
 
 // React Bootstrap
@@ -17,32 +18,54 @@ import "./ImageModal.css";
 
 function ImageModal({ onClose, open, children, selectedImg }) {
 
+  const [photoText, setPhotoText] = useState(selectedImg.photoText);
 
 
+  async function submitHandler(event) {
+    event.preventDefault();
+    alert(`You edited the existing photo_text with: ${photoText}`);
 
+    const photoSendData = {
+      photo_text: photoText
+    };
 
+    const response = await fetch("/api/photo/edit", {
+      method: "PUT",
+      body: JSON.stringify(photoSendData),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const photoRecieveData = (await response.json()).photo_text;
+
+    // history.push(`/trips/1`);
+
+  }
+
+  // console.log('selectedImg:', selectedImg);
   return (
     <Modal
       open={open}
       onClose={onClose}
       center
     >
-
       <PhotoDetail selectedImg={selectedImg.photo_url} />
       <div className={classes.sidebar}>
         <p>{selectedImg.photo_text}</p>
 
-
-
-
-
-        {/* <p>A: Form shown if photo_text is currently empty. A textarea form is shown to allow the user to write a description</p>
-        <Form>
+        <p>A: Form shown if photo_text is currently empty. A textarea form is shown to allow the user to write a description</p>
+        <Form onSubmit={submitHandler} >
           <Form.Group className="mb-3">
-            <Form.Control as="textarea" rows={5} placeholder="Tell us about this photo" />
+            <Form.Control
+              as="textarea"
+              rows={5}
+              placeholder="Tell us about this photo"
+              id="photoText"
+              value={photoText}
+              onChange={(e) => setPhotoText(e.target.value)}
+            />
           </Form.Group>
           <Button variant="warning" type="submit" className="m-2">
-            Post
+            Edit
           </Button>
         </Form>
 
@@ -68,7 +91,7 @@ function ImageModal({ onClose, open, children, selectedImg }) {
           <Button variant="primary" type="submit" className="m-2">
             Done
           </Button>
-        </Form> */}
+        </Form>
       </div>
 
 
