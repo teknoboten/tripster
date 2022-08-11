@@ -38,8 +38,10 @@ const ProgressBar = ({ file, setFile }) => {
 
   useEffect(() => {
     if (url) {
+      console.log("url:", url)
       setFile(null);
       // setStoredUrl(url);
+      setPreview();
       // updateDb(url, trip_id, coordinates);
     }
   }, [url, setFile]);

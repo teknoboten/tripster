@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
+import useStorage from "../../hooks/useStorage";
 // import { useState } from 'react';
 import PhotoDetail from "./PhotoDetail";
 
@@ -15,9 +16,26 @@ import UploadImageForm from "./UploadImageForm";
 import ProgressBar from "./ProgressBar";
 import LocationInputField from "./LocationInputField";
 import ImagePreview from "./ImagePreview";
+import SaySomethingInput from "./SaySomethingInput";
+
 
 
 function NewImageModal({ onClose, open, trip, setTrip }) {
+
+const imageTemplate = {
+  photo_text: "",
+  date: "",
+  photo_url: "",
+  trip_id: trip.id,
+  coordinates: []
+};
+
+
+  const [photoText, setPhotoText] = useState("");
+  const [preview, setPreview] = useState(imageTemplate);
+  
+  console.log("photo url:", preview.photo_url);
+
 
   return (
     <Modal
@@ -26,8 +44,17 @@ function NewImageModal({ onClose, open, trip, setTrip }) {
       center
     >
 
-  
-    <UploadImageForm trip={trip} setTrip={setTrip} />
+    {!preview.photo_url && (
+      <UploadImageForm trip={trip} setTrip={setTrip} preview={preview} setPreview={setPreview}/>
+    )}
+    
+    {/* {file && (
+      <ImagePreview img={file} />
+    )}
+    {file && (
+      <SaySomethingInput />
+    )} */}
+    
 
       {/* <PhotoDetail selectedImg={selectedImg.photo_url} />
       <div className={classes.sidebar}>

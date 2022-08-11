@@ -1,11 +1,17 @@
 import React from "react";
+import useStorage from "../../hooks/useStorage";
+
+const ImagePreview = ({ img }) => {
+  const { url } = useStorage(file);
+
+  console.log(img); 
 
 
-const ImagePreview = (props) => {
+
 
   return (
     <div>
-      <img src={props.img} />
+      <img src={img} />
     </div>
 
 

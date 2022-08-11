@@ -12,12 +12,12 @@ import SaySomethingInput from "./SaySomethingInput";
 import ImagePreview from "./ImagePreview";
 
 
-const UploadImageForm = ({ trip, setTrip }) => {
+const UploadImageForm = ({ trip, setTrip, preview, setPreview }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [storedUrl, setStoredUrl] = useState("");  
   const [coordinates, setCoordinates] = useState(null);
-  const [photoText, setPhotoText] = useState("");
+  
 
   const history = useHistory();
   const location = useInput("");
@@ -73,7 +73,7 @@ const UploadImageForm = ({ trip, setTrip }) => {
     <form className={classes.form}>
       <label className={classes.imageLabel}>
         <input type="file" onChange={changedImgHandler} />
-        <span>Select an image to add</span>
+        <span>Choose File</span>
       </label>
 
       
@@ -84,18 +84,16 @@ const UploadImageForm = ({ trip, setTrip }) => {
         setCoordinates={setCoordinates}
       /> */}
       
-
-      <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}></SaySomethingInput>
-
       <div className={classes.output}>
         {error && <div className={classes.error}>{error} </div>}
         {file && <div>{file.name}</div>}
-        {file && <ProgressBar setStoredUrl={setStoredUrl} file={file} setFile={setFile} trip={trip} setTrip={setTrip}/>}
-
-
-        
+        {file && <ProgressBar setStoredUrl={setStoredUrl} file={file} setFile={setFile} trip={trip} setTrip={setTrip} preview={preview} setPreview={setPreview}/>}
       </div>
+
+      
     </form>
+
+    
   );
 };
 
