@@ -109,9 +109,8 @@ export default function Map({ photos }) {
     const map = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/dark-v10',
-      center: photos[0].coordinates,
-      // center: [ "9.67856000", "44.13700000" ],
-      zoom: 3
+      center: ["3.8772000", "43.6119000"],
+      zoom: 0
     });
 
 
