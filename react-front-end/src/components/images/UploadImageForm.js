@@ -5,15 +5,17 @@ import classes from "./UploadImageForm.module.css";
 import { useHistory } from "react-router-dom";
 import useInput from "../../hooks/useInput";
 
-import LocationInputField from './LocationInputField';
+// import LocationInputField from './LocationInputField';
+
+
 
 
 const UploadImageForm = ({ trip_id, trip, setTrip }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  const [storedUrl, setStoredUrl] = useState("");  
+  const [storedUrl, setStoredUrl] = useState("");
   const [coordinates, setCoordinates] = useState(null);
- 
+
 
   const history = useHistory();
   const location = useInput("");
@@ -33,6 +35,7 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
   const changedImgHandler = (e) => {
     let selected = e.target.files[0];
 
+    //------ Existing validation ------
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       setError("");
@@ -49,12 +52,12 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
         <span>+</span>
       </label>
 
-      <LocationInputField placeholder="Location"
+      {/* <LocationInputField placeholder="Location"
         {...location}
         isTyping={location.value !== ""}
         coordinates={coordinates}
         setCoordinates={setCoordinates}
-      />
+      /> */}
 
 
 
@@ -73,7 +76,7 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
         )}
 
 
-        
+
         {/* <p>{storedUrl} {trip_id}</p> */}
       </div>
     </form>

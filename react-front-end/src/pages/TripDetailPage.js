@@ -34,15 +34,21 @@ function TripDetailPage(props) {
     return <></>;
   }
   return (
+
     <section className={classes.tripPageContainer}>
-      <Map />
+     
+    
+      <Map photos={trip.photos} />
+
 
       <div className={classes.tripHeader}>
         <h1 className={classes.tripName}>{trip.trip_name}</h1>
         <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
       </div>
 
-      {/* <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} /> */}
+
+      <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
+
 
       <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
