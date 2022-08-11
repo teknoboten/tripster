@@ -126,6 +126,8 @@ export default function Map({ photos }) {
       // zoom level 0 = entire earth
       // zoom level 15 = buildings
 
+      // ..
+
     });
 
 
