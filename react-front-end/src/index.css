@@ -25,11 +25,11 @@ code {
 
 .map-container {
   /* position: fixed;  */
-  height: 400px;
-  margin: 0; 
+  height: 500px;
+  margin: auto; 
   top: 0; 
   bottom: 0; 
-  width: 100%; 
+  width: 70%; 
   border: 2px solid black;
   }
 
