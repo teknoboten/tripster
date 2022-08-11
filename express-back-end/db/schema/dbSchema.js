@@ -25,7 +25,7 @@ CREATE TABLE photos (
   date TIMESTAMP,
   coordinates DECIMAL (11,8)[],
   lat DECIMAL (10,8),
-  long DECIMAL(11,8),
+  long DECIMAL (11,8),
   photo_url VARCHAR(255) NOT NULL,
   trip_id INTEGER REFERENCES trips(id) ON DELETE CASCADE
 );`;

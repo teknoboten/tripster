@@ -24,18 +24,38 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
     await EXIF.getData(file, async function () {
       var exifData = EXIF.pretty(this);
       if (exifData) {
+        // All EXIF Data
+        console.log('All EXIF Data:', exifData);
+
+        // Long and Lat Reference Values (N, S, E, W)
+        // These determine whether the long and lat values will be negative or positive
+        const refLong = EXIF.getTag(this, 'GPSLongitudeRef');
+        const refLat = EXIF.getTag(this, 'GPSLatitudeRef');
+        console.log('Long Ref', refLong);
+        console.log('Lat Ref', refLat);
+
         const rawLatData = EXIF.getTag(this, 'GPSLatitude');
         const firstNum = rawLatData[0].valueOf();
         const secondNum = rawLatData[1].valueOf();
         const thirdNum = rawLatData[2].valueOf();
-        latitude = firstNum + secondNum / 60 + thirdNum / 3600;
+        // If latitude reference is South then the latitude value should be negative
+        if (refLong === "S") {
+          latitude = -1 * firstNum + secondNum / 60 + thirdNum / 3600;
+        } else {
+          latitude = firstNum + secondNum / 60 + thirdNum / 3600;
+        }
         console.log('Latitude in decimals:', latitude);
 
         const rawLongData = EXIF.getTag(this, 'GPSLongitude');
         const longFirstNum = rawLongData[0].valueOf();
         const longSecondNum = rawLongData[1].valueOf();
         const longThirdNum = rawLongData[2].valueOf();
-        longitude = longFirstNum + longSecondNum / 60 + longThirdNum / 3600;
+        // If longitude reference is West then the longitude value should be negative
+        if (refLong === "W") {
+          longitude = -1 * longFirstNum + longSecondNum / 60 + longThirdNum / 3600;
+        } else {
+          longitude = longFirstNum + longSecondNum / 60 + longThirdNum / 3600;
+        }
         console.log('Longitude in decimals:', longitude);
       } else {
         console.log("No EXIF data found in image '" + file.name + "'.");
