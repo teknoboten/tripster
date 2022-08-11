@@ -16,6 +16,7 @@ function TripDetailPage(props) {
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+  const [selectedMarker, setSelectedMarker] = useState(null);
 
 
 
@@ -24,6 +25,11 @@ function TripDetailPage(props) {
     setSelectedImg(photo);
     setOpenModal(true);
   };
+
+  const handleMarkerClick = (photo) => {
+    setSelectedMarker(photo)
+    setOpenModal(true);
+  }
 
   const params = useParams();
 
