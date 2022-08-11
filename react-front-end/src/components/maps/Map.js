@@ -109,8 +109,23 @@ export default function Map({ photos }) {
     const map = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/dark-v10',
-      center: ["3.8772000", "43.6119000"],
-      zoom: 0
+
+      // center: photos[0].coordinates,
+      // center: ["9.67856000", "44.13700000"],
+
+      // If NO photos are in the trip then center the map to the entire world, zoomed OUT
+      ...(photos.length === 0 && { center: ["9.67856000", "44.13700000"] }),
+      ...(photos.length === 0 && { zoom: 0 }),
+
+      // If photos ARE in the trip then center the map to the first photo in the trip, zoomed IN
+      ...(photos.length > 0 && { center: photos[0].coordinates }),
+      ...(photos.length > 0 && { zoom: 6 }),
+
+      //------- NOTE ON ZOOM LEVELS -------
+      // https://docs.mapbox.com/help/glossary/zoom-level/
+      // zoom level 0 = entire earth
+      // zoom level 15 = buildings
+
     });
 
 
@@ -133,7 +148,7 @@ export default function Map({ photos }) {
 
     // Clean up on unmount
     return () => map.remove();
-  }, []);
+  }, [photos]);
 
   return (
     <div>
