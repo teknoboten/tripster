@@ -20,84 +20,6 @@ export default function Map({ photos }) {
   //       "44.13700000"
   //     ]
   //   },
-  //   {
-  //     "id": 2,
-  //     "photo_text": "Wow",
-  //     "date": "2018-02-14T16:01:00.000Z",
-  //     "lat": "11.27934970",
-  //     "long": "43.82745460",
-  //     "photo_url": "https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_0503.JPG?alt=media&token=bba8f2b2-719e-4857-ad5d-58a3a2d496f8",
-  //     "trip_id": 1,
-  //     "coordinates": [
-  //       "11.27934970",
-  //       "43.82745460"
-  //     ]
-  //   },
-  //   {
-  //     "id": 3,
-  //     "photo_text": "will i ever get tired of pizza?",
-  //     "date": "2018-02-18T16:01:00.000Z",
-  //     "lat": "11.27934970",
-  //     "long": "43.82745460",
-  //     "photo_url": "https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/big-dodzy-uROkgCZO1H0-unsplash.jpg?alt=media&token=87def45d-006a-42d8-9591-527ab38dff12",
-  //     "trip_id": 1,
-  //     "coordinates": [
-  //       "13.3273018",
-  //       "43.4898676"
-  //     ]
-  //   },
-  //   {
-  //     "id": 7,
-  //     "photo_text": "some text about a picture",
-  //     "date": "2018-02-18T16:01:00.000Z",
-  //     "lat": "11.27934970",
-  //     "long": "43.82745460",
-  //     "photo_url": "https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/3156_113995240096_4579100_n.jpg?alt=media&token=1e07b4bd-bbdf-4480-8bcf-5d2bff7876d7",
-  //     "trip_id": 1,
-  //     "coordinates": [
-  //       "12.27934970",
-  //       "43.62745460"
-  //     ]
-  //   },
-  //   {
-  //     "id": 8,
-  //     "photo_text": "some text about a picture",
-  //     "date": "2018-02-18T16:01:00.000Z",
-  //     "lat": "11.27934970",
-  //     "long": "43.82745460",
-  //     "photo_url": "https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/la-so-vk4vjTNVrTg-unsplash.jpg?alt=media&token=c16309cf-e0f2-4c26-be0e-47522c388b09",
-  //     "trip_id": 1,
-  //     "coordinates": [
-  //       "10.27934970",
-  //       "43.12745460"
-  //     ]
-  //   },
-  //   {
-  //     "id": 11,
-  //     "photo_text": "some text about a picture",
-  //     "date": "2018-02-18T16:01:00.000Z",
-  //     "lat": "11.27934970",
-  //     "long": "43.82745460",
-  //     "photo_url": "https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/samuel-ferrara-uNvgvo2cs7k-unsplash.jpg?alt=media&token=8b8396f5-c6c7-4985-83bc-3cc66b930938",
-  //     "trip_id": 1,
-  //     "coordinates": [
-  //       "12.27934970",
-  //       "42.82745460"
-  //     ]
-  //   },
-  //   {
-  //     "id": 12,
-  //     "photo_text": "some text about a picture",
-  //     "date": "2018-02-18T16:01:00.000Z",
-  //     "lat": "11.27934970",
-  //     "long": "43.82745460",
-  //     "photo_url": "https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/moon-rainbow-sky-art-cred-Favim.com-3154717.jpg?alt=media&token=66976622-14b0-4e69-b340-927ac535f081",
-  //     "trip_id": 1,
-  //     "coordinates": [
-  //       "13.27934970",
-  //       "43.82745460"
-  //     ]
-  //   }
   // ];
 
 
@@ -108,6 +30,9 @@ export default function Map({ photos }) {
     // Initialize map when component mounts =
     const map = new mapboxgl.Map({
       container: mapContainer.current,
+
+      // Style of the Map
+      // https://www.mapbox.com/gallery/
       style: 'mapbox://styles/mapbox/dark-v10',
 
       // center: photos[0].coordinates,
@@ -138,9 +63,15 @@ export default function Map({ photos }) {
     //   new mapboxgl.Marker().setLngLat(img.coordinates).addTo(map);
     // }
     // );
+
+
+    // Map through all photos in the current trip 
+    // and plot their coordinates on the map
     photos.map((img) =>
       new mapboxgl.Marker().setLngLat(img.coordinates).addTo(map)
     );
+
+
 
 
     // Add navigation control (the +/- zoom buttons)
@@ -149,6 +80,26 @@ export default function Map({ photos }) {
     // Clean up on unmount
     return () => map.remove();
   }, [photos]);
+
+  // --------- MAKE MAP POINTS CLICKABLE ---------
+  map.on('click', (event) => {
+    const features = map.queryRenderedFeatures(event.point, {
+      layers: ['chicago-parks']
+    });
+    if (!features.length) {
+      return;
+    }
+    const feature = features[0];
+
+    const popup = new mapboxgl.Popup({ offset: [0, -15] })
+      .setLngLat(feature.geometry.coordinates)
+      .setHTML(
+        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+      )
+      .addTo(map);
+  });
+
+
 
   return (
     <div>
