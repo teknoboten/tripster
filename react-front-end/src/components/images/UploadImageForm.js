@@ -90,7 +90,7 @@ const UploadImageForm = ({ trip, setTrip }) => {
       <div className={classes.output}>
         {error && <div className={classes.error}>{error} </div>}
         {file && <div>{file.name}</div>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
+        {file && <ProgressBar setStoredUrl={setStoredUrl} file={file} setFile={setFile} trip={trip} setTrip={setTrip}/>}
 
 
         

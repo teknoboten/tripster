@@ -5,42 +5,42 @@ import { motion } from "framer-motion";
 import classes from "./ProgressBar.module.css";
 import axios from "axios";
 
-const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip, coordinates }) => {
+const ProgressBar = ({ file, setFile }) => {
   const { url, progress } = useStorage(file);
 
   // const params = useParams();
   // const trip_id = params.tripId;
 
-  async function updateDb(url, trip_id, coordinates) {
+  // async function updateDb(url, trip_id, coordinates) {
     
-    const newImage = {
-      photo_text: "Hello world!",
-      date: "2018-02-18T08:01:00.000Z",
-      photo_url: url,
-      trip_id: trip_id,
-      coordinates: coordinates
-    };
+  //   const newImage = {
+  //     photo_text: "Hello world!",
+  //     date: "2018-02-18T08:01:00.000Z",
+  //     photo_url: url,
+  //     trip_id: trip_id,
+  //     coordinates: coordinates
+  //   };
 
-    console.log("creating a new image in the db:", newImage);
+  //   console.log("creating a new image in the db:", newImage);
 
-    const response = await fetch("/api/photos", {
-      method: "POST",
-      body: JSON.stringify(newImage),
-      headers: { "Content-Type": "application/json" },
-    });
+  //   const response = await fetch("/api/photos", {
+  //     method: "POST",
+  //     body: JSON.stringify(newImage),
+  //     headers: { "Content-Type": "application/json" },
+  //   });
 
-    axios.get(`/api/trips/${trip_id}`).then((result) => {
-      setTrip(result.data);
-    });
-    console.log(trip.photos);
-    console.log("response:", response);
-  }
+  //   axios.get(`/api/trips/${trip_id}`).then((result) => {
+  //     setTrip(result.data);
+  //   });
+  //   console.log(trip.photos);
+  //   console.log("response:", response);
+  // }
 
   useEffect(() => {
     if (url) {
       setFile(null);
-      setStoredUrl(url);
-      updateDb(url, trip_id, coordinates);
+      // setStoredUrl(url);
+      // updateDb(url, trip_id, coordinates);
     }
   }, [url, setFile]);
 

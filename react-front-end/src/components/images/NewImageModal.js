@@ -27,7 +27,6 @@ function NewImageModal({ onClose, open, trip, setTrip }) {
     >
 
   
-
     <UploadImageForm trip={trip} setTrip={setTrip} />
 
       {/* <PhotoDetail selectedImg={selectedImg.photo_url} />
