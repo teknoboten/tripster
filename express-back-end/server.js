@@ -125,7 +125,6 @@ App.get("/api/trips/:id", async (req, res) => {
 
 // create new photos in db
 App.post("/api/photos", async (req, res) => {
-
   console.log(req.body);
 
   const queryParams = [
@@ -133,7 +132,7 @@ App.post("/api/photos", async (req, res) => {
     req.body.date,
     req.body.coordinates,
     req.body.photo_url,
-    req.body.trip_id
+    req.body.trip_id,
   ];
 
   try {
@@ -163,17 +162,12 @@ App.get("/api/photos/:id", (req, res) => {
   );
 });
 
-
 // create new photo_text in db
-App.post("/api/photo/edit", async (req, res) => {
-
+App.put("/api/photo/edit", async (req, res) => {
   console.log(req.body);
 
-  const queryParams = [
-    req.body.photo_text,
-    req.body.id
-  ];
-
+  const queryParams = [req.body.photo_text, req.body.id];
+  console.log("QUERY PARAMS", queryParams);
   try {
     // const queryParams = Object.values(req.body);
     const result = await db.query(
@@ -197,22 +191,21 @@ App.post("/api/photo/edit", async (req, res) => {
 // SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
 // WHERE CustomerID = 1;
 
+// try {
+//   const queryParams = Object.values(req.body);
 
-  // try {
-  //   const queryParams = Object.values(req.body);
-
-  //   const result = await db.query(
-  //     `
-  //       INSERT INTO photos
-  //       (photo_text, date, lat, long, photo_url, trip_id)
-  //       VALUES
-  //       ($1, $2, $3, $4, $5, $6)
-  //       RETURNING *;
-  //       `,
-  //     queryParams
-  //   );
-  //   console.log(result.rows);
-  //   res.json(result.rows[0]);
-  // } catch (error) {
-  //   res.send({ error: error });
-  // }
+//   const result = await db.query(
+//     `
+//       INSERT INTO photos
+//       (photo_text, date, lat, long, photo_url, trip_id)
+//       VALUES
+//       ($1, $2, $3, $4, $5, $6)
+//       RETURNING *;
+//       `,
+//     queryParams
+//   );
+//   console.log(result.rows);
+//   res.json(result.rows[0]);
+// } catch (error) {
+//   res.send({ error: error });
+// }
