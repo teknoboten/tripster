@@ -22,13 +22,14 @@ code {
 }
 
 
+
 .map-container {
   /* position: fixed;  */
-  height: 400px;
-  margin: 5%; 
+  height: 500px;
+  margin: auto; 
   top: 0; 
   bottom: 0; 
-  width: 90%; 
+  width: 70%; 
   border: 2px solid black;
   }
 

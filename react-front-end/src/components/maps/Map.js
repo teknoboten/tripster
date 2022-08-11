@@ -51,8 +51,27 @@ export default function Map({ photos }) {
       // zoom level 0 = entire earth
       // zoom level 15 = buildings
 
+
+
     });
 
+    // --------- MAKE MAP POINTS CLICKABLE ---------
+    map.on('click', (event) => {
+      const features = map.queryRenderedFeatures(event.point, {
+        layers: ['chicago-parks']
+      });
+      if (!features.length) {
+        return;
+      }
+      const feature = features[0];
+
+      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+          `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+        )
+        .addTo(map);
+    });
 
     // Create default markers
     // trip.photos.map
@@ -81,23 +100,7 @@ export default function Map({ photos }) {
     return () => map.remove();
   }, [photos]);
 
-  // --------- MAKE MAP POINTS CLICKABLE ---------
-  map.on('click', (event) => {
-    const features = map.queryRenderedFeatures(event.point, {
-      layers: ['chicago-parks']
-    });
-    if (!features.length) {
-      return;
-    }
-    const feature = features[0];
 
-    const popup = new mapboxgl.Popup({ offset: [0, -15] })
-      .setLngLat(feature.geometry.coordinates)
-      .setHTML(
-        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-      )
-      .addTo(map);
-  });
 
 
 

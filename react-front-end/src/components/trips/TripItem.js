@@ -10,15 +10,16 @@ function TripItem(props) {
 
   return (
     <li className={classes.item}>
-      <Link to={`trips/${props.id}`}>
+      <Link
+        to={`trips/${props.id}`}
+        // style={{ textDecoration: "none" }}
+      >
         <Card>
           <div className={classes.image}>
             <img src={props.coverImage} alt={props.tripName} />
           </div>
           <div className={classes.content}>
-            <h3>
-              {props.tripName}
-            </h3>
+            <h3>{props.tripName}</h3>
             <p>{props.description}</p>
           </div>
         </Card>
