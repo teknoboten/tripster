@@ -8,7 +8,15 @@ function MainNav() {
   return (
     <div className={classes.navContainer}>
       <header className={classes.header}>
-        <div className={classes.logo}>Tripster</div>
+        <div>
+          <Link
+            to="/"
+            style={{ textDecoration: "none" }}
+            className={classes.logo}
+          >
+            Tripster
+          </Link>
+        </div>
         <nav>
           <ul>
             <li>

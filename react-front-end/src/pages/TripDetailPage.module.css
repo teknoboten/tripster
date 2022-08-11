@@ -1,16 +1,16 @@
 .tripPageContainer {
   /* width: 100%; */
   max-width: 1320px;
-    justify-content: center;
-    margin: auto;
+  justify-content: center;
+  margin: auto;
 }
 
 .tripHeader {
-  color: #4e4e4e;
+  color: #24305E;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  padding-top: 20px;
   padding-bottom: 0;
 }
 

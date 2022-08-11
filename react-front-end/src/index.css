@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: whitesmoke;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -31,6 +32,7 @@ code {
   bottom: 0; 
   width: 70%; 
   border: 2px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
   .sidebar {
