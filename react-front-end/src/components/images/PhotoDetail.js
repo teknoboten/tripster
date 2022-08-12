@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import classes from "./PhotoDetail.module.css";
 
 const PhotoDetail = ({ selectedImg, setSelectedImg }) => {

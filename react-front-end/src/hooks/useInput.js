@@ -7,16 +7,6 @@ const useInput = (initialValue) => {
   const handleChange = async (event) => {
     setValue(event.target.value);
 
-    // const results = { 
-    //   type: 'FeatureCollection', 
-    //   features: [
-    //     {place_name: "vancouver"},
-    //     {place_name: "surrey"}
-    //   ]}
-
-    // setSuggestions(results.features);
-
-
     try {
       const endpoint = `https://api.mapbox.com/geocoding/v5/mapbox.places/${event.target.value}.json?access_token=${process.env.REACT_APP_MAPBOX_KEY}&autocomplete=true`;
       const response = await fetch(endpoint);

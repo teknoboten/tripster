@@ -13,7 +13,6 @@ const useStorage = (file) => {
 
   useEffect(() => {
     if (!file) return;
-    console.log('useStorage has the file now:', file.name);
     //references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection("images");
@@ -28,13 +27,10 @@ const useStorage = (file) => {
         setError(err);
       },
       async () => {
-        console.log('getting the url now')
         const url = await storageRef.getDownloadURL();
         const createdAt = timeStamp();
         collectionRef.add({ url, createdAt });
-        console.log(url)
         setUrl(url);
-        console.log('url has been set')
       }
     );
   }, [file]);
