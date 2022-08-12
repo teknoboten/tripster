@@ -13,9 +13,10 @@ import Form from "react-bootstrap/Form";
 import classes from "./ImageModal.module.css";
 import "./ImageModal.css";
 
-function ImageModal({ onClose, open, children, selectedImg }) {
+function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
   const [photoText, setPhotoText] = useState(selectedImg.photo_text);
   const [isEditMode, setEditMode] = useState(false);
+
 
 
 
@@ -41,6 +42,9 @@ function ImageModal({ onClose, open, children, selectedImg }) {
     // history.push(`/trips/1`);
     setPhotoText(photoReceiveData);
     textArea.value = "";
+
+    setEditMode(false);
+    updatePhotoText(selectedImg.id, photoText);
   }
 
 
@@ -77,6 +81,7 @@ function ImageModal({ onClose, open, children, selectedImg }) {
               variant="warning"
               type="submit"
               className="m-2"
+
             // onClick={(e) => console.log("e.target.value", e.target.value)}
             // onClick={(e) => console.log("e.target", e.target)}
             // onClick={() => setEditMode(false)}
