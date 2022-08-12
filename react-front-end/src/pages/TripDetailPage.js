@@ -11,7 +11,7 @@ import classes from "../components/images/ImageGrid.module.css";
 import Button from 'react-bootstrap/Button';
 import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
-import NewImageModal from "../components/images/NewImageModal";
+import UploadImageModal from "../components/images/UploadImageModal";
 import PhotoDetail from "../components/images/PhotoDetail";
 import Map from "../components/maps/Map";
 
@@ -53,11 +53,11 @@ function TripDetailPage(props) {
       <Button variant="primary" onClick={handleNewModalClick}>+</Button>
         
       {setOpenModal && (
-        <NewImageModal trip={trip} setTrip={setTrip} onClose={() => {
+        <UploadImageModal trip={trip} setTrip={setTrip} onClose={() => {
           setOpenNewImageModal(null);
         }} open={openNewImageModal}>
 
-        </NewImageModal>
+        </UploadImageModal>
       )}
         
 

@@ -12,6 +12,7 @@ const useStorage = (file) => {
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
+    if (!file) return;
     console.log('useStorage has the file now:', file.name);
     //references
     const storageRef = projectStorage.ref(file.name);
@@ -38,7 +39,21 @@ const useStorage = (file) => {
     );
   }, [file]);
 
+
+  // useEffect(() => {
+  //   if (url) {
+  //     console.log("url:", url)
+  //     setFile(null);
+  //     setStoredUrl(url);
+  //     // updateDb(url, trip_id, coordinates);
+  //     updateDb(url);
+  //   }
+  // }, [url, setFile]);
+
+
   return { progress, url, error };
+
+  
 };
 
 export default useStorage;

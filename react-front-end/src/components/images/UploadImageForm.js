@@ -12,12 +12,11 @@ import SaySomethingInput from "./SaySomethingInput";
 import ImagePreview from "./ImagePreview";
 
 
-const UploadImageForm = ({ trip, setTrip, preview, setPreview }) => {
+const UploadImageForm = ({ trip, setTrip, url, setUrl }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [storedUrl, setStoredUrl] = useState("");  
-  const [coordinates, setCoordinates] = useState(null);
-  
+  // const [coordinates, setCoordinates] = useState(null);  
 
   const history = useHistory();
   const location = useInput("");
@@ -49,17 +48,19 @@ const UploadImageForm = ({ trip, setTrip, preview, setPreview }) => {
 
   const types = ["image/png", "image/jpeg"];
 
-  useEffect(() => {
-    if (storedUrl !== "") {
-      history.push(`/trips/${trip.id}`);
-    }
-  }, [storedUrl]);
+  // useEffect(() => {
+  //   if (storedUrl !== "") {
+  //     history.push(`/trips/${trip.id}`);
+  //   }
+  // }, [storedUrl]);
 
+  const { url:firebaseUrl, progress } = useStorage(file);
 
   const changedImgHandler = (e) => {
     let selected = e.target.files[0];
 
-    //------ Existing validation ------
+    console.log('changed!');
+    console.log('selected:', selected);
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       setError("");
@@ -68,6 +69,12 @@ const UploadImageForm = ({ trip, setTrip, preview, setPreview }) => {
       setError(`please select an image file (png or jpg)`);
     }
   };
+
+  useEffect(() => {
+    if (firebaseUrl) {
+      setUrl(firebaseUrl)
+    }
+  }, [firebaseUrl])
 
   return (
     <form className={classes.form}>
@@ -87,7 +94,8 @@ const UploadImageForm = ({ trip, setTrip, preview, setPreview }) => {
       <div className={classes.output}>
         {error && <div className={classes.error}>{error} </div>}
         {file && <div>{file.name}</div>}
-        {file && <ProgressBar setStoredUrl={setStoredUrl} file={file} setFile={setFile} trip={trip} setTrip={setTrip} preview={preview} setPreview={setPreview}/>}
+        {/* {file && <ProgressBar setStoredUrl={setStoredUrl} file={file} setFile={setFile} trip={trip} setTrip={setTrip} />} */}
+        {file && <ProgressBar progress={progress}/>}
       </div>
 
       

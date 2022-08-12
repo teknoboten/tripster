@@ -13,11 +13,13 @@ form {
 }
 
 .imageLabel {
-  /* display: block; */
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  margin: 50px;
   width: 250px;
   height: 50px;
   border: 1px solid var(--primary);
-  border-radius: 10%;
   /* margin: 10px auto; */
   line-height: 30px;
   background: var(--primary);
@@ -40,3 +42,18 @@ form {
   color: var(--error);
 }
 
+.imgpreview {
+  max-width: 40%;
+  margin: 10px;
+}
+
+.btnSubmit {
+  margin: 2px;
+  background: var(--primary);
+  border: var(--primary); 
+}
+
+.newImageContainer {
+  display: flex;
+  flex-direction: column;
+}
