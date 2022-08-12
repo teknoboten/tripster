@@ -20,6 +20,8 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
 
 
 
+
+
   async function submitHandler(event) {
     event.preventDefault();
     // alert(`You edited the existing photo_text with: ${photoText}`);
@@ -55,6 +57,12 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
     <Modal open={open} onClose={onClose} center>
       <PhotoDetail selectedImg={selectedImg.photo_url} />
       <div className={classes.sidebar}>
+        {/* When there is no photo data */}
+
+
+
+
+        {/* When not in edit mode */}
         {!isEditMode &&
           <><p>{photoText}</p>
             <Button
@@ -65,6 +73,7 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
             </Button></>
         }
 
+        {/* When you ARE editing */}
         {isEditMode &&
           <Form onSubmit={submitHandler}>
             <Form.Group className="mb-3">
