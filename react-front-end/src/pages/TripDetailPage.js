@@ -70,9 +70,12 @@ function TripDetailPage(props) {
 
 
   return (
-    <section className={classes.tripPageContainer}>
+  <div className={classes.tripPageContainer}>
+    <div className={classes.mapContainer}>
       <Map photos={trip.photos} />
+    </div>
 
+    <div className={classes.imgGridContainer}>
       <div className={classes.tripHeader}>
         <h1 className={classes.tripName}>{trip.trip_name}</h1>
         <p className={classes.tripDescription}>{trip.trip_description}</p>
@@ -91,18 +94,22 @@ function TripDetailPage(props) {
 
       <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
-      {selectedImg && (
-        <ImageModal
-          selectedImg={selectedImg}
-          onClose={() => {
-            setSelectedImg(null);
-            setOpenModal(false);
-          }}
-          open={openModal}
-          updatePhotoText={updatePhotoText}
-        ></ImageModal>
-      )}
-    </section>
+    {selectedImg && (
+      <ImageModal
+        selectedImg={selectedImg}
+        onClose={() => {
+          setSelectedImg(null);
+          setOpenModal(false);
+        }}
+        open={openModal}
+        updatePhotoText={updatePhotoText}
+      ></ImageModal>
+    )}
+        
+      <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
+
+</div>
+    </div>
   );
 }
 
