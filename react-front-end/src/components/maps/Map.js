@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from '!mapbox-gl';   // eslint-disable-line import/no-webpack-loader-syntax
-import classes from './Map.module.css';
-
+import classes from '../../pages/TripDetailPage.module.css';
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
 
 export default function Map({ photos, handleMarkerClick }) {
@@ -59,8 +58,12 @@ export default function Map({ photos, handleMarkerClick }) {
   }, [photos]);
 
   return (
-    <div>
-      <div ref={mapContainer} className="map-container" />
-    </div>
+    // <div>
+      <div ref={mapContainer} className={classes.mapBox} />
+      
+    // </div>
   );
 }
+
+
+{/* <div ref={mapContainer} className="map-container" /> */}
