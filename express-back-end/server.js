@@ -125,16 +125,15 @@ App.get("/api/trips/:id", async (req, res) => {
 
 // create new photos in db
 App.post("/api/photos", async (req, res) => {
+  console.log(req.body);
 
-  console.log(req.body)
-
-  const queryParams = [ 
-    req.body.photo_text, 
+  const queryParams = [
+    req.body.photo_text,
     req.body.date,
     req.body.coordinates,
     req.body.photo_url,
-    req.body.trip_id
-  ]
+    req.body.trip_id,
+  ];
 
   try {
     // const queryParams = Object.values(req.body);
@@ -163,23 +162,51 @@ App.get("/api/photos/:id", (req, res) => {
   );
 });
 
+// create new photo_text in db
+App.put("/api/photo/edit", async (req, res) => {
+  console.log(req.body);
 
+  const queryParams = [req.body.photo_text, req.body.id];
+  console.log("QUERY PARAMS", queryParams);
+  try {
+    // const queryParams = Object.values(req.body);
+    const result = await db.query(
+      `
+        UPDATE photos
+        SET photo_text= $1
+        WHERE id= $2
+        RETURNING *
+        ;
+        `,
+      queryParams
+    );
+    console.log("result from db insert:", result.rows);
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.log(error);
+    res.send({ error: error });
+  }
+});
 
-  // try {
-  //   const queryParams = Object.values(req.body);
+// UPDATE Customers
+// SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+// WHERE CustomerID = 1;
 
-  //   const result = await db.query(
-  //     `
-  //       INSERT INTO photos
-  //       (photo_text, date, lat, long, photo_url, trip_id) 
-  //       VALUES
-  //       ($1, $2, $3, $4, $5, $6)
-  //       RETURNING *;
-  //       `,
-  //     queryParams
-  //   );
-  //   console.log(result.rows);
-  //   res.json(result.rows[0]);
-  // } catch (error) {
-  //   res.send({ error: error });
-  // }
+// try {
+//   const queryParams = Object.values(req.body);
+
+//   const result = await db.query(
+//     `
+//       INSERT INTO photos
+//       (photo_text, date, lat, long, photo_url, trip_id)
+//       VALUES
+//       ($1, $2, $3, $4, $5, $6)
+//       RETURNING *;
+//       `,
+//     queryParams
+//   );
+//   console.log(result.rows);
+//   res.json(result.rows[0]);
+// } catch (error) {
+//   res.send({ error: error });
+// }

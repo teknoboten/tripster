@@ -61,7 +61,7 @@ const ProgressBar = ({ file, setFile, setStoredUrl, trip, setTrip }) => {
         console.log("No EXIF data found in image '" + file.name + "'.");
       }
       const newImage = {
-        photo_text: "Hello world!",
+        photo_text: "",
         date: "2018-02-18T08:01:00.000Z",
         lat: latitude,
         long: longitude,

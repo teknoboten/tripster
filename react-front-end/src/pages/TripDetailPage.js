@@ -11,10 +11,14 @@ import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
 import Map from "../components/maps/Map";
 
+
 function TripDetailPage(props) {
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+
+
+
 
   const handleOnImageClick = (photo) => {
     setSelectedImg(photo);
@@ -33,22 +37,31 @@ function TripDetailPage(props) {
   if (trip === undefined) {
     return <></>;
   }
+
+  function updatePhotoText(photoId, photoText) {
+    // loop through trip.photos
+    return (
+      trip.photos.map((photo) => {
+        // find the one that matches the id
+        if (photo.id === photoId) {
+          // console.log('Photo Object', photo);
+          // update that objects photo text 
+          photo.photo_text = photoText;
+        }
+      }
+      ));
+  };
+
   return (
-
     <section className={classes.tripPageContainer}>
-     
-    
       <Map photos={trip.photos} />
-
 
       <div className={classes.tripHeader}>
         <h1 className={classes.tripName}>{trip.trip_name}</h1>
         <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
       </div>
 
-
       <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
-
 
       <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
@@ -60,6 +73,7 @@ function TripDetailPage(props) {
             setOpenModal(false);
           }}
           open={openModal}
+          updatePhotoText={updatePhotoText}
         ></ImageModal>
       )}
     </section>
