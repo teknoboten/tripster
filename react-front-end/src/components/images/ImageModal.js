@@ -2,7 +2,8 @@ import React from "react";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import PhotoDetail from "./PhotoDetail";
 
 // React Bootstrap
@@ -14,6 +15,9 @@ import "./ImageModal.css";
 
 function ImageModal({ onClose, open, children, selectedImg }) {
   const [photoText, setPhotoText] = useState(selectedImg.photo_text);
+  const [isEditMode, setEditMode] = useState(false);
+
+
 
   async function submitHandler(event) {
     event.preventDefault();
@@ -32,40 +36,56 @@ function ImageModal({ onClose, open, children, selectedImg }) {
       headers: { "Content-Type": "application/json" },
     });
 
-    const photoRecieveData = (await response.json()).photo_text;
-    console.log(photoRecieveData);
+    const photoReceiveData = (await response.json()).photo_text;
+    console.log(photoReceiveData);
     // history.push(`/trips/1`);
-    setPhotoText(photoRecieveData);
+    setPhotoText(photoReceiveData);
     textArea.value = "";
   }
+
+
+
 
   // console.log('selectedImg:', selectedImg);
   return (
     <Modal open={open} onClose={onClose} center>
       <PhotoDetail selectedImg={selectedImg.photo_url} />
       <div className={classes.sidebar}>
-        <p>{photoText}</p>
+        {!isEditMode &&
+          <><p>{photoText}</p>
+            <Button
+              type="button"
+              onClick={() => setEditMode(true)}
+            >
+              Edit
+            </Button></>
+        }
 
-        <Form onSubmit={submitHandler}>
-          <Form.Group className="mb-3">
-            <Form.Control
-              as="textarea"
-              rows={5}
-              placeholder="Tell us about this photo"
-              id="photoText"
-              value={photoText}
-              onChange={(e) => setPhotoText(e.target.value)}
-            />
-          </Form.Group>
-          <Button
-            variant="warning"
-            type="submit"
-            className="m-2"
-            onClick={(e) => console.log("e.target", e.target)}
-          >
-            Edit
-          </Button>
-        </Form>
+        {isEditMode &&
+          <Form onSubmit={submitHandler}>
+            <Form.Group className="mb-3">
+              <Form.Control
+                as="textarea"
+                rows={5}
+                placeholder="Tell us about this photo"
+                id="photoText"
+                value={photoText}
+                onChange={(e) => setPhotoText(e.target.value)}
+              />
+            </Form.Group>
+            <Button
+              variant="warning"
+              type="submit"
+              className="m-2"
+            // onClick={(e) => console.log("e.target.value", e.target.value)}
+            // onClick={(e) => console.log("e.target", e.target)}
+            // onClick={() => setEditMode(false)}
+            >
+              Save
+            </Button>
+          </Form>
+        }
+
 
         {/* <p>------------------------------------------</p>
         <p>
@@ -104,7 +124,7 @@ function ImageModal({ onClose, open, children, selectedImg }) {
           </Button>
         </Form> */}
       </div>
-    </Modal>
+    </Modal >
   );
 }
 

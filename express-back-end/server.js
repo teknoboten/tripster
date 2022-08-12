@@ -175,7 +175,8 @@ App.put("/api/photo/edit", async (req, res) => {
         UPDATE photos
         SET photo_text= $1
         WHERE id= $2
-        RETURNING *;
+        RETURNING *
+        ;
         `,
       queryParams
     );
