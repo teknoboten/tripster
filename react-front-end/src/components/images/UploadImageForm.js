@@ -5,20 +5,23 @@ import classes from "./UploadImageForm.module.css";
 import useStorage from "../../hooks/useStorage";
 import { useHistory } from "react-router-dom";
 import useInput from "../../hooks/useInput";
-import axios from "axios";
+// import axios from "axios";
+
+import getExif from '../../helpers/getExif';
+// import useExif from "../../hooks/useStorage";
 
 import LocationInputField from './LocationInputField';
-import SaySomethingInput from "./SaySomethingInput";
+// import SaySomethingInput from "./SaySomethingInput";
 import ImagePreview from "./ImagePreview";
 
 
-const UploadImageForm = ({ trip, setTrip, url, setUrl }) => {
+const UploadImageForm = ({ trip, setTrip, url, setUrl, exifCoords, setExifCoords }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  const [storedUrl, setStoredUrl] = useState("");  
+  // const [storedUrl, setStoredUrl] = useState("");  
   // const [coordinates, setCoordinates] = useState(null);  
 
-  const history = useHistory();
+  // const history = useHistory();
   const location = useInput("");
 
   // async function updateDb(url, trip_id, coordinates) {
@@ -56,25 +59,43 @@ const UploadImageForm = ({ trip, setTrip, url, setUrl }) => {
 
   const { url:firebaseUrl, progress } = useStorage(file);
 
-  const changedImgHandler = (e) => {
-    let selected = e.target.files[0];
 
-    console.log('changed!');
-    console.log('selected:', selected);
+  const changedImgHandler = async (e) => {
+    let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       setError("");
+      // getExif(selected);
     } else {
       setFile(null);
       setError(`please select an image file (png or jpg)`);
     }
+
+    const exif = await getExif(selected);
+    console.log("exif:", exif);
+    setExifCoords(exif)
+
+    // if (exif) {
+    //   console.log('i set exifcoords now')
+    //   setExifCoords(exif)
+    // } else {
+    //   setExifCoords(null);
+    // }
+    // console.log('exifCoords:', exifCoords); 
   };
+
+
+
 
   useEffect(() => {
     if (firebaseUrl) {
       setUrl(firebaseUrl)
     }
   }, [firebaseUrl])
+
+
+
+
 
   return (
     <form className={classes.form}>

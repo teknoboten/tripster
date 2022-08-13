@@ -17,7 +17,7 @@ const SaySomethingInput = ({ photoText, setPhotoText }) => {
       
       <Wrapper>
         <Input onChange={updateText}
-          placeholder="Say Something About this Photo"
+          placeholder="Say something..."
         />
       </Wrapper>
 

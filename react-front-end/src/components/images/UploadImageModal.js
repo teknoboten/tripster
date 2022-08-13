@@ -16,25 +16,30 @@ import LocationInputField from "./LocationInputField";
 import ImagePreview from "./ImagePreview";
 import SaySomethingInput from "./SaySomethingInput";
 
-function NewImageModal({ onClose, open, trip, setTrip }) {
+function UploadImageModal({ onClose, open, trip, setTrip }) {
 
   const [ coordinates, setCoordinates ] = useState([]);
   const [photoText, setPhotoText] = useState("");
   const [ url, setUrl ] = useState("");
+  const [ exifCoords, setExifCoords ] = useState([]);
+
 
   const params = useParams();
   const trip_id = params.tripId;
   
-
+  console.log(exifCoords)
   return (
+    
     <Modal open={open} onClose={onClose} center >
 
     <div className={classes.newImageContainer} >
 
-   {url ? ( <ImagePreview img={url} />) : <UploadImageForm trip={trip} setTrip={setTrip} url={url} setUrl={setUrl}/>}
-    <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/>
-      <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>
-    {/* { !coordinates && url ( <LocationInputField /> )} */}
+   {url ? ( <ImagePreview img={url} />) : <UploadImageForm trip={trip} setTrip={setTrip} url={url} setUrl={setUrl} ExifCoords={exifCoords} setExifCoords={setExifCoords}  />}
+  { coordinates.length === 0 && url ? <LocationInputField /> : <SaySomethingInput />}
+
+    {/* <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/>  */}
+      {/* <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/> */}
+
 
     {/* <LocationInputField /> */}
 
@@ -82,4 +87,4 @@ function NewImageModal({ onClose, open, trip, setTrip }) {
   }
 }
 
-export default NewImageModal;
+export default UploadImageModal;

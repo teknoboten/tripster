@@ -54,6 +54,7 @@ function TripDetailPage(props) {
       {setOpenModal && (
         <UploadImageModal trip={trip} setTrip={setTrip} onClose={() => {
           setOpenNewImageModal(null);
+          
         }} open={openNewImageModal}>
 
         </UploadImageModal>
