@@ -39,6 +39,16 @@
   text-decoration: none;
   font-size: 1.5rem;
   color: white;
+  margin-left: 10px;
+}
+
+.header a:hover {
+  /* color: #ee9821; */
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: white;
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 0.25rem;
 }
 
 /* .header a:hover, */
