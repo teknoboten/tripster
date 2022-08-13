@@ -5,15 +5,14 @@
   max-width: 1320px;
   margin: auto;
   height: 5rem;
-  
+
   /* padding: 0 10%; */
 }
 
-.navContainer{
+.navContainer {
   width: 100%;
   justify-content: center;
-  background-color: #fcb8d2;
-  
+  background-color: #e65f5c;
 }
 .logo {
   font-size: 2rem;
@@ -36,21 +35,19 @@
 }
 
 .header a {
+  font-family: "Carter One", cursive;
   text-decoration: none;
   font-size: 1.5rem;
   color: white;
 }
 
-.header a:hover,
-.header a:active,
-.header a.active {
-  color: darkgray;
-}
-
+/* .header a:hover, */
+/* .header a:active,
+.header a.active,
 .badge {
   background-color: #cc2062;
   color: white;
   border-radius: 12px;
   padding: 0 1rem;
   margin-left: 0.5rem;
-}
+} */

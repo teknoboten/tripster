@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap"); */
 
 :root {
   --primary: #efb6b2;
@@ -21,33 +21,31 @@ code {
   --error: #ff4a4a;
 }
 
-
-
 .notmap-container {
   /* position: fixed;  */
   /* height: 500px; */
   display: block;
-  margin: 0; 
-  top: 0; 
-  bottom: 0; 
+  margin: 0;
+  top: 0;
+  bottom: 0;
   width: 100vh;
-  height: 100vh; 
+  height: 100vh;
   border: 2px solid black;
-  }
+}
 
-  .sidebar {
-    background-color: rgba(35, 55, 75, 0.9);
-    color: #fff;
-    padding: 6px 12px;
-    font-family: monospace;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 12px;
-    border-radius: 4px;
-    }
+.sidebar {
+  background-color: rgba(35, 55, 75, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
 
 .thumbnail {
-  width: 200px; 
+  width: 200px;
 }
