@@ -9,6 +9,7 @@ import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
 import classes from "../components/images/ImageGrid.module.css";
 import Button from 'react-bootstrap/Button';
+import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
 import UploadImageModal from "../components/images/UploadImageModal";
 // import PhotoDetail from "../components/images/PhotoDetail";
@@ -19,7 +20,7 @@ function TripDetailPage(props) {
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-  const [openNewImageModal, setOpenNewImageModal] = useState(false);
+  const [uploadModal, setUploadModal] = useState(false);
 
   const handleOnImageClick = (photo) => {
     setSelectedImg(photo);
@@ -27,7 +28,11 @@ function TripDetailPage(props) {
   };
 
   const handleNewModalClick = () => {
-    setOpenNewImageModal(true);
+    setUploadModal(true);
+  }
+
+  const handleUploadSubmit = () => {
+    setUploadModal(false)
   }
 
   const params = useParams();
@@ -51,14 +56,20 @@ function TripDetailPage(props) {
       {/* <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} /> */}
       <Button variant="primary" onClick={handleNewModalClick}>+</Button>
         
-      {setOpenModal && (
-        <UploadImageModal trip={trip} setTrip={setTrip} onClose={() => {
-          setOpenNewImageModal(null);
-          
-        }} open={openNewImageModal}>
-
+      {uploadModal && (
+        <UploadImageModal trip={trip} setTrip={setTrip} 
+        submit={handleUploadSubmit} 
+        onClose={() => {setUploadModal(false)}} 
+        open={uploadModal}>
         </UploadImageModal>
       )}
+
+      {/* {uploadModal && (
+        <UploadImageModal trip={trip} setTrip={setTrip} onClose={() => {
+          setUploadModal(null);
+        }} open={uploadModal}>
+        </UploadImageModal>
+      )} */}
         
 
 

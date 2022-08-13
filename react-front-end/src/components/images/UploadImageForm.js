@@ -15,7 +15,7 @@ import LocationInputField from './LocationInputField';
 import ImagePreview from "./ImagePreview";
 
 
-const UploadImageForm = ({ trip, setTrip, url, setUrl, exifCoords, setExifCoords }) => {
+const UploadImageForm = ({ trip, setTrip, url, setUrl, exifCoords, setExifCoords, coordinates, setCoordinates }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   // const [storedUrl, setStoredUrl] = useState("");  
@@ -73,8 +73,8 @@ const UploadImageForm = ({ trip, setTrip, url, setUrl, exifCoords, setExifCoords
 
     const exif = await getExif(selected);
     console.log("exif:", exif);
-    setExifCoords(exif)
-
+    // setExifCoords(exif)
+    setCoordinates(exif)
     // if (exif) {
     //   console.log('i set exifcoords now')
     //   setExifCoords(exif)

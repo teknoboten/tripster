@@ -46,7 +46,7 @@ const getExif = async (file) => {
       coords.push(longitude);
     } else {
       console.log("No EXIF data found in image '" + file.name + "'.");
-    }
+      }
   })
   console.log("returning exif coords:", coords);
   return coords;

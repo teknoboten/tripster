@@ -16,7 +16,7 @@ import LocationInputField from "./LocationInputField";
 import ImagePreview from "./ImagePreview";
 import SaySomethingInput from "./SaySomethingInput";
 
-function UploadImageModal({ onClose, open, trip, setTrip }) {
+function UploadImageModal({ onClose, open, trip, setTrip, submit }) {
 
   const [ coordinates, setCoordinates ] = useState([]);
   const [photoText, setPhotoText] = useState("");
@@ -26,34 +26,20 @@ function UploadImageModal({ onClose, open, trip, setTrip }) {
 
   const params = useParams();
   const trip_id = params.tripId;
-  
-  console.log(exifCoords)
+
+// console.log("exif:", exifCoords);
+console.log("coordinates:", coordinates);
+console.log("phototext:", photoText);
+
   return (
     
     <Modal open={open} onClose={onClose} center >
 
     <div className={classes.newImageContainer} >
 
-   {url ? ( <ImagePreview img={url} />) : <UploadImageForm trip={trip} setTrip={setTrip} url={url} setUrl={setUrl} ExifCoords={exifCoords} setExifCoords={setExifCoords}  />}
-  { coordinates.length === 0 && url ? <LocationInputField /> : <SaySomethingInput />}
-
-    {/* <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/>  */}
-      {/* <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/> */}
-
-
-    {/* <LocationInputField /> */}
-
-
-    {/* {file && (
-
-      <SaySomethingInput />
-    )} */}
-    
-
-      {/* <PhotoDetail selectedImg={selectedImg.photo_url} />
-      <div className={classes.sidebar}>
-        <p>{selectedImg.photo_text}</p> */}
-
+   {url ? ( <ImagePreview img={url} />) : <UploadImageForm trip={trip} setTrip={setTrip} url={url} setUrl={setUrl} coordinates={coordinates} setCoordinates={setCoordinates} />}
+   {(url && coordinates.length === 0) && <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/> }
+   {(url && coordinates.length > 0 && <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>) }
 
     <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>
     </div>
@@ -62,6 +48,8 @@ function UploadImageModal({ onClose, open, trip, setTrip }) {
 
   async function createNewImageObject() {
     
+    submit();
+
     console.log("going to update the db now")
 
     const newImage = {
