@@ -35,19 +35,19 @@ export default function Map({ photos, handleMarkerClick }) {
 
     photos.map((img) =>
       new mapboxgl.Marker({
-        color: "#fcb8d2",
+        color: "#3b4954",
       }).setLngLat(img.coordinates)
-      .setPopup(
-        new mapboxgl.Popup({ offset: 25 }) // add popups
-          .setHTML(
-            `<div>
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<div>
             <img src="${img.photo_url}" class="thumbnail"/>
             <p>${img.photo_text}</p> 
             </div>
             `
-          )
-      )
-      .addTo(map)
+            )
+        )
+        .addTo(map)
     );
 
     // Add navigation control (the +/- zoom buttons)
@@ -59,11 +59,11 @@ export default function Map({ photos, handleMarkerClick }) {
 
   return (
     // <div>
-      <div ref={mapContainer} className={classes.mapBox} />
-      
+    <div ref={mapContainer} className={classes.mapBox} />
+
     // </div>
   );
 }
 
 
-{/* <div ref={mapContainer} className="map-container" /> */}
+{/* <div ref={mapContainer} className="map-container" /> */ }

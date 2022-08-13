@@ -47,4 +47,18 @@
 
 .tripName {
   font-size: 2em;
+  color: #3b4954;
+  font-family: "Boogaloo", cursive;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #ee9821;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 0.5rem;
+  margin-bottom: 20px;
+}
+
+.tripDescription {
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  color: ;
 }

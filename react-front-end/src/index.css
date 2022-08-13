@@ -1,24 +1,48 @@
+html {
+  font-family: "Poppins", sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: "Poppins", sans-serif;
+  color: #3b4954;
+  background-color: #fcfbf4;
+
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
 
-/* @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&family=Carter+One&family=Poppins&display=swap");
+
+/* Carter One */
+/* Nav links */
+/* https://fonts.google.com/specimen/Carter+One?query=carter+one */
+
+/* Boogaloo */
+/* trip name on trip detail page */
+/* https://fonts.google.com/specimen/Boogaloo?query=boo */
+
+/* Poppins Regular */
+/* - trip description */
+/* https://fonts.google.com/specimen/Poppins?query=poppins */
 
 :root {
-  --primary: #efb6b2;
-  --secondary: #4e4e4e;
+  --primary: #e65f5c;
+  --secondary: #3b4954;
   --error: #ff4a4a;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 .notmap-container {
@@ -37,7 +61,7 @@ code {
   background-color: rgba(35, 55, 75, 0.9);
   color: #fff;
   padding: 6px 12px;
-  font-family: monospace;
+  /* font-family: monospace; */
   z-index: 1;
   position: absolute;
   top: 0;

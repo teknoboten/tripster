@@ -7,6 +7,11 @@ import useInput from "../../hooks/useInput";
 
 // import LocationInputField from './LocationInputField';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+
+{/* <FontAwesomeIcon icon="fa-solid fa-square-plus" /> */ }
 
 
 
@@ -15,6 +20,7 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
   const [error, setError] = useState(null);
   const [storedUrl, setStoredUrl] = useState("");
   const [coordinates, setCoordinates] = useState(null);
+
 
 
   const history = useHistory();
@@ -49,7 +55,8 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
     <form className={classes.form}>
       <label className={classes.imageLabel}>
         <input type="file" onChange={changedImgHandler} />
-        <span>+</span>
+        <span className="classes.uploadImage"><FontAwesomeIcon icon={faSquarePlus} /> Add Image</span>
+
       </label>
 
       {/* <LocationInputField placeholder="Location"

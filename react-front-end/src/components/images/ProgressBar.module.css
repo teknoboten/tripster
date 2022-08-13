@@ -1,5 +1,8 @@
 .progressbar {
   height: 5px;
-  background: #efb6b2;
+  /* background: #e65f5c; */
+  background: #ee9821;
+  /* background: #3b4954; */
+
   margin-top: 20px;
 }

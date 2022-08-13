@@ -9,22 +9,32 @@ form {
   opacity: 0;
 }
 
-.imageLabel {
+/* .imageLabel {
   display: block;
   width: 30px;
   height: 30px;
   border: 1px solid var(--primary);
   border-radius: 50%;
-  margin: 10px auto;
+  margin: 0px auto 10px;
   line-height: 30px;
   color: var(--primary);
   font-weight: bold;
   font-size: 24px;
-}
+} */
 
 .imageLabel:hover {
-  background: var(--primary);
-  color: white;
+  /* background: var(--primary); */
+  /* color: white; */
+  /* color: #3b4954; */
+  /* color: #ee9821; */
+  color: #e65f5c;
+}
+
+.uploadImage {
+  font-size: 2rem;
+}
+
+.uploadImage:hover {
 }
 
 .output {

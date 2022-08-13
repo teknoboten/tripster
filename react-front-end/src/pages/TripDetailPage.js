@@ -61,7 +61,7 @@ function TripDetailPage(props) {
       <div className={classes.imgGridContainer}>
         <div className={classes.tripHeader}>
           <h1 className={classes.tripName}>{trip.trip_name}</h1>
-          <span className={classes.tripDescription}>{trip.trip_description}</span>
+          <p className={classes.tripDescription}>{trip.trip_description}</p>
         </div>
         <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
         <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
