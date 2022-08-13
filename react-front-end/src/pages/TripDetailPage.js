@@ -7,7 +7,7 @@ import classes from "./TripDetailPage.module.css";
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';  
+import Col from 'react-bootstrap/Col';
 
 import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
@@ -53,33 +53,33 @@ function TripDetailPage(props) {
   };
 
   return (
-  <div className={classes.tripPageContainer}>
-    <div className={classes.mapContainer}>
-      <Map photos={trip.photos} />
-    </div>
-
-    <div className={classes.imgGridContainer}>
-      <div className={classes.tripHeader}>
-      <h1 className={classes.tripName}>{trip.trip_name}</h1>
-      <span className={classes.tripDescription}>{trip.trip_description}</span>
+    <div className={classes.tripPageContainer}>
+      <div className={classes.mapContainer}>
+        <Map photos={trip.photos} />
       </div>
-      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
-    {selectedImg && (
-      <ImageModal
-        selectedImg={selectedImg}
-        onClose={() => {
-          setSelectedImg(null);
-          setOpenModal(false);
-        }}
-        open={openModal}
-        updatePhotoText={updatePhotoText}
-      ></ImageModal>
-    )}
-        
-      <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
+      <div className={classes.imgGridContainer}>
+        <div className={classes.tripHeader}>
+          <h1 className={classes.tripName}>{trip.trip_name}</h1>
+          <span className={classes.tripDescription}>{trip.trip_description}</span>
+        </div>
+        <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
+        <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
-</div>
+        {selectedImg && (
+          <ImageModal
+            selectedImg={selectedImg}
+            onClose={() => {
+              setSelectedImg(null);
+              setOpenModal(false);
+            }}
+            open={openModal}
+            updatePhotoText={updatePhotoText}
+          ></ImageModal>
+        )}
+
+
+      </div>
     </div>
   );
 }

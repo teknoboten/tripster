@@ -2,39 +2,39 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 0;  
+  margin: 0;
   /* max-width: 1320px; */
-    /* justify-content: center; */
+  /* justify-content: center; */
   /* border: 5px solid black; */
 }
 
 .imgGridContainer {
   min-width: 30%;
+  padding: 16px;
   /* border: 1px solid blue; */
 }
 
 .mapContainer {
   /* width: 100%; */
   /* border: 3px solid greenyellow; */
-  margin: 0; 
-  top: 0; 
-  bottom: 0; 
+  margin: 0;
+  top: 0;
+  bottom: 0;
   /* width: 70vh; */
   min-width: 70%;
-  height: 100vh; 
+  height: 100vh;
   /* border: 5px solid fuchsia; */
 }
 
 .mapBox {
-  margin: 0; 
-  top: 0; 
-  bottom: 0; 
+  margin: 0;
+  top: 0;
+  bottom: 0;
   /* width: 100vh; */
   /* min-width: 80%; */
-  height: 100vh; 
+  height: 100vh;
   /* border: 1px solid green; */
-  }
-  
+}
 
 .tripHeader {
   color: #4e4e4e;
@@ -48,6 +48,3 @@
 .tripName {
   font-size: 2em;
 }
-
-
-
