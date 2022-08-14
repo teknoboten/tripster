@@ -7,8 +7,11 @@ import classes from "./TripDetailPage.module.css";
 
 import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
+import Button from 'react-bootstrap/Button';
 import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
+import UploadImageModal from "../components/images/UploadImageModal";
+// import PhotoDetail from "../components/images/PhotoDetail";
 import Map from "../components/maps/Map";
 
 
@@ -16,19 +19,19 @@ function TripDetailPage(props) {
   const [trip, setTrip] = useState();
   const [selectedImg, setSelectedImg] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-  const [selectedMarker, setSelectedMarker] = useState(null);
-
-
-
+  const [uploadModal, setUploadModal] = useState(false);
 
   const handleOnImageClick = (photo) => {
     setSelectedImg(photo);
     setOpenModal(true);
   };
 
-  const handleMarkerClick = (photo) => {
-    setSelectedMarker(photo)
-    setOpenModal(true);
+  const handleNewModalClick = () => {
+    setUploadModal(true);
+  }
+
+  const handleUploadSubmit = () => {
+    setUploadModal(false)
   }
 
   const params = useParams();
@@ -58,6 +61,7 @@ function TripDetailPage(props) {
       ));
   };
 
+
   return (
     <section className={classes.tripPageContainer}>
       <Map photos={trip.photos} />
@@ -67,7 +71,15 @@ function TripDetailPage(props) {
         <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
       </div>
 
-      <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
+      <Button variant="primary" onClick={handleNewModalClick}>+</Button>
+        
+      {uploadModal && (
+        <UploadImageModal trip={trip} setTrip={setTrip} 
+        submit={handleUploadSubmit} 
+        onClose={() => {setUploadModal(false)}} 
+        open={uploadModal}>
+        </UploadImageModal>
+      )}
 
       <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+  import { useState, useEffect } from "react";
 import {
   projectStorage,
   projectFirestore,
@@ -12,6 +12,7 @@ const useStorage = (file) => {
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
+    if (!file) return;
     //references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection("images");
@@ -34,7 +35,21 @@ const useStorage = (file) => {
     );
   }, [file]);
 
+
+  // useEffect(() => {
+  //   if (url) {
+  //     console.log("url:", url)
+  //     setFile(null);
+  //     setStoredUrl(url);
+  //     // updateDb(url, trip_id, coordinates);
+  //     updateDb(url);
+  //   }
+  // }, [url, setFile]);
+
+
   return { progress, url, error };
+
+  
 };
 
 export default useStorage;

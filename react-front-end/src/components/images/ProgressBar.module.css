@@ -1,5 +1,6 @@
 .progressbar {
+  width: 98%;
   height: 5px;
-  background: #efb6b2;
+  background: var(--primary);
   margin-top: 20px;
 }
