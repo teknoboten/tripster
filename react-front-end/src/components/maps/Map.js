@@ -1,19 +1,17 @@
-import React, { useRef, useEffect } from 'react';
-import mapboxgl from '!mapbox-gl';   // eslint-disable-line import/no-webpack-loader-syntax
-import classes from './Map.module.css';
+import React, { useRef, useEffect } from "react";
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import classes from "./Map.module.css";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
 
 export default function Map({ photos, handleMarkerClick }) {
-
   const mapContainer = useRef(null);
 
   useEffect(() => {
-
     // Initialize map when component mounts =
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: "mapbox://styles/mapbox/streets-v11",
 
       // center: photos[0].coordinates,
       // center: ["9.67856000", "44.13700000"],
@@ -32,24 +30,24 @@ export default function Map({ photos, handleMarkerClick }) {
       // zoom level 15 = buildings
     });
 
-
-
-    photos.map((img) =>
+    photos.map((img) => {
+      console.log("IMG", img.coordinates);
       new mapboxgl.Marker({
         color: "#fcb8d2",
-      }).setLngLat(img.coordinates)
-      .setPopup(
-        new mapboxgl.Popup({ offset: 25 }) // add popups
-          .setHTML(
-            `<div>
+      })
+        .setLngLat(img.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<div>
             <img src="${img.photo_url}" class="thumbnail"/>
             <p>${img.photo_text}</p> 
             </div>
             `
-          )
-      )
-      .addTo(map)
-    );
+            )
+        )
+        .addTo(map);
+    });
 
     // Add navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
