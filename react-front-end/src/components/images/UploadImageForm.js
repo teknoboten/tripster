@@ -55,7 +55,7 @@ const UploadImageForm = ({ trip_id, trip, setTrip }) => {
     <form className={classes.form}>
       <label className={classes.imageLabel}>
         <input type="file" onChange={changedImgHandler} />
-        <span className="classes.uploadImage"><FontAwesomeIcon icon={faSquarePlus} /> Add Image</span>
+        <span className={classes.uploadImage}><FontAwesomeIcon className={classes.faIcon} icon={faSquarePlus} /> Add Image</span>
 
       </label>
 

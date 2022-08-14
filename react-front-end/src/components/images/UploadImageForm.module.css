@@ -26,12 +26,38 @@ form {
   /* background: var(--primary); */
   /* color: white; */
   /* color: #3b4954; */
+
+  /* Yellow */
   /* color: #ee9821; */
+
+  /* Red */
   color: #e65f5c;
+
+  /* Light Blue */
+  /* color: #84d2dd; */
+
+  /* Dark Blue */
+  /* color: #3b4954; */
+
+  /* text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #ee9821;
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 0.25rem;
+  margin-bottom: 20px; */
+}
+
+.faIcon {
+  color: #ee9821;
+  color: #84d2dd;
+  color: #e65f5c;
+}
+.faIcon:hover {
+  /* color: #ee9821; */
 }
 
 .uploadImage {
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .uploadImage:hover {
