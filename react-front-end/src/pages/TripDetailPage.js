@@ -7,7 +7,6 @@ import classes from "./TripDetailPage.module.css";
 
 import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
-import classes from "../components/images/ImageGrid.module.css";
 import Button from 'react-bootstrap/Button';
 import UploadImageForm from "../components/images/UploadImageForm";
 import ImageModal from "../components/images/ImageModal";
