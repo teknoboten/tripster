@@ -11,7 +11,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 import classes from "./ImageModal.module.css";
-import "./ImageModal.css";
+// import "./ImageModal.css";
 
 function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
   const [photoText, setPhotoText] = useState(selectedImg.photo_text);
@@ -66,6 +66,7 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
         {!isEditMode &&
           <><p>{photoText}</p>
             <Button
+              className={classes.button}
               type="button"
               onClick={() => setEditMode(true)}
             >
@@ -76,7 +77,7 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
         {/* When you ARE editing */}
         {isEditMode &&
           <Form onSubmit={submitHandler}>
-            <Form.Group className="mb-3">
+            <Form.Group className={classes.control}>
               <Form.Control
                 as="textarea"
                 rows={5}
@@ -87,9 +88,10 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
               />
             </Form.Group>
             <Button
+              className={classes.button}
               variant="warning"
               type="submit"
-              className="m-2"
+
 
             // onClick={(e) => console.log("e.target.value", e.target.value)}
             // onClick={(e) => console.log("e.target", e.target)}
