@@ -47,13 +47,31 @@ function TripDetailPage(props) {
   if (trip === undefined) {
     return <></>;
   }
-  return (
-    <section>
-      <h1>{trip.trip_name}</h1>
-      <h2>{trip.trip_description}</h2>
-      <Map />
 
-      {/* <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} /> */}
+  function updatePhotoText(photoId, photoText) {
+    // loop through trip.photos
+    return (
+      trip.photos.map((photo) => {
+        // find the one that matches the id
+        if (photo.id === photoId) {
+          // console.log('Photo Object', photo);
+          // update that objects photo text 
+          photo.photo_text = photoText;
+        }
+      }
+      ));
+  };
+
+
+  return (
+    <section className={classes.tripPageContainer}>
+      <Map photos={trip.photos} />
+
+      <div className={classes.tripHeader}>
+        <h1 className={classes.tripName}>{trip.trip_name}</h1>
+        <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
+      </div>
+
       <Button variant="primary" onClick={handleNewModalClick}>+</Button>
         
       {uploadModal && (
@@ -63,15 +81,6 @@ function TripDetailPage(props) {
         open={uploadModal}>
         </UploadImageModal>
       )}
-
-      {/* {uploadModal && (
-        <UploadImageModal trip={trip} setTrip={setTrip} onClose={() => {
-          setUploadModal(null);
-        }} open={uploadModal}>
-        </UploadImageModal>
-      )} */}
-        
-
 
       <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
