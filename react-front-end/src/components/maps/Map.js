@@ -10,6 +10,7 @@ export default function Map({ photos, handleMarkerClick }) {
   useEffect(() => {
 
     // Initialize map when component mounts =
+    // console.log('photos.length', photos.length);
     const map = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
