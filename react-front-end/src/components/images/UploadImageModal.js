@@ -8,10 +8,11 @@ import axios from "axios";
 import Button from 'react-bootstrap/Button';
 
 import classes from "./UploadImageForm.module.css";
-import "./ImageModal.css";
+// import "./ImageModal.css";
+import 'react-responsive-modal/styles.css';
 
 import UploadImageForm from "./UploadImageForm";
-// import ProgressBar from "./ProgressBar";
+
 import LocationInputField from "./LocationInputField";
 import ImagePreview from "./ImagePreview";
 import SaySomethingInput from "./SaySomethingInput";
@@ -41,7 +42,7 @@ console.log("phototext:", photoText);
    {(url && coordinates.length === 0) && <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/> }
    {(url && coordinates.length > 0 && <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>) }
 
-    <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>
+   {(url && coordinates.length > 0 && photoText && <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>)}
     </div>
     </Modal >
   );

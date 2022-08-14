@@ -12,7 +12,7 @@ const LocationInputField = ({ coordinates, setCoordinates }) => {
     return (
       <Wrapper>
         <Input
-          placeholder="Where was this photo taken?  "
+          placeholder="Where was this photo taken?"
           {...location}
           isTyping={location.value !== ""}
         />
@@ -45,22 +45,22 @@ export default LocationInputField;
 const Wrapper = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin: 0 auto;
+  margin: 20px 0;
 `;
 
 const Input = styled.input`
   width: 400px;
   background: white;
-  color: black;
-  border: 1px solid grey;
+  border: 1px solid white;
+  margin: 5px
+  color: grey;
   padding: 10px 20px;
-  border-radius: 30px;
   position: relative;
   display: grid;
   justify-self: center;
   &:focus {
-    outline: 2px solid pink;
-    border-radius: ${(props) => props.isTyping && "10px 10px 0px 0px"};
+    border: 1px solid white;
+    outline: none;
   }
 `;
 
