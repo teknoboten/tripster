@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from "react";
-import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import classes from "./Map.module.css";
-
+import React, { useRef, useEffect } from 'react';
+import mapboxgl from '!mapbox-gl';   // eslint-disable-line import/no-webpack-loader-syntax
+import classes from '../../pages/TripDetailPage.module.css';
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
 
 export default function Map({ photos, handleMarkerClick }) {
@@ -22,7 +21,7 @@ export default function Map({ photos, handleMarkerClick }) {
 
       // If photos ARE in the trip then center the map to the first photo in the trip, zoomed IN
       ...(photos.length > 0 && { center: photos[0].coordinates }),
-      ...(photos.length > 0 && { zoom: 6 }),
+      ...(photos.length > 0 && { zoom: 1  }),
 
       //------- NOTE ON ZOOM LEVELS -------
       // https://docs.mapbox.com/help/glossary/zoom-level/
@@ -58,8 +57,12 @@ export default function Map({ photos, handleMarkerClick }) {
   }, [photos]);
 
   return (
-    <div>
-      <div ref={mapContainer} className="map-container" />
-    </div>
+    // <div>
+      <div ref={mapContainer} className={classes.mapBox} />
+      
+    // </div>
   );
 }
+
+
+{/* <div ref={mapContainer} className="map-container" /> */}

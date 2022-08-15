@@ -37,8 +37,9 @@ body {
 
 .map-container {
   /* position: fixed;  */
-  height: 500px;
-  margin: auto; 
+  /* height: 500px; */
+  display: block;
+  margin: 0; 
   top: 0; 
   bottom: 0; 
   width: 70%; 
