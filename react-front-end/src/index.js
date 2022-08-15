@@ -20,9 +20,9 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import 'mapbox-gl/dist/mapbox-gl.css';
+import "mapbox-gl/dist/mapbox-gl.css";
 import "./index.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 
 ReactDOM.render(

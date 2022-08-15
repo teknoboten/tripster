@@ -17,11 +17,6 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
   const [photoText, setPhotoText] = useState(selectedImg.photo_text);
   const [isEditMode, setEditMode] = useState(false);
 
-
-
-
-
-
   async function submitHandler(event) {
     event.preventDefault();
     // alert(`You edited the existing photo_text with: ${photoText}`);
@@ -49,9 +44,6 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
     updatePhotoText(selectedImg.id, photoText);
   }
 
-
-
-
   // console.log('selectedImg:', selectedImg);
   return (
     <Modal open={open} onClose={onClose} center>
@@ -59,23 +51,19 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
       <div className={classes.sidebar}>
         {/* When there is no photo data */}
 
-
-
-
         {/* When not in edit mode */}
-        {!isEditMode &&
-          <><p>{photoText}</p>
-            <Button
-              type="button"
-              onClick={() => setEditMode(true)}
-            >
+        {!isEditMode && (
+          <>
+            <p>{photoText}</p>
+            <Button type="button" onClick={() => setEditMode(true)}>
               Edit
-            </Button></>
-        }
+            </Button>
+          </>
+        )}
 
         {/* When you ARE editing */}
-        {isEditMode &&
-          <Form onSubmit={submitHandler}>
+        {isEditMode && (
+          <Form onSubmit={submitHandler} className="form">
             <Form.Group className="mb-3">
               <Form.Control
                 as="textarea"
@@ -91,15 +79,14 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
               type="submit"
               className="m-2"
 
-            // onClick={(e) => console.log("e.target.value", e.target.value)}
-            // onClick={(e) => console.log("e.target", e.target)}
-            // onClick={() => setEditMode(false)}
+              // onClick={(e) => console.log("e.target.value", e.target.value)}
+              // onClick={(e) => console.log("e.target", e.target)}
+              // onClick={() => setEditMode(false)}
             >
               Save
             </Button>
           </Form>
-        }
-
+        )}
 
         {/* <p>------------------------------------------</p>
         <p>
@@ -138,7 +125,7 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
           </Button>
         </Form> */}
       </div>
-    </Modal >
+    </Modal>
   );
 }
 
