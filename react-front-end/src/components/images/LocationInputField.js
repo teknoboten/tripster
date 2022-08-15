@@ -45,11 +45,11 @@ export default LocationInputField;
 const Wrapper = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin: 20px 0;
+  margin: 0;
 `;
 
 const Input = styled.input`
-  width: 400px;
+  width: 300px;
   background: white;
   border: 1px solid white;
   margin: 5px
@@ -66,13 +66,15 @@ const Input = styled.input`
 
 const SuggestionWrapper = styled.div`
   background: white;
-  position: absolute;
-  width: 400px;
-  padding: 10px 20px;
+  position: relative;
+  width: 300px;
+  padding: 1px 1px;
   border-radius: 0px 0px 10px 10px;
 `;
 
 const Suggestion = styled.p`
   cursor: pointer;
-  max-width: 400px;
+  max-width: 300px;
 `;
+
+
