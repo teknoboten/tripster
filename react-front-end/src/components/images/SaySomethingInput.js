@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 `;
 
 const Input = styled.input.attrs({ type: "textarea" })`
-  width: 400px;
+  width: 300px;
   height: 500;
   margin: 1px;
   border: 1px solid white;

@@ -34,11 +34,12 @@ function UploadImageModal({ onClose, open, trip, setTrip, submit }) {
     
     <div className={classes.previewContainer} >
     {(url && coordinates.length === 0) && <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/> }
-    {(url && coordinates.length > 0 && <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>) }
     {coordinates.length > 0 && <MiniMap coordinates={coordinates} />}
+    {(url && coordinates.length > 0 && <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>) }
+    {(url && coordinates.length > 0 && photoText && <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>)}  
     </div>
-    
-    {(url && coordinates.length > 0 && photoText && <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>)}
+
+   
     </div>
     
     </Modal >
