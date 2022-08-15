@@ -37,16 +37,14 @@ const Wrapper = styled.div`
 `;
 
 const Input = styled.input.attrs({ type: "textarea" })`
-  width: 500px;
+  width: 400px;
   height: 500;
-  margin: 5px;
+  margin: 1px;
   border: 1px solid white;
   background: white;
   color: grey;
   padding: 10px 20px;
   border-radius: 5px;
-  position: relative;
-  display: grid;
   justify-self: center;
   &:focus {
     border: 1px solid white;
@@ -54,3 +52,23 @@ const Input = styled.input.attrs({ type: "textarea" })`
     color: black;
     border-radius: ${(props) => props.isTyping && "10px 10px 0px 0px"};
   `;
+
+
+  // const Input = styled.input.attrs({ type: "textarea" })`
+  // width: 500px;
+  // height: 500;
+  // margin: 5px;
+  // border: 1px solid white;
+  // background: white;
+  // color: grey;
+  // padding: 10px 20px;
+  // border-radius: 5px;
+  // position: relative;
+  // display: grid;
+  // justify-self: center;
+  // &:focus {
+  //   border: 1px solid white;
+  //   outline: none;
+  //   color: black;
+  //   border-radius: ${(props) => props.isTyping && "10px 10px 0px 0px"};
+  // `;

@@ -96,7 +96,7 @@ form {
 }
 
 .btnSubmit {
-  margin: auto;
+  margin: 5px;
   background: var(--primary);
   border: var(--primary);
 }
@@ -104,4 +104,9 @@ form {
 .newImageContainer {
   display: flex;
   flex-direction: column;
+}
+
+.previewContainer {
+  display: flex;
+  justify-content: space-between;
 }

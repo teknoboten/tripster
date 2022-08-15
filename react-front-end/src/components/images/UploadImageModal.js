@@ -6,16 +6,15 @@ import axios from "axios";
 
 // React Bootstrap
 import Button from 'react-bootstrap/Button';
-
 import classes from "./UploadImageForm.module.css";
-// import "./ImageModal.css";
 import 'react-responsive-modal/styles.css';
 
 import UploadImageForm from "./UploadImageForm";
-
 import LocationInputField from "./LocationInputField";
 import ImagePreview from "./ImagePreview";
 import SaySomethingInput from "./SaySomethingInput";
+import MiniMap from "../maps/MiniMap";
+
 
 function UploadImageModal({ onClose, open, trip, setTrip, submit }) {
 
@@ -23,27 +22,25 @@ function UploadImageModal({ onClose, open, trip, setTrip, submit }) {
   const [photoText, setPhotoText] = useState("");
   const [ url, setUrl ] = useState("");
   const [ exifCoords, setExifCoords ] = useState([]);
-
-
   const params = useParams();
   const trip_id = params.tripId;
-
-// console.log("exif:", exifCoords);
-console.log("coordinates:", coordinates);
-console.log("phototext:", photoText);
 
   return (
     
     <Modal open={open} onClose={onClose} center >
 
     <div className={classes.newImageContainer} >
-
-   {url ? ( <ImagePreview img={url} />) : <UploadImageForm trip={trip} setTrip={setTrip} url={url} setUrl={setUrl} coordinates={coordinates} setCoordinates={setCoordinates} />}
-   {(url && coordinates.length === 0) && <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/> }
-   {(url && coordinates.length > 0 && <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>) }
-
-   {(url && coordinates.length > 0 && photoText && <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>)}
+    {url ? ( <ImagePreview img={url} />) : <UploadImageForm trip={trip} setTrip={setTrip} url={url} setUrl={setUrl} coordinates={coordinates} setCoordinates={setCoordinates} />}
+    
+    <div className={classes.previewContainer} >
+    {(url && coordinates.length === 0) && <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/> }
+    {(url && coordinates.length > 0 && <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>) }
+    {coordinates.length > 0 && <MiniMap coordinates={coordinates} />}
     </div>
+    
+    {(url && coordinates.length > 0 && photoText && <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>)}
+    </div>
+    
     </Modal >
   );
 

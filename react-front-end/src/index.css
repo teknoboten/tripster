@@ -38,10 +38,18 @@ body {
 .map-container {
   /* position: fixed;  */
   height: 500px;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  width: 70%;
+  margin: auto; 
+  top: 0; 
+  bottom: 0; 
+  width: 70%; 
+  /* border: 2px solid black; */
+  }
+
+  .mini-map-container {
+  height: 250px;
+  width: 250px;
+  /* margin: 0px 10px 10px auto; */
+  margin: 2px; 
   border: 2px solid black;
 }
 
