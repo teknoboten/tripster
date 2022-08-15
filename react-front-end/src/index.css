@@ -47,10 +47,11 @@ body {
 
   .mini-map-container {
   height: 300px;
-  min-width: 300px;
+  /* min-width: 300px; */
+  min-width: 98%;
   top: 0; 
   bottom: 0; 
-  margin: 2px;
+  margin: auto;
   /* margin: 0px 10px 10px auto; */
   /* margin: 2px;  */
   /* border: 2px solid black;    */

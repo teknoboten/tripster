@@ -31,12 +31,11 @@ function UploadImageModal({ onClose, open, trip, setTrip, submit }) {
 
     <div className={classes.newImageContainer} >
     {url ? ( <ImagePreview img={url} />) : <UploadImageForm trip={trip} setTrip={setTrip} url={url} setUrl={setUrl} coordinates={coordinates} setCoordinates={setCoordinates} />}
-    
     <div className={classes.previewContainer} >
     {(url && coordinates.length === 0) && <LocationInputField coordinates={coordinates} setCoordinates={setCoordinates}/> }
     {coordinates.length > 0 && <MiniMap coordinates={coordinates} />}
     {(url && coordinates.length > 0 && <SaySomethingInput photoText={photoText} setPhotoText={setPhotoText}/>) }
-    {(url && coordinates.length > 0 && photoText && <Button onClick={createNewImageObject} className={classes.btnSubmit}> Submit </Button>)}  
+    {(url && coordinates.length > 0 && photoText && <Button onClick={createNewImageObject} className={classes.btnSubmit}> Trip It! </Button>)}  
     </div>
 
    
