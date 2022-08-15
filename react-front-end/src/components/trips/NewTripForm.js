@@ -39,8 +39,9 @@ function NewTripForm() {
   }
 
   return (
-    <Card>
+    <div className={classes.newTripForm}>
       <form className={classes.form} onSubmit={submitHandler}>
+        <h1>Add New Trip</h1>
         <div className={classes.control}>
           <label htmlFor="tripName" className={classes.control.label}>
             Trip Name
@@ -66,7 +67,7 @@ function NewTripForm() {
           <button>Add Trip</button>
         </div>
       </form>
-    </Card>
+    </div>
   );
 }
 
