@@ -5,7 +5,7 @@ import MainNav from './MainNav';
 
 function Layout(props) {
   return (
-    <div>
+    <div className={classes.layoutContainer}>
       <MainNav />
       <main className={classes.main}>
         {props.children}

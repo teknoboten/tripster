@@ -40,9 +40,10 @@ body {
   /* height: 500px; */
   display: block;
   margin: 0; 
-  top: 0; 
-  bottom: 0; 
-  width: 70%; 
+  /* top: 0; 
+  bottom: 0;  */
+  width: 70%;
+  height: 100%;
   /* border: 2px solid black; */
   }
 
@@ -50,8 +51,8 @@ body {
   height: 300px;
   /* min-width: 300px; */
   min-width: 98%;
-  top: 0; 
-  bottom: 0; 
+  /* top: 0; 
+  bottom: 0;  */
   margin: auto;
   /* margin: 0px 10px 10px auto; */
   /* margin: 2px;  */

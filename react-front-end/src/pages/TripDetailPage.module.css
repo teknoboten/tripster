@@ -3,48 +3,41 @@
   justify-content: space-between;
   width: 100%;
   margin: 0;  
+  height: 100%;
+  overflow: hidden;
   /* max-width: 1320px; */
     /* justify-content: center; */
-  /* border: 5px solid black; */
+  /* border: 1px solid black; */
 }
 
 .imgGridContainer {
   min-width: 30%;
-  /* border: 1px solid blue; */
+  margin: 0;
 }
 
 .mapContainer {
   /* width: 100%; */
   /* border: 3px solid greenyellow; */
-  margin: 0; 
-  top: 0; 
-  bottom: 0; 
+  /* margin: 0;  */
+  /* top: 0; 
+  bottom: 0;  */
   /* width: 70vh; */
   min-width: 70%;
-  height: 100vh; 
+  max-height: 100%;
+  height: 100%; 
   /* border: 5px solid fuchsia; */
 }
 
 .mapBox {
   margin: 0; 
-  top: 0; 
-  bottom: 0; 
+  /* top: 0; 
+  bottom: 0;  */
   /* width: 100vh; */
   /* min-width: 80%; */
-  height: 100vh; 
+  height: 100%; 
   /* border: 1px solid green; */
   }
-  
 
-.mapBox {
-  margin: 0; 
-  top: 0; 
-  bottom: 0; 
-  /* width: 100vh; */
-  /* min-width: 80%; */
-  height: 100vh; 
-  /* border: 1px solid green; */
-  }
   
 
 .tripHeader {
@@ -61,7 +54,7 @@
 }
 
 .addImageButton {
-  margin: 2px;    
+  margin: 4px;    
   font-size: 18px;
   cursor: pointer;
   background-color: #a9a5a7;
@@ -76,4 +69,5 @@
 .addImageButton:hover {
   background-color: #e65f5c;
   border-color: #e65f5c;
+  
 }
