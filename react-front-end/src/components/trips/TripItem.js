@@ -12,14 +12,14 @@ function TripItem(props) {
     <li className={classes.item}>
       <Link
         to={`trips/${props.id}`}
-        // style={{ textDecoration: "none" }}
+      // style={{ textDecoration: "none" }}
       >
         <Card>
           <div className={classes.image}>
             <img src={props.coverImage} alt={props.tripName} />
           </div>
           <div className={classes.content}>
-            <h3>{props.tripName}</h3>
+            <h3 className={classes.tripName}>{props.tripName}</h3>
             <p>{props.description}</p>
           </div>
         </Card>

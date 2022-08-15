@@ -5,6 +5,13 @@ import axios from "axios";
 
 import classes from "./TripDetailPage.module.css";
 
+// Font Awesome Icon for Upload Image
+// https://fontawesome.com/icons/square-plus?s=solid
+// React Font Awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// Individual Icon
+import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+
 import ImageGrid from "../components/images/ImageGrid";
 import { motion } from "framer-motion";
 import Button from 'react-bootstrap/Button';
@@ -28,11 +35,11 @@ function TripDetailPage(props) {
 
   const handleNewModalClick = () => {
     setUploadModal(true);
-  }
+  };
 
   const handleUploadSubmit = () => {
-    setUploadModal(false)
-  }
+    setUploadModal(false);
+  };
 
   const params = useParams();
 
@@ -68,16 +75,17 @@ function TripDetailPage(props) {
 
       <div className={classes.tripHeader}>
         <h1 className={classes.tripName}>{trip.trip_name}</h1>
-        <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
+        <p className={classes.tripDescription}>{trip.trip_description}</p>
       </div>
 
-      <Button variant="primary" onClick={handleNewModalClick}>+</Button>
-        
+      <Button onClick={handleNewModalClick} className={classes.addImageButton}><FontAwesomeIcon icon={faSquarePlus} /><span className={classes.addImageText}> Add Image</span></Button>
+      {/* <span className="classes.uploadImage"><FontAwesomeIcon icon={faSquarePlus} /> Select Image</span> */}
+
       {uploadModal && (
-        <UploadImageModal trip={trip} setTrip={setTrip} 
-        submit={handleUploadSubmit} 
-        onClose={() => {setUploadModal(false)}} 
-        open={uploadModal}>
+        <UploadImageModal trip={trip} setTrip={setTrip}
+          submit={handleUploadSubmit}
+          onClose={() => { setUploadModal(false); }}
+          open={uploadModal}>
         </UploadImageModal>
       )}
 

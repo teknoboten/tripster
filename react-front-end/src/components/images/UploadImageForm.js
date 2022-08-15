@@ -7,6 +7,13 @@ import { useHistory } from "react-router-dom";
 import useInput from "../../hooks/useInput";
 // import axios from "axios";
 
+// Font Awesome Icon for Upload Image
+// https://fontawesome.com/icons/square-plus?s=solid
+// React Font Awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// Individual Icon
+import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+
 import getExif from '../../helpers/getExif';
 // import useExif from "../../hooks/useStorage";
 
@@ -23,7 +30,7 @@ const UploadImageForm = ({ trip, setTrip, url, setUrl, exifCoords, setExifCoords
   const types = ["image/png", "image/jpeg"];
 
 
-  const { url:firebaseUrl, progress } = useStorage(file);
+  const { url: firebaseUrl, progress } = useStorage(file);
 
 
   const changedImgHandler = async (e) => {
@@ -37,25 +44,26 @@ const UploadImageForm = ({ trip, setTrip, url, setUrl, exifCoords, setExifCoords
       setError(`please select an image file (png or jpg)`);
     }
 
-  //scan new photos for existing exif data
+    //scan new photos for existing exif data
     const exif = await getExif(selected);
     console.log("exif:", exif);
-    setCoordinates(exif)
+    setCoordinates(exif);
   };
 
-//passes url from firebase to upload modal 
+  //passes url from firebase to upload modal 
   useEffect(() => {
     if (firebaseUrl) {
-      setUrl(firebaseUrl)
+      setUrl(firebaseUrl);
     }
-  }, [firebaseUrl])
+  }, [firebaseUrl]);
 
 
   return (
     <form className={classes.form}>
       <label className={classes.imageLabel}>
         <input type="file" onChange={changedImgHandler} />
-        <span>Select image...</span>
+        {/* <span>Select image...</span> */}
+        <span className="classes.uploadImage"><FontAwesomeIcon icon={faSquarePlus} /> Select Image</span>
       </label>
 
 
@@ -63,13 +71,13 @@ const UploadImageForm = ({ trip, setTrip, url, setUrl, exifCoords, setExifCoords
         {error && <div className={classes.error}>{error} </div>}
         {file && <div>{file.name}</div>}
         {/* {file && <ProgressBar setStoredUrl={setStoredUrl} file={file} setFile={setFile} trip={trip} setTrip={setTrip} />} */}
-        {file && <ProgressBar progress={progress}/>}
+        {file && <ProgressBar progress={progress} />}
       </div>
 
-      
+
     </form>
 
-    
+
   );
 };
 

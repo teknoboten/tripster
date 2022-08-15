@@ -3,28 +3,29 @@ import styled from "styled-components";
 // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 // import classes from "./UploadImageForm.module.css";
-import classes from "./SaySomething.module.css"
+import classes from "./SaySomething.module.css";
 
 const SaySomethingInput = ({ photoText, setPhotoText }) => {
-  
+
   const updateText = (e) => {
-    console.log(e.target.value)
-    setPhotoText(e.target.value)
-    console.log(photoText)
-  }
+    console.log(e.target.value);
+    setPhotoText(e.target.value);
+    console.log(photoText);
+  };
 
 
-    return (
-      
-      <Wrapper>
-        <Input onChange={updateText}
-          placeholder="Tell us about this photo..."
-        />
-      </Wrapper>
+  return (
 
-    );
+    <Wrapper>
+      <Input onChange={updateText}
+        placeholder="Tell us about this photo..."
+        className={classes.inputText}
+      />
+    </Wrapper>
 
-}
+  );
+
+};
 
 export default SaySomethingInput;
 

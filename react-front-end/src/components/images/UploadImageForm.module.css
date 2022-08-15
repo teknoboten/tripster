@@ -2,7 +2,6 @@
   padding: 0;
 }
 
-
 form {
   display: flex;
   flex-direction: column;
@@ -19,25 +18,65 @@ form {
 }
 
 .imageLabel {
-  display: flex;
+  font-size: 22px;
+  /* font: inherit; */
+  cursor: pointer;
+  background-color: #a9a5a7;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #a9a5a7;
+  border-radius: 4px;
+  font-weight: bold;
+  /* display: flex;
   align-items: center;
-  justify-content: center ;
+  justify-content: center;
   margin: 50px;
   width: 250px;
   height: 50px;
   border: 1px solid var(--primary);
-  /* margin: 10px auto; */
+  margin: 10px auto;
   line-height: 30px;
   background: var(--primary);
   color: white;
   font-weight: bold;
   font-size: 24px;
+  border-radius: 12px; */
 }
 
 .imageLabel:hover {
-  /* background: var(--primary); */
-  background-color: #ba7b93;
+  background-color: #e65f5c;
+  border-color: #e65f5c;
+  /* border-color: #fcb8d2; */
+  /* background: var(--secondary); */
+  /* background-color: #ba7b93; */
+  /* background: white; */
+  /* color: #e65f5c; */
+  /* background-color: white; */
+  /* border: 3px solid #e65f5c; */
+  /* border-color: #e65f5c; */
 }
+
+/* .actions {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #a9a5a7;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #a9a5a7;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #fcb8d2;
+  border-color: #fcb8d2;
+} */
 
 .output {
   height: 60px;
@@ -59,7 +98,7 @@ form {
 .btnSubmit {
   margin: auto;
   background: var(--primary);
-  border: var(--primary); 
+  border: var(--primary);
 }
 
 .newImageContainer {

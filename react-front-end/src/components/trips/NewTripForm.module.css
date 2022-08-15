@@ -1,5 +1,15 @@
 .form {
-  padding: 1rem;
+  padding: 2rem;
+  margin-top: 60px;
+  text-align: left;
+}
+
+.form h1 {
+  font-size: 2em;
+  color: #3b4954;
+  font-family: "Boogaloo", cursive;
+  margin: 0;
+  margin-bottom: 30px;
 }
 
 .control {
@@ -40,6 +50,19 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #fcb8d2;
-  border-color: #fcb8d2;
+  /* Yellow */
+  background-color: #ee9821;
+  border-color: #ee9821;
+
+  /* Light Blue */
+  /* background-color: #84d2dd; */
+  /* border-color: #84d2dd; */
+}
+
+.newTripForm {
+  width: 50%;
+  margin: auto;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

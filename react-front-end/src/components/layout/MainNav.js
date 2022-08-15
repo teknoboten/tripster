@@ -8,7 +8,8 @@ function MainNav() {
   return (
     <div className={classes.navContainer}>
       <header className={classes.header}>
-        <div className={classes.logo}>Tripster</div>
+        {/* <div className={classes.logo}>Tripster</div> */}
+        <Link to="/" id={classes.logo}>Tripster</Link>
         <nav>
           <ul>
             <li>
