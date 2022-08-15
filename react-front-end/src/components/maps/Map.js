@@ -21,7 +21,7 @@ export default function Map({ photos, handleMarkerClick }) {
 
       // If photos ARE in the trip then center the map to the first photo in the trip, zoomed IN
       ...(photos.length > 0 && { center: photos[0].coordinates }),
-      ...(photos.length > 0 && { zoom: 6 }),
+      ...(photos.length > 0 && { zoom: 1  }),
 
       //------- NOTE ON ZOOM LEVELS -------
       // https://docs.mapbox.com/help/glossary/zoom-level/
