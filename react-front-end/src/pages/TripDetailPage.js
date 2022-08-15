@@ -75,7 +75,7 @@ function TripDetailPage(props) {
 
       <div className={classes.tripHeader}>
         <h1 className={classes.tripName}>{trip.trip_name}</h1>
-        <h2 className={classes.tripDescription}>{trip.trip_description}</h2>
+        <p className={classes.tripDescription}>{trip.trip_description}</p>
       </div>
 
       <Button onClick={handleNewModalClick} className={classes.addImageButton}><FontAwesomeIcon icon={faSquarePlus} /><span className={classes.addImageText}> Add Image</span></Button>

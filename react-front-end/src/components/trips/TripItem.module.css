@@ -20,13 +20,28 @@
 
 .content {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   color: #2c292b;
 }
 
 .content h3 {
-  font-size: 1.25rem;
-  color: #2c292b;
+  font-size: 2rem;
+  font-family: "Boogaloo", cursive;
+  margin: 0;
+  margin-top: 0px;
+  /* margin-bottom: 10px; */
+}
+
+.tripName {
+  font-size: 2em;
+  color: #3b4954;
+  font-family: "Boogaloo", cursive;
+  /* text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #ee9821;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 0.5rem;
+  margin-bottom: 20px; */
 }
 
 .content p {
@@ -59,12 +74,13 @@ a:link {
 
 a:visited {
   text-decoration: none;
-  color: darkgray;
+  /* color: darkgray; */
 }
 
 a:hover {
   text-decoration: none;
-  color: #47a1ad;
+
+  /* color: #47a1ad; */
 }
 
 a:active {

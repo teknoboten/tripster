@@ -16,12 +16,28 @@
 
 .tripName {
   font-size: 2em;
+  color: #3b4954;
+  font-family: "Boogaloo", cursive;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #ee9821;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 0.5rem;
+  margin-bottom: 15px;
+}
+
+.tripDescription {
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  word-break: break-all;
+  font-size: 1.25rem;
 }
 
 .addImageButton {
   /* display: inline-block; */
   font-family: "Poppins", sans-serif;
   border: none;
+  width: 100%;
   /* padding: 1rem 2rem; */
   margin: 0;
   text-decoration: none;
