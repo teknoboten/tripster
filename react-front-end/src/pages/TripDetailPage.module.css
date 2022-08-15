@@ -1,8 +1,8 @@
 .tripPageContainer {
   /* width: 100%; */
   max-width: 1320px;
-    justify-content: center;
-    margin: auto;
+  justify-content: center;
+  margin: auto;
 }
 
 .tripHeader {
@@ -10,10 +10,51 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   padding-bottom: 0;
 }
 
 .tripName {
   font-size: 2em;
+}
+
+.addImageButton {
+  /* display: inline-block; */
+  font-family: "Poppins", sans-serif;
+  border: none;
+  /* padding: 1rem 2rem; */
+  margin: 0;
+  text-decoration: none;
+  /* background: #0069ed; */
+  background: none;
+  color: #e65f5c;
+  /* font-family: sans-serif; */
+  font-size: 1.25rem;
+  cursor: pointer;
+  text-align: center;
+  /* transition: background 250ms ease-in-out, transform 150ms ease; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.addImageButton:hover,
+.addImageButton:focus {
+  /* background: #0053ba; */
+  color: #e65f5c;
+}
+
+.addImageButton:focus {
+  /* outline: 1px solid #fff; */
+  outline-offset: -4px;
+}
+
+.addImageButton:active {
+  transform: scale(0.99);
+}
+
+.addImageText {
+  color: #3b4954;
+}
+.addImageText:hover {
+  color: #e65f5c;
 }

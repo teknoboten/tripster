@@ -2,8 +2,6 @@
   width: 350px;
   padding: 0 1rem;
   margin: 1rem 0;
-  
-  
 }
 
 .image {
@@ -18,12 +16,12 @@
 .image img {
   width: 100%;
   object-fit: cover;
-} 
+}
 
 .content {
   text-align: center;
   padding: 1rem;
-
+  color: #2c292b;
 }
 
 .content h3 {
@@ -49,14 +47,14 @@
   border-radius: 4px;
 }
 
-.actions button:hover,
+/* .actions button:hover,
 .actions button:active {
   background-color: #ffe2ed;
-}
+} */
 
 a:link {
   text-decoration: none;
-  color: darkgray;
+  /* color: darkgray; */
 }
 
 a:visited {
