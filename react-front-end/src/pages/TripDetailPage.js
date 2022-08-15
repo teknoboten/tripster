@@ -79,12 +79,13 @@ function TripDetailPage(props) {
       <div className={classes.tripHeader}>
         <h1 className={classes.tripName}>{trip.trip_name}</h1>
         <p className={classes.tripDescription}>{trip.trip_description}</p>
+        <Button onClick={handleNewModalClick} className={classes.addImageButton}><FontAwesomeIcon icon={faSquarePlus} /><span className={classes.addImageText}> Add to trip</span></Button> 
       </div>
 
-      <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} />
+      
 
       
-      <Button onClick={handleNewModalClick} className={classes.addImageButton}><FontAwesomeIcon icon={faSquarePlus} /><span className={classes.addImageText}> Add Image</span></Button>
+      
       {/* <span className="classes.uploadImage"><FontAwesomeIcon icon={faSquarePlus} /> Select Image</span> */}
 
       {uploadModal && (
