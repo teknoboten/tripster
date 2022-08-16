@@ -1,19 +1,28 @@
 .header {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
+  /* text-align: center;
   justify-content: space-between;
   max-width: 1320px;
   margin: auto;
-  height: 5rem;
+  height: 5rem; */
 
   /* padding: 0 10%; */
 }
 
 .navContainer {
   width: 100%;
-  justify-content: center;
   background-color: #e65f5c;
-  height: 10vh; 
+  height: 120px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  max-width: 1320px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #logo {
@@ -22,29 +31,32 @@
   /* font-weight: bold; */
   margin: 0 1em;
   padding: 1em;
+  /* margin-left: 10px; */
 }
 
-.header ul {
+nav ul {
   list-style: none;
   margin: 0 2em;
   padding: 1.5em;
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  /* margin-right: 10px; */
 }
 
-.header li {
+nav li {
   margin-left: 1rem;
 }
 
-.header a {
+nav a {
   font-family: "Carter One", cursive;
   text-decoration: none;
   font-size: 1.5rem;
   color: white;
   margin-left: 10px;
+  display: flex;
 }
 
-.header a:hover {
+nav a:hover {
   /* color: #ee9821; */
   text-decoration-line: underline;
   text-decoration-style: solid;
