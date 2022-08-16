@@ -36,7 +36,7 @@ export default function Map({ photos, handleMarkerClick }) {
     });
 
     photos.map((img) => {
-      console.log("IMG", img.coordinates);
+      // console.log("IMG", img.coordinates);
       new mapboxgl.Marker({
         // color: "#fcb8d2",
         color: "#3b4954",
