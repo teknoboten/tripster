@@ -70,49 +70,49 @@ function TripDetailPage(props) {
 
 
   return (
-  <div className={classes.tripPageContainer}>
-    <div className={classes.mapContainer}>
-      <Map photos={trip.photos} />
-    </div>
-
-    <div className={classes.imgGridContainer}>
-      <div className={classes.tripHeader}>
-        <h1 className={classes.tripName}>{trip.trip_name}</h1>
-        <p className={classes.tripDescription}>{trip.trip_description}</p>
-        <Button onClick={handleNewModalClick} className={classes.addImageButton}><FontAwesomeIcon icon={faSquarePlus} /><span className={classes.addImageText}> Add to trip</span></Button> 
+    <div className={classes.tripPageContainer}>
+      <div className={classes.mapContainer}>
+        <Map photos={trip.photos} />
       </div>
 
-      
+      <div className={classes.imgGridContainer}>
+        <div className={classes.tripHeader}>
+          <h1 className={classes.tripName}>{trip.trip_name}</h1>
+          <p className={classes.tripDescription}>{trip.trip_description}</p>
+          <Button onClick={handleNewModalClick} className={classes.addImageButton}><FontAwesomeIcon icon={faSquarePlus} /><span className={classes.addImageText}> Add Photo to Trip</span></Button>
+        </div>
 
-      
-      
-      {/* <span className="classes.uploadImage"><FontAwesomeIcon icon={faSquarePlus} /> Select Image</span> */}
 
-      {uploadModal && (
-        <UploadImageModal trip={trip} setTrip={setTrip}
-          submit={handleUploadSubmit}
-          onClose={() => { setUploadModal(false); }}
-          open={uploadModal}>
-        </UploadImageModal>
-      )}
 
-      <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
 
-    {selectedImg && (
-      <ImageModal
-        selectedImg={selectedImg}
-        onClose={() => {
-          setSelectedImg(null);
-          setOpenModal(false);
-        }}
-        open={openModal}
-        updatePhotoText={updatePhotoText}
-      ></ImageModal>
-    )}
-        
-      {/* <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} /> */}
 
-</div>
+        {/* <span className="classes.uploadImage"><FontAwesomeIcon icon={faSquarePlus} /> Select Image</span> */}
+
+        {uploadModal && (
+          <UploadImageModal trip={trip} setTrip={setTrip}
+            submit={handleUploadSubmit}
+            onClose={() => { setUploadModal(false); }}
+            open={uploadModal}>
+          </UploadImageModal>
+        )}
+
+        <ImageGrid photos={trip.photos} onImageClick={handleOnImageClick} />
+
+        {selectedImg && (
+          <ImageModal
+            selectedImg={selectedImg}
+            onClose={() => {
+              setSelectedImg(null);
+              setOpenModal(false);
+            }}
+            open={openModal}
+            updatePhotoText={updatePhotoText}
+          ></ImageModal>
+        )}
+
+        {/* <UploadImageForm trip_id={trip.id} trip={trip} setTrip={setTrip} /> */}
+
+      </div>
     </div>
   );
 }

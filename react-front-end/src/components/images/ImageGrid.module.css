@@ -1,8 +1,6 @@
-
-
 /* image grid styles */
 .imggrid {
-  /* margin: 20px auto; */
+  margin: 0px 5px;
   display: grid;
   height: 100%;
   overflow: scroll;
@@ -35,4 +33,3 @@
   top: 0;
   left: 0;
 }
-

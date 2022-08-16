@@ -19,7 +19,6 @@ form {
 
 .imageLabel {
   font-size: 22px;
-  /* font: inherit; */
   cursor: pointer;
   background-color: #a9a5a7;
   color: white;
@@ -27,33 +26,12 @@ form {
   border: 1px solid #a9a5a7;
   border-radius: 4px;
   font-weight: bold;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 50px;
-  width: 250px;
-  height: 50px;
-  border: 1px solid var(--primary);
-  margin: 10px auto;
-  line-height: 30px;
-  background: var(--primary);
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-  border-radius: 12px; */
 }
 
 .imageLabel:hover {
   background-color: #e65f5c;
   border-color: #e65f5c;
-  /* border-color: #fcb8d2; */
-  /* background: var(--secondary); */
-  /* background-color: #ba7b93; */
-  /* background: white; */
-  /* color: #e65f5c; */
-  /* background-color: white; */
-  /* border: 3px solid #e65f5c; */
-  /* border-color: #e65f5c; */
+  transition: all 0.2s ease-in-out;
 }
 
 /* .actions {
@@ -102,7 +80,6 @@ form {
   outline: none;
 }
 
-
 .imgpreview {
   /* display: block; */
   /* max-width: 500px; */
@@ -111,18 +88,35 @@ form {
   margin: 0;
 }
 
-
-
 .everythingContainer {
   display: flex;
   /* border: 2px solid blue; */
   /* flex-direction: column; */
 }
 
-
 .previewContainer {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  margin: 20px;
   /* justify-content: space-between; */
+}
+
+.submitButton {
+  font-size: 22px;
+  cursor: pointer;
+  background-color: #a9a5a7;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #a9a5a7;
+  border-radius: 13px;
+  font-weight: bold;
+  width: 128px;
+  margin: 15px auto;
+}
+
+.submitButton:hover {
+  background-color: #e65f5c;
+  border-color: #e65f5c;
+  transition: all 0.2s ease-in-out;
 }

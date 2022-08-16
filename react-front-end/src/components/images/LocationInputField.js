@@ -3,20 +3,21 @@ import useInput from "../../hooks/useInput";
 import styled from "styled-components";
 // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-// import classes from "./UploadImageForm.module.css";
+import classes from "./LocationInputField.module.css";
 
 const LocationInputField = ({ coordinates, setCoordinates }) => {
-  
+
   const location = useInput("");
 
-    return (
-      <Wrapper>
-        <Input
-          placeholder="Where was this photo taken?"
-          {...location}
-          isTyping={location.value !== ""}
-        />
-           {location.suggestions.length > 0 && (
+  return (
+    <Wrapper>
+      <Input
+        className={classes.whereTaken}
+        placeholder="Where was this photo taken?"
+        {...location}
+        isTyping={location.value !== ""}
+      />
+      {location.suggestions.length > 0 && (
         <SuggestionWrapper>
           {location.suggestions.map((suggestion, index) => {
             return (
@@ -35,10 +36,10 @@ const LocationInputField = ({ coordinates, setCoordinates }) => {
           })}
         </SuggestionWrapper>
       )}
-      </Wrapper>
-    );
+    </Wrapper>
+  );
 
-}
+};
 
 export default LocationInputField;
 

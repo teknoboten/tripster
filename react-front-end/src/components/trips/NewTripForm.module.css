@@ -44,7 +44,7 @@
   color: white;
   padding: 0.5rem 1.5rem;
   border: 1px solid #a9a5a7;
-  border-radius: 4px;
+  border-radius: 14px;
   font-weight: bold;
 }
 
@@ -53,6 +53,11 @@
   /* Yellow */
   background-color: #ee9821;
   border-color: #ee9821;
+
+  /* Red */
+  background-color: #e65f5c;
+  border-color: #e65f5c;
+  transition: all 0.2s ease-in-out;
 
   /* Light Blue */
   /* background-color: #84d2dd; */

@@ -25,7 +25,7 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
   async function submitHandler(event) {
     event.preventDefault();
     // alert(`You edited the existing photo_text with: ${photoText}`);
-    const textArea = document.querySelector("textarea.form-control");
+    const textArea = document.querySelector("textarea.form");
     console.log(textArea);
 
     const photoSendData = {
@@ -43,8 +43,9 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
     console.log(photoReceiveData);
     // history.push(`/trips/1`);
     setPhotoText(photoReceiveData);
-    textArea.value = "";
-
+    if (textArea) {
+      textArea.value = "";
+    }
     setEditMode(false);
     updatePhotoText(selectedImg.id, photoText);
   }
@@ -64,79 +65,32 @@ function ImageModal({ onClose, open, children, selectedImg, updatePhotoText }) {
 
         {/* When not in edit mode */}
         {!isEditMode &&
-          <><p>{photoText}</p>
-            <Button
+          <>
+            <p>{photoText}</p>
+            <button
+              className={classes.buttonNoBootstrap}
               type="button"
               onClick={() => setEditMode(true)}
             >
               Edit
-            </Button></>
+            </button>
+          </>
         }
 
         {/* When you ARE editing */}
         {isEditMode &&
-          <Form onSubmit={submitHandler}>
-            <Form.Group className="mb-3">
-              <Form.Control
-                as="textarea"
-                rows={5}
-                placeholder="Tell us about this photo"
-                id="photoText"
-                value={photoText}
-                onChange={(e) => setPhotoText(e.target.value)}
-              />
-            </Form.Group>
-            <Button
-              variant="warning"
-              type="submit"
-              className="m-2"
-
-            // onClick={(e) => console.log("e.target.value", e.target.value)}
-            // onClick={(e) => console.log("e.target", e.target)}
-            // onClick={() => setEditMode(false)}
-            >
-              Save
-            </Button>
-          </Form>
+          <form className={classes.form} onSubmit={submitHandler}>
+            <textarea
+              id="photoText"
+              rows={5}
+              value={photoText}
+              placeholder="Tell us about this photo"
+              onChange={(e) => setPhotoText(e.target.value)}
+            ></textarea>
+            <button className={classes.buttonNoBootstrap} type="submit">Save</button>
+          </form>
         }
 
-
-        {/* <p>------------------------------------------</p>
-        <p>
-          B: Form shown if there IS existing photo_text. The photo_text is
-          displayed along with an edit button.
-        </p>
-        <Form>
-          <p>
-            Scuba Junction was a really cool scuba diving school in Ko Tao. We
-            stayed here for 3 days learning to scuba dive. We went on 5 dives.
-          </p>
-          <Button variant="success" type="submit" className="m-2">
-            Edit Post
-          </Button>
-        </Form>
-
-        <p>------------------------------------------</p>
-        <p>
-          C: Form shown if the user clicks the Edit Post button. They are shown
-          the text area form with the text pre-populated with the existing
-          photo_text. There is a Cancel button and a Done button
-        </p>
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Control
-              as="textarea"
-              rows={5}
-              placeholder="Scuba Junction was a really cool scuba diving school in Ko Tao. We stayed here for 3 days learning to scuba dive. We went on 5 dives."
-            />
-          </Form.Group>
-          <Button variant="secondary" type="submit" className="m-2">
-            Cancel
-          </Button>
-          <Button variant="primary" type="submit" className="m-2">
-            Done
-          </Button>
-        </Form> */}
       </div>
     </Modal >
   );

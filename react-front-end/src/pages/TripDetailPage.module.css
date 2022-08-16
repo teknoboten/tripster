@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 0;  
+  margin: 0;
   height: 100%;
   overflow: hidden;
   /* max-width: 1320px; */
-    /* justify-content: center; */
+  /* justify-content: center; */
   /* border: 1px solid black; */
 }
 
@@ -24,21 +24,19 @@
   /* width: 70vh; */
   min-width: 70%;
   max-height: 100%;
-  height: 100%; 
+  height: 100%;
   /* border: 5px solid fuchsia; */
 }
 
 .mapBox {
-  margin: 0; 
+  margin: 0;
   /* top: 0; 
   bottom: 0;  */
   /* width: 100vh; */
   /* min-width: 80%; */
-  height: 100%; 
+  height: 100%;
   /* border: 1px solid green; */
-  }
-
-  
+}
 
 .tripHeader {
   color: #4e4e4e;
@@ -51,23 +49,44 @@
 
 .tripName {
   font-size: 2em;
+  color: #3b4954;
+  font-family: "Boogaloo", cursive;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #ee9821;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 0.5rem;
+  margin-top: 32px;
+  margin-bottom: 15px;
+}
+
+.tripDescription {
+  margin: 25px;
+  margin-top: 16px;
+  /* font-family: "Poppins", sans-serif; */
+  /* word-break: break-all; */
+  font-size: 1.15rem;
 }
 
 .addImageButton {
-  margin: 4px;    
+  margin-bottom: 25px;
   font-size: 18px;
   cursor: pointer;
   background-color: #a9a5a7;
   color: white;
   padding: 0.5rem 1.5rem;
   border: 1px solid #a9a5a7;
-  border-radius: 4px;
+  border-radius: 12px;
   font-weight: bold;
 }
 
-
 .addImageButton:hover {
+  /* Red */
   background-color: #e65f5c;
   border-color: #e65f5c;
-  
+  transition: all 0.2s ease-in-out;
+
+  /* Yellow */
+  /* background-color: #ee9821;
+  border-color: #ee9821; */
 }
