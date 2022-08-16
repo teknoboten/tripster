@@ -1,6 +1,6 @@
 /* image grid styles */
 .imggrid {
-  margin: 0px;
+  margin: 0px 5px;
   display: grid;
   /* height: 100%; */
   overflow: scroll;

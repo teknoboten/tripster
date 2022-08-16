@@ -14,7 +14,9 @@
   min-width: 30%;
   margin: 0;
   height: 100%;
-  overflow: scroll;
+  overflow: hidden;
+  /* overflow: scroll; */
+  padding-bottom: 0px;
 }
 
 .mapContainer {
