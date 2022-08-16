@@ -81,6 +81,12 @@
 }
 
 .addImageButton:hover {
+  /* Red */
   background-color: #e65f5c;
   border-color: #e65f5c;
+  transition: all 0.2s ease-in-out;
+
+  /* Yellow */
+  /* background-color: #ee9821;
+  border-color: #ee9821; */
 }
