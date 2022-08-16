@@ -30,3 +30,24 @@ VALUES ('Had breakfast at a cool place in Phan Thiet. They had swings outside ne
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
 VALUES ('View from our room in Ko Lanta', '2015-09-20T10:20:00.00Z', ARRAY [99.03526944, 7.64672500], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_0222.jpeg?alt=media&token=f1e473f2-4c62-4e63-a8dd-7f986e2e90fd', 1 );
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Old school cars in Havanah', '2015-09-20T10:20:00.00Z', ARRAY [-80.74388889, 23.15118611], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4480.jpeg?alt=media&token=49aaaab4-bd78-42e9-b69d-fe47b63b1cc2', 2);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Cool scale model of the resort complex.', '2015-09-20T10:20:00.00Z', ARRAY [-80.81671111, 23.18310833], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_7955.jpeg?alt=media&token=3abc3272-d3ee-4106-b288-996472d9c720', 2);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Toy cars made from aluminum cans.', '2015-09-20T10:20:00.00Z', ARRAY [-80.12473333, 23.15297222], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_8129.jpeg?alt=media&token=5f447c32-b38f-4361-b612-85f4d267a37f', 2);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Riley enjoying the bed.', '2015-09-20T10:20:00.00Z', ARRAY [-80.81633056, 23.18713056], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4450.jpeg?alt=media&token=40e08b77-0464-4d36-92d1-f3aecbf6a2f7', 2);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Just For Laughs green dude came with us.', '2015-09-20T10:20:00.00Z', ARRAY [-80.81688056, 23.18500000], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_8053.jpeg?alt=media&token=da7303f1-e497-4316-abc4-f43418770c91', 2);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('I see you played knifey spooney before!', '2015-09-20T10:20:00.00Z', ARRAY [-80.81701667, 23.18340833], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_8276.jpeg?alt=media&token=e49c3911-ebbf-43f2-b410-d5dd9529db7b', 2);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('The beach was really nice although definitely harder to relax with Riley kicking around.', '2015-09-20T10:20:00.00Z', ARRAY [-80.80778611, 23.18234167], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_8311.jpeg?alt=media&token=c1f22f53-ae57-4b81-bfb6-1b1dec79b85e', 2);
