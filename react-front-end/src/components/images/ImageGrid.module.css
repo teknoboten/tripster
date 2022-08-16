@@ -3,16 +3,19 @@
   margin: 0px 5px;
   display: grid;
   /* height: 100%; */
-  /* overflow: scroll; */
+  overflow: scroll;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-gap: 40px; */
   grid-gap: 0px;
-  /* border: 2px solid yellow; */
-  /* position: absolute; */
-  /* position: relative; */
-  /* position: fixed; */
-  /* overflow: hidden; */
-  /* margin-bottom: 0px; */
+  height: 60vh;
+}
+
+.notAGrid {
+  margin: 0px 5px;
+  display: grid;
+  height: 60vh;
+  overflow: scroll;
+  grid-template-columns: 1fr 1fr;;
+  grid-gap: 0px;
 }
 
 .imgwrap {

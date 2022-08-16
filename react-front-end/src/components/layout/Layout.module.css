@@ -1,10 +1,13 @@
-.main {
-  width: 100%;
-  /* height: 100%; */
-  height: 90vh;
-  /* max-width: 40rem; */
-}
-
 .layoutContainer {
   height: 100vh;
+  /* border: 1px solid black; */
 }
+
+.main {
+  width: 100%;
+  /* height: 100%;   */
+  height: 90vh;
+  /* max-width: 40rem; */
+  /* border: 3px solid blueviolet;  */
+}
+
