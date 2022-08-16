@@ -2,8 +2,8 @@
 .imggrid {
   margin: 0px 5px;
   display: grid;
-  height: 100%;
-  overflow: scroll;
+  /* height: 100%; */
+  /* overflow: scroll; */
   grid-template-columns: 1fr 1fr 1fr;
   /* grid-gap: 40px; */
   grid-gap: 0px;
