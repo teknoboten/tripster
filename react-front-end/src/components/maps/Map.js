@@ -44,7 +44,9 @@ export default function Map({ photos, handleMarkerClick }) {
         .setLngLat(img.coordinates)
         .setPopup(
           // add popups
+
           new mapboxgl.Popup({ offset: 25 })
+
             .setHTML(
               `<div>
             <img src="${img.photo_url}" class="thumbnail"/>
