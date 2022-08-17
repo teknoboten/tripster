@@ -8,7 +8,11 @@ function MainNav() {
   return (
     <div className={classes.navContainer}>
       <nav>
-        <Link to="/" id={classes.logo}>Tripster</Link>
+
+
+
+        <Link to="/" id={classes.logo}><img src='../../../images/tripsterLogoLightBlue.svg' alt="tripsterLogo" height={75} /></Link>
+        {/* <Link to="/" id={classes.logo}><img src='../../../images/tripsterLogoYellow.svg' alt="tripsterLogo" height={75} /></Link> */}
         <ul>
           <li>
             <Link to="/">All Trips</Link>
