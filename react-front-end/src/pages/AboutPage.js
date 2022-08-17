@@ -20,6 +20,7 @@ function AboutPage() {
           <li><span>React              </span></li>
           <li><span>Express            </span></li>
           <li><span>PostgreSQL         </span></li>
+          <li><span>MapBox             </span></li>
           <li><span>Firebase           </span></li>
           <li><span>Exif-js Library    </span></li>
         </ul>
