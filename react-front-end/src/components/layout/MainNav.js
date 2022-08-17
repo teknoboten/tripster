@@ -16,6 +16,9 @@ function MainNav() {
           <li>
             <Link to="/new-trip">Add New Trip</Link>
           </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
         </ul>
       </nav>
     </div>

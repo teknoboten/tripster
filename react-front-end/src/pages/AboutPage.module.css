@@ -1,0 +1,127 @@
+.form {
+  padding: 3rem;
+  margin-top: 60px;
+  text-align: left;
+}
+
+.form h1 {
+  font-size: 2em;
+  color: #3b4954;
+  font-family: "Boogaloo", cursive;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.control input,
+.control textarea {
+  display: block;
+  font: inherit;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 0.25rem;
+  width: 100%;
+}
+
+.actions {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #a9a5a7;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #a9a5a7;
+  border-radius: 14px;
+  font-weight: bold;
+}
+
+.actions button:hover,
+.actions button:active {
+  /* Yellow */
+  background-color: #ee9821;
+  border-color: #ee9821;
+
+  /* Red */
+  background-color: #e65f5c;
+  border-color: #e65f5c;
+  transition: all 0.2s ease-in-out;
+
+  /* Light Blue */
+  /* background-color: #84d2dd; */
+  /* border-color: #84d2dd; */
+}
+
+.newTripForm {
+  width: 50%;
+  margin: auto;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+ul {
+  color: #ee9821;
+}
+
+ul span {
+  color: #3b4954;
+}
+
+/* Styles from Decision Wizard About Page */
+
+.profilePic {
+  border-radius: 50%;
+  /* border: 3px solid #e65f5c; */
+  /* border: 3px solid #84d2dd; */
+  width: 200px;
+  height: 200px;
+  margin-top: 2em;
+  /* margin-bottom: 1.5em; */
+}
+
+#bioSection {
+  display: flex;
+  flex-direction: row;
+  gap: 4em;
+  justify-content: center;
+}
+
+.profileCard {
+  text-align: center;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+
+  font-size: xx-large;
+}
+
+.socialIcons a {
+}
+
+.gitHubLink {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.gitHubLink a:hover {
+  /* font-weight: 700; */
+}
+
+.gitHubLink a:visited {
+  color: #3b4954;
+}

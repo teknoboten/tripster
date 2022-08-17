@@ -1,15 +1,13 @@
 /* .header { */
-
-  /* display: flex; */
-  /* align-items: center; */
-  /* text-align: center;
+/* display: flex; */
+/* align-items: center; */
+/* text-align: center;
   justify-content: space-between;
   max-width: 1320px;
   margin: auto;
   height: 5rem; */
 
 /* padding: 0 10%; */
-
 /* } */
 
 .navContainer {
@@ -22,12 +20,6 @@
 
 nav {
   height: 10vh;
-
-}
-
-nav {
-  height: 10vh ;
-
   display: flex;
   align-items: center;
   max-width: 1320px;

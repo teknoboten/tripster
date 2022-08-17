@@ -32,7 +32,7 @@ INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id )
 VALUES ('View from our room in Ko Lanta', '2015-09-20T10:20:00.00Z', ARRAY [99.03526944, 7.64672500], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_0222.jpeg?alt=media&token=f1e473f2-4c62-4e63-a8dd-7f986e2e90fd', 1 );
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
-VALUES ('Old school cars in Havanah', '2015-09-20T10:20:00.00Z', ARRAY [-81.25611111,23.15118611], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4480.jpeg?alt=media&token=49aaaab4-bd78-42e9-b69d-fe47b63b1cc2', 2);
+VALUES ('Old school cars in Varadero', '2015-09-20T10:20:00.00Z', ARRAY [-81.25611111,23.15118611], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4480.jpeg?alt=media&token=49aaaab4-bd78-42e9-b69d-fe47b63b1cc2', 2);
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
 VALUES ('Cool scale model of the resort complex.', '2015-09-20T10:20:00.00Z', ARRAY [-81.18328889,23.18310833], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_7955.jpeg?alt=media&token=3abc3272-d3ee-4106-b288-996472d9c720', 2);
