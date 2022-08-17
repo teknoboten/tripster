@@ -51,3 +51,39 @@ VALUES ('I see you played knifey spooney before!', '2015-09-20T10:20:00.00Z', AR
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
 VALUES ('The beach was really nice although definitely harder to relax with Riley kicking around.', '2015-09-20T10:20:00.00Z', ARRAY [-80.80778611, 23.18234167], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_8311.jpeg?alt=media&token=c1f22f53-ae57-4b81-bfb6-1b1dec79b85e', 2);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Brian and Tamara meeting Riley for the 1st time.', '2015-09-20T10:20:00.00Z', ARRAY [-71.15545556, 42.54086944], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3212.jpeg?alt=media&token=bb2e8dc3-7495-4816-b238-baf6b43ee7a7', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('The night we got there we went out for dinner at a place near Brians house.', '2015-09-20T10:20:00.00Z', ARRAY [-71.15537222,42.54099722], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3217.jpeg?alt=media&token=896a71cd-499f-443c-9615-d4292d32771b', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Visited the Harvard campus. John Harvard statue.', '2015-09-20T10:20:00.00Z', ARRAY [-71.11721667,42.37446667], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_1216.jpeg?alt=media&token=d5c1e461-cf31-4007-8708-5b0b60776297', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Boston Harbour', '2015-09-20T10:20:00.00Z', ARRAY [-71.04800278,42.36011389], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3238.jpeg?alt=media&token=43691ba4-ee03-4846-ba57-48c36e954b1a', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Boston Common park. Dating from 1634, its the oldest city park in the US.', '2015-09-20T10:20:00.00Z', ARRAY [-71.06232500,42.35659444], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3261.jpeg?alt=media&token=d526f3de-eb4d-4293-9a78-3ca52ce1c4c6', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('We took a Boston history walking tour.', '2015-09-20T10:20:00.00Z', ARRAY [-71.06298889,42.35616667], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3264.jpeg?alt=media&token=c6605aef-97de-4d91-b37e-96fadcfac999', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Riley happy in her stroller.', '2015-09-20T10:20:00.00Z', ARRAY [-71.05992778,42.35808611], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3280.jpeg?alt=media&token=6650db6b-9073-4dd4-8be3-830fcf0a315f', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Riley and Amy', '2015-09-20T10:20:00.00Z', ARRAY [-71.05542778,42.36038333], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3295.jpeg?alt=media&token=7524e7ad-ee20-4c42-b3e1-3fd7e8ae2fb2', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('BodyTom Elite', '2015-09-20T10:20:00.00Z', ARRAY [-70.97631944,42.57499722], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3343.jpeg?alt=media&token=18e038a3-39dc-49d3-b480-1cfb6c7a33c3', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('BodyTom Elite', '2015-09-20T10:20:00.00Z', ARRAY [-70.97611111,42.57485278], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3342.jpeg?alt=media&token=2746f82a-a22a-47a1-bdce-4a27b0afac58', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('BodyTom Elite', '2015-09-20T10:20:00.00Z', ARRAY [-70.97638611,42.57514167], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3349.jpeg?alt=media&token=148cc231-5289-4bd1-9f9b-7fa4fcbd319a', 3);
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('Riley grabbing a quick pint.', '2015-09-20T10:20:00.00Z', ARRAY [-71.11887222,42.48040833], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_3373.jpeg?alt=media&token=e1a190cd-9696-4f40-bb8f-96e2588d24d5', 3);
