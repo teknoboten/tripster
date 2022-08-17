@@ -30,7 +30,7 @@ const getExif = async (file) => {
       // If longitude reference is West then the longitude value should be negative
       if (refLong === "W") {
         longitude =
-          -1 * longFirstNum + longSecondNum / 60 + longThirdNum / 3600;
+          -1 * (longFirstNum + longSecondNum / 60 + longThirdNum / 3600);
       } else {
         longitude = longFirstNum + longSecondNum / 60 + longThirdNum / 3600;
       }
@@ -43,7 +43,7 @@ const getExif = async (file) => {
       const thirdNum = rawLatData[2].valueOf();
       // If latitude reference is South then the latitude value should be negative
       if (refLat === "S") {
-        latitude = -1 * firstNum + secondNum / 60 + thirdNum / 3600;
+        latitude = -1 * (firstNum + secondNum / 60 + thirdNum / 3600);
       } else {
         latitude = firstNum + secondNum / 60 + thirdNum / 3600;
       }

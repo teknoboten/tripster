@@ -1,4 +1,4 @@
-.header {
+/* .header { */
   /* display: flex; */
   /* align-items: center; */
   /* text-align: center;
@@ -8,15 +8,17 @@
   height: 5rem; */
 
   /* padding: 0 10%; */
-}
+/* } */
 
 .navContainer {
   width: 100%;
   background-color: #e65f5c;
-  height: 120px;
+  /* height: 120px; */
+  height: 10vh ;
 }
 
 nav {
+  height: 10vh ;
   display: flex;
   align-items: center;
   max-width: 1320px;
