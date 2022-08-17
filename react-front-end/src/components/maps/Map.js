@@ -23,7 +23,7 @@ export default function Map({ photos, handleMarkerClick }) {
 
       // If photos ARE in the trip then center the map to the first photo in the trip, zoomed IN
       ...(photos.length > 0 && { center: photos[lastPhoto].coordinates }),
-      ...(photos.length > 0 && { zoom: 4 }),
+      ...(photos.length > 0 && { zoom: 10 }),
 
       //------- NOTE ON ZOOM LEVELS -------
       // https://docs.mapbox.com/help/glossary/zoom-level/
@@ -44,8 +44,9 @@ export default function Map({ photos, handleMarkerClick }) {
         .setLngLat(img.coordinates)
         .setPopup(
           // add popups
-          // new mapboxgl.Popup({ offset: 25 }) 
-          new mapboxgl.Popup({ offset: 0 })
+
+          new mapboxgl.Popup({ offset: 25 })
+
             .setHTML(
               `<div>
             <img src="${img.photo_url}" class="thumbnail"/>
