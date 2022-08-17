@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 
 const ImageGrid = ({ onImageClick, photos }) => {
 
-// function checkPhotos(photos) {
-//   return ((photos.length > 0) ? true : false)
-// }
+function checkPhotos(photos) {
+  return ((photos.length > 6) ? true : false)
+}
 
-// const gridMode = checkPhotos(photos);
+const gridMode = checkPhotos(photos);
 
 
   return (
-    // <div className={gridMode ? classes.imggrid : classes.notAGrid}>
-    <div className={classes.imggrid}>
+    <div className={gridMode ? classes.imggrid : classes.notAGrid}>
+    {/* <div className={classes.imggrid}> */}
       {photos &&
         photos.map((photo) => (
           <motion.div

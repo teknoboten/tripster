@@ -36,17 +36,13 @@ export default function Map({ photos, handleMarkerClick }) {
     });
 
     photos.map((img) => {
-      // console.log("IMG", img.coordinates);
-      new mapboxgl.Marker({
-        // color: "#fcb8d2",
+   // console.log("IMG", img.coordinates);
+    new mapboxgl.Marker({
         color: "#3b4954",
       })
         .setLngLat(img.coordinates)
         .setPopup(
-          // add popups
-
           new mapboxgl.Popup({ offset: 25 })
-
             .setHTML(
               `<div>
             <img src="${img.photo_url}" class="thumbnail"/>

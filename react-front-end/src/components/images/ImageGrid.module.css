@@ -10,10 +10,11 @@
 }
 
 .notAGrid {
-  /* display: grid; */
-  height: 100%;
+  margin: 0px 5px;
+  display: grid;
+  height: 60vh;
   overflow: scroll;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;;
   grid-gap: 0px;
 }
 
