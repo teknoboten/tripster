@@ -7,6 +7,7 @@ import AllTripsPage from "./pages/AllTripsPage";
 import NewImagePage from "./pages/NewImagePage";
 import NewTripPage from "./pages/NewTripPage";
 import TripDetailPage from "./pages/TripDetailPage";
+import AboutPage from "./pages/AboutPage";
 
 // import axios from "axios";
 // import "./App.css";
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/new-trip">
             <NewTripPage />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
           </Route>
           <Route path="/trips/:tripId">
             <TripDetailPage />
