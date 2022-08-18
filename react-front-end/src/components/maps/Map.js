@@ -23,7 +23,7 @@ export default function Map({ photos, handleMarkerClick }) {
 
       // If photos ARE in the trip then center the map to the first photo in the trip, zoomed IN
       ...(photos.length > 0 && { center: photos[lastPhoto].coordinates }),
-      ...(photos.length > 0 && { zoom: 10 }),
+      ...(photos.length > 0 && { zoom: 5 }),
 
       //------- NOTE ON ZOOM LEVELS -------
       // https://docs.mapbox.com/help/glossary/zoom-level/
@@ -36,8 +36,8 @@ export default function Map({ photos, handleMarkerClick }) {
     });
 
     photos.map((img) => {
-   // console.log("IMG", img.coordinates);
-    new mapboxgl.Marker({
+      // console.log("IMG", img.coordinates);
+      new mapboxgl.Marker({
         color: "#3b4954",
       })
         .setLngLat(img.coordinates)
