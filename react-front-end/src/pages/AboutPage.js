@@ -8,7 +8,7 @@ import classes from "./AboutPage.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Individual Icon
 import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faPaperclip, faPaperPlane, faRobot } from '@fortawesome/free-solid-svg-icons';
+import { faLink, faPaperclip, faPaperPlane, faRobot } from '@fortawesome/free-solid-svg-icons';
 
 function AboutPage() {
   return (
@@ -23,7 +23,7 @@ function AboutPage() {
           <li><span>Tripster will automatically read the location data from your photos and plot the location the photo was taken on a map</span></li>
           <li><span>Add comments to each photo</span></li>
         </ul>
-        <p>Tech Stack:</p>
+        <h4>Tech Stack:</h4>
         <ul>
           <li><span>React              </span></li>
           <li><span>Express            </span></li>
@@ -32,7 +32,8 @@ function AboutPage() {
           <li><span>Firebase           </span></li>
           <li><span>Exif-js Library    </span></li>
         </ul>
-        <a className={classes.gitHubLink} href="https://github.com/teknoboten/tripster">GitHub Repo - Tripster</a>
+        <h2 className={classes.gitHubLink}><a href="https://github.com/teknoboten/tripster"><FontAwesomeIcon icon={faLink} /> GitHub Repo: Tripster</a></h2>
+
 
         <div id={classes.bioSection}>
           {/* <FontAwesomeIcon icon="fa-brands fa-github" /> */}

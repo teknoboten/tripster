@@ -133,10 +133,20 @@ ul span {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.gitHubLink a:hover {
-  /* font-weight: 700; */
-}
 
 .gitHubLink a:visited {
   color: inherit;
+}
+
+.gitHubLink {
+  text-align: center;
+}
+
+.gitHubLink a {
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+.gitHubLink a:hover {
+  color: #e65f5c;
+  transform: scale(1.05);
 }
