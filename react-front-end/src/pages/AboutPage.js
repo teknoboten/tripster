@@ -2,6 +2,14 @@ import React from 'react';
 
 import classes from "./AboutPage.module.css";
 
+// Font Awesome Icon for Upload Image
+// https://fontawesome.com/icons/square-plus?s=solid
+// React Font Awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// Individual Icon
+import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faLink, faPaperclip, faPaperPlane, faRobot } from '@fortawesome/free-solid-svg-icons';
+
 function AboutPage() {
   return (
     <div className={classes.newTripForm}>
@@ -15,7 +23,7 @@ function AboutPage() {
           <li><span>Tripster will automatically read the location data from your photos and plot the location the photo was taken on a map</span></li>
           <li><span>Add comments to each photo</span></li>
         </ul>
-        <p>Tech Stack:</p>
+        <h4>Tech Stack:</h4>
         <ul>
           <li><span>React              </span></li>
           <li><span>Express            </span></li>
@@ -24,9 +32,12 @@ function AboutPage() {
           <li><span>Firebase           </span></li>
           <li><span>Exif-js Library    </span></li>
         </ul>
-        <a className={classes.gitHubLink} href="https://github.com/teknoboten/tripster">GitHub Repo - Tripster</a>
+        <h2 className={classes.gitHubLink}><a href="https://github.com/teknoboten/tripster"><FontAwesomeIcon icon={faLink} /> GitHub Repo: Tripster</a></h2>
+
 
         <div id={classes.bioSection}>
+          {/* <FontAwesomeIcon icon="fa-brands fa-github" /> */}
+          {/* <FontAwesomeIcon icon={faSquarePlus} /> */}
 
           {/* ------------ JEFF PROFILE CARD ------------  */}
           <div className={classes.profileCard}>
@@ -35,17 +46,17 @@ function AboutPage() {
             <p className={classes.name}>Jeff Bush</p>
             <div className={classes.socialIcons}>
               <a href="https://github.com/jeffbushdesign">
-                {/* <i className={classes.fa - brands fa-github"></i> */}
+                <FontAwesomeIcon icon={faGithub} />
               </a>
               <a href="https://www.linkedin.com/in/jeff-bush-74bbb853/">
-                {/* <i className={classes.fa - brands fa-linkedin"></i> */}
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
               <a href="https://www.instagram.com/jeffbushdesign/">
-                {/* <i className={classes.fa - brands fa-instagram"></i> */}
+                <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="https://www.jeffbush.com/">
-                {/* <i className={classes.fa - solid fa-ghost"></i> */}
-              </a>
+              {/* <a href="https://www.jeffbush.com/">
+                <FontAwesomeIcon icon={faPaperclip} />
+              </a> */}
             </div>
           </div>
 
@@ -55,17 +66,14 @@ function AboutPage() {
 
             <p className={classes.name}>Serra Boten</p>
             <div className={classes.socialIcons}>
-              <a href="https://github.com/jeffbushdesign">
-                {/* <i className={classes.fa - brands fa-github"></i> */}
+              <a href="https://github.com/teknoboten">
+                <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://www.linkedin.com/in/jeff-bush-74bbb853/">
-                {/* <i className={classes.fa - brands fa-linkedin"></i> */}
+              <a href="https://www.linkedin.com/in/serraboten/">
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href="https://www.instagram.com/jeffbushdesign/">
-                {/* <i className={classes.fa - brands fa-instagram"></i> */}
-              </a>
-              <a href="https://www.jeffbush.com/">
-                {/* <i className={classes.fa - solid fa-ghost"></i> */}
+              <a href="https://twitter.com/teknoboten">
+                <FontAwesomeIcon icon={faTwitter} />
               </a>
             </div>
           </div>
@@ -76,18 +84,12 @@ function AboutPage() {
 
             <p className={classes.name}>Amy Franses</p>
             <div className={classes.socialIcons}>
-              <a href="https://github.com/jeffbushdesign">
-                {/* <i className={classes.fa - brands fa-github"></i> */}
+              <a href="https://github.com/amyfranses">
+                <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://www.linkedin.com/in/jeff-bush-74bbb853/">
-                {/* <i className={classes.fa - brands fa-linkedin"></i> */}
-              </a>
-              <a href="https://www.instagram.com/jeffbushdesign/">
-                {/* <i className={classes.fa - brands fa-instagram"></i> */}
-              </a>
-              <a href="https://www.jeffbush.com/">
-                {/* <i className={classes.fa - solid fa-ghost"></i> */}
-              </a>
+              {/* <a href="">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a> */}
             </div>
           </div>
 

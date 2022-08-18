@@ -107,21 +107,46 @@ ul span {
   display: flex;
   gap: 0.5em;
   justify-content: center;
+  color: #e65f5c;
+  color: #ee9821;
+  color: #3b4954;
 
   font-size: xx-large;
+  transition: all 0.2s ease-in-out;
 }
 
 .socialIcons a {
+  transition: all 0.2s ease-in-out;
+  color: inherit;
+}
+.socialIcons a:visited {
+  color: inherit;
+}
+.socialIcons a:hover {
+  transform: scale(1.05);
+  color: #e65f5c;
+  /* color: #84d2dd; */
+  /* color: #ee9821; */
 }
 
 .gitHubLink {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.gitHubLink a:hover {
-  /* font-weight: 700; */
-}
 
 .gitHubLink a:visited {
-  color: #3b4954;
+  color: inherit;
+}
+
+.gitHubLink {
+  text-align: center;
+}
+
+.gitHubLink a {
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+.gitHubLink a:hover {
+  color: #e65f5c;
+  transform: scale(1.05);
 }
