@@ -17,9 +17,6 @@ INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id )
 VALUES ('Western burger place in Phu Quoc that had tic-tac-toe boards.', '2015-09-20T10:20:00.00Z', ARRAY [103.96809444, 10.20042222], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4416.jpeg?alt=media&token=2ffc62cb-aea2-4085-904a-6143c2e92252', 1 );
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
-VALUES ('What to say about this?', '2015-09-20T10:20:00.00Z', ARRAY [104.91767778, 11.54923611], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4861.jpeg?alt=media&token=83338234-51a6-4259-9af4-638e9d42c1ab', 1 );
-
-INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
 VALUES ('', '2015-09-20T10:20:00.00Z', ARRAY [99.82797222, 10.09522778], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_0192.jpeg?alt=media&token=7ab6dd02-6a57-425b-a576-16dde26285c6', 1 );
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
@@ -30,6 +27,9 @@ VALUES ('Had breakfast at a cool place in Phan Thiet. They had swings outside ne
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
 VALUES ('View from our room in Ko Lanta', '2015-09-20T10:20:00.00Z', ARRAY [99.03526944, 7.64672500], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_0222.jpeg?alt=media&token=f1e473f2-4c62-4e63-a8dd-7f986e2e90fd', 1 );
+
+INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
+VALUES ('What to say about this?', '2015-09-20T10:20:00.00Z', ARRAY [104.91767778, 11.54923611], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4861.jpeg?alt=media&token=83338234-51a6-4259-9af4-638e9d42c1ab', 1 );
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
 VALUES ('Old school cars in Varadero', '2015-09-20T10:20:00.00Z', ARRAY [-81.25611111,23.15118611], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4480.jpeg?alt=media&token=49aaaab4-bd78-42e9-b69d-fe47b63b1cc2', 2);
