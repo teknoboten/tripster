@@ -107,11 +107,26 @@ ul span {
   display: flex;
   gap: 0.5em;
   justify-content: center;
+  color: #e65f5c;
+  color: #ee9821;
+  color: #3b4954;
 
   font-size: xx-large;
+  transition: all 0.2s ease-in-out;
 }
 
 .socialIcons a {
+  transition: all 0.2s ease-in-out;
+  color: inherit;
+}
+.socialIcons a:visited {
+  color: inherit;
+}
+.socialIcons a:hover {
+  transform: scale(1.05);
+  color: #e65f5c;
+  /* color: #84d2dd; */
+  /* color: #ee9821; */
 }
 
 .gitHubLink {
@@ -123,5 +138,5 @@ ul span {
 }
 
 .gitHubLink a:visited {
-  color: #3b4954;
+  color: inherit;
 }

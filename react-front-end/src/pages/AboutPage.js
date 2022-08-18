@@ -2,6 +2,14 @@ import React from 'react';
 
 import classes from "./AboutPage.module.css";
 
+// Font Awesome Icon for Upload Image
+// https://fontawesome.com/icons/square-plus?s=solid
+// React Font Awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// Individual Icon
+import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faPaperclip, faPaperPlane, faRobot } from '@fortawesome/free-solid-svg-icons';
+
 function AboutPage() {
   return (
     <div className={classes.newTripForm}>
@@ -27,6 +35,8 @@ function AboutPage() {
         <a className={classes.gitHubLink} href="https://github.com/teknoboten/tripster">GitHub Repo - Tripster</a>
 
         <div id={classes.bioSection}>
+          {/* <FontAwesomeIcon icon="fa-brands fa-github" /> */}
+          {/* <FontAwesomeIcon icon={faSquarePlus} /> */}
 
           {/* ------------ JEFF PROFILE CARD ------------  */}
           <div className={classes.profileCard}>
@@ -35,17 +45,17 @@ function AboutPage() {
             <p className={classes.name}>Jeff Bush</p>
             <div className={classes.socialIcons}>
               <a href="https://github.com/jeffbushdesign">
-                {/* <i className={classes.fa - brands fa-github"></i> */}
+                <FontAwesomeIcon icon={faGithub} />
               </a>
               <a href="https://www.linkedin.com/in/jeff-bush-74bbb853/">
-                {/* <i className={classes.fa - brands fa-linkedin"></i> */}
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
               <a href="https://www.instagram.com/jeffbushdesign/">
-                {/* <i className={classes.fa - brands fa-instagram"></i> */}
+                <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="https://www.jeffbush.com/">
-                {/* <i className={classes.fa - solid fa-ghost"></i> */}
-              </a>
+              {/* <a href="https://www.jeffbush.com/">
+                <FontAwesomeIcon icon={faPaperclip} />
+              </a> */}
             </div>
           </div>
 
@@ -55,17 +65,14 @@ function AboutPage() {
 
             <p className={classes.name}>Serra Boten</p>
             <div className={classes.socialIcons}>
-              <a href="https://github.com/jeffbushdesign">
-                {/* <i className={classes.fa - brands fa-github"></i> */}
+              <a href="https://github.com/teknoboten">
+                <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://www.linkedin.com/in/jeff-bush-74bbb853/">
-                {/* <i className={classes.fa - brands fa-linkedin"></i> */}
+              <a href="https://www.linkedin.com/in/serraboten/">
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href="https://www.instagram.com/jeffbushdesign/">
-                {/* <i className={classes.fa - brands fa-instagram"></i> */}
-              </a>
-              <a href="https://www.jeffbush.com/">
-                {/* <i className={classes.fa - solid fa-ghost"></i> */}
+              <a href="https://twitter.com/teknoboten">
+                <FontAwesomeIcon icon={faTwitter} />
               </a>
             </div>
           </div>
@@ -76,18 +83,12 @@ function AboutPage() {
 
             <p className={classes.name}>Amy Franses</p>
             <div className={classes.socialIcons}>
-              <a href="https://github.com/jeffbushdesign">
-                {/* <i className={classes.fa - brands fa-github"></i> */}
+              <a href="https://github.com/amyfranses">
+                <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://www.linkedin.com/in/jeff-bush-74bbb853/">
-                {/* <i className={classes.fa - brands fa-linkedin"></i> */}
-              </a>
-              <a href="https://www.instagram.com/jeffbushdesign/">
-                {/* <i className={classes.fa - brands fa-instagram"></i> */}
-              </a>
-              <a href="https://www.jeffbush.com/">
-                {/* <i className={classes.fa - solid fa-ghost"></i> */}
-              </a>
+              {/* <a href="">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a> */}
             </div>
           </div>
 
