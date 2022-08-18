@@ -8,9 +8,6 @@ INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id )
 VALUES ('Phan Thiet. Very windy area, ppl were kite surfing.', '2015-09-20T10:20:00.00Z', ARRAY [108.20804722, 10.94911667], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_2127.jpeg?alt=media&token=7c5f3091-a190-45fd-9d30-8feab7cfe62e', 1 );
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
-VALUES ('War Remnants Museum in Ho Chi Minh City. They had John McCains flight uniform from when he was captured.', '2015-09-20T10:20:00.00Z', ARRAY [106.69242778, 10.77916389], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_4216.jpeg?alt=media&token=cd7ea83d-4964-4c81-9c4f-1a2d6b715cea', 1 );
-
-INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
 VALUES ('Cu Chi Tunnels. They let you actually go inside one of the tunnels that was considered big but there was still no space. I went down for about a minute and freaked out and turned back.', '2015-09-20T10:20:00.00Z', ARRAY [106.52786389, 11.06229722], 'https://firebasestorage.googleapis.com/v0/b/trpstr-424aa.appspot.com/o/IMG_2356_2.jpeg?alt=media&token=0839e64a-4132-455d-a5c1-302b26082398', 1 );
 
 INSERT INTO photos (photo_text, date, coordinates, photo_url, trip_id ) 
